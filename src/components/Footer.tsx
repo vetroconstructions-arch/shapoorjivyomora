@@ -154,6 +154,25 @@ export default function Footer() {
           <div className="text-[9px] md:text-[10px] text-justify text-white/30 max-w-7xl mx-auto leading-relaxed border-t border-white/5 pt-6">
             Disclaimer: The content is for information purposes only and does not constitute an offer to avail of any service. Prices mentioned are subject to change without notice and properties mentioned are subject to availability. Images are for representation purposes only. This is not the official website. This website is operated by an authorized channel partner. We may share data with Real Estate Regulatory Authority (RERA) registered brokers/companies for further processing. We may also send updates to the mobile number/email id registered with us.
           </div>
+          
+          {/* Visually Hidden SEO Internal Linking Engine (Google Bot Only) */}
+          <div className="sr-only">
+            <h3>Popular Searches for Pune Real Estate</h3>
+            <ul>
+              <li><Link href="/market/hinjewadi/luxury-apartments/price-trends">Shapoorji Pallonji Vyomora Price</Link></li>
+              <li><Link href="/market/hinjewadi/luxury-apartments/floor-plans">Shapoorji Pallonji Vyomora Floor Plan</Link></li>
+              <li><Link href="/market/hinjewadi/premium-residential-projects/brochure-download">Shapoorji Pallonji Vyomora Brochure</Link></li>
+              <li><Link href="/market/hinjewadi/luxury-apartments/site-visit">Shapoorji Pallonji Vyomora Site Visit</Link></li>
+              <li><Link href="/market/hinjewadi/premium-flats/real-estate-reviews">Shapoorji Pallonji Vyomora Reviews</Link></li>
+              <li><Link href="/market/hinjewadi/3bhk-apartments/masterplan">Joyville Homes Vyomora Master Plan</Link></li>
+              <li><Link href="/market/pune/luxury-apartments/property-investment">Luxury Apartments Pune</Link></li>
+              <li><Link href="/market/hinjewadi/buy-flat/property-investment">Buy Flat in Hinjewadi</Link></li>
+              <li><Link href="/market/hinjewadi-phase-1/new-launch-projects/location-benefits">New Launch Projects Hinjewadi</Link></li>
+              <li><Link href="/market/rajiv-gandhi-infotech-park/luxury-apartments/location-benefits">Apartments Near Hinjewadi IT Park</Link></li>
+              <li><Link href="/market/pune/investment-property/future-growth">Pune Real Estate</Link></li>
+              <li><Link href="/market/hinjewadi/luxury-real-estate/real-estate-investment">Invest in Hinjewadi</Link></li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
