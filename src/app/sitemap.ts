@@ -1,56 +1,37 @@
 import { MetadataRoute } from 'next';
+import { seoArticles } from '@/data/seoArticles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://vyomora-shapoorji.com'; // Replace with actual production URL when known
+  const baseUrl = 'https://shapoorji-vyomora.com';
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/residences`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/lifestyle`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/location`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/gallery`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/sustainability`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/updates`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
-  ];
+  // Base routes
+  const routes = [
+    '',
+    '/vision',
+    '/residences',
+    '/amenities',
+    '/masterplan',
+    '/specifications',
+    '/location',
+    '/articles',
+    '/gallery',
+    '/sustainability',
+    '/updates',
+    '/contact',
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: route === '' ? 1 : 0.8,
+  }));
+
+  // Dynamic Article Routes for deep SEO penetration
+  const articleRoutes = seoArticles.map((article) => ({
+    url: `${baseUrl}/articles/${article.slug}`,
+    lastModified: new Date(article.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.9, // High priority for targeted SEO keywords
+  }));
+
+  return [...routes, ...articleRoutes];
 }

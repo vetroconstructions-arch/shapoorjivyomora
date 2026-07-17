@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/', '/_next/'],
     },
-    sitemap: 'https://vyomora-shapoorji.com/sitemap.xml', // Replace with actual production URL
+    sitemap: 'https://shapoorji-vyomora.com/sitemap.xml',
   };
 }
