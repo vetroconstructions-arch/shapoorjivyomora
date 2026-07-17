@@ -107,6 +107,33 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* SEO Articles Links (Visually Minimal) */}
+        <div className="border-t border-white/10 pt-8 mt-12 mb-4">
+          <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#a4789c] uppercase mb-4 text-center md:text-left">Market Insights & Real Estate Trends</h4>
+          <ul className="flex flex-wrap gap-x-6 gap-y-3 justify-center md:justify-start">
+            <li>
+              <Link href="/articles/luxury-3bhk-4bhk-duplex-apartments-in-baner-mahalunge" className="text-[10px] text-white/40 hover:text-white transition-colors">
+                Luxury 3BHK, 4BHK & Duplex in Baner-Mahalunge
+              </Link>
+            </li>
+            <li>
+              <Link href="/articles/premium-2bhk-flats-near-hinjewadi-it-park" className="text-[10px] text-white/40 hover:text-white transition-colors">
+                Premium 2BHK Flats Near Hinjewadi IT Park
+              </Link>
+            </li>
+            <li>
+              <Link href="/articles/shapoorji-pallonji-joyville-vyomora-township-project-details" className="text-[10px] text-white/40 hover:text-white transition-colors">
+                Shapoorji Pallonji Joyville Vyomora Project Details
+              </Link>
+            </li>
+            <li>
+              <Link href="/articles" className="text-[10px] text-white/40 hover:text-[#a4789c] transition-colors underline underline-offset-2">
+                View All Articles
+              </Link>
+            </li>
+          </ul>
+        </div>
+
         {/* RERA & Disclaimer */}
         <div className="border-t border-white/10 pt-8 mt-12 flex flex-col justify-between items-center text-[10px] md:text-xs text-white/40 font-light gap-6">
           <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4">

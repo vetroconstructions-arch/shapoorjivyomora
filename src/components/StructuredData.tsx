@@ -4,69 +4,74 @@ export default function StructuredData() {
     "@graph": [
       {
         "@type": "RealEstateAgent",
-        "@id": "https://vyomora-hinjewadi.com/#organization",
-        "name": "Shapoorji Pallonji Real Estate",
-        "url": "https://shapoorjivyomora.com",
-        "priceCurrency": "INR",
-        "price": "8499000",
-        "availability": "https://schema.org/PreOrder",
-        "itemCondition": "https://schema.org/NewCondition",
+        "@id": "https://shapoorji-vyomora.com/#organization",
+        "name": "Shapoorji Pallonji Joyville Homes Vyomora",
+        "url": "https://shapoorji-vyomora.com",
+        "priceRange": "Premium",
+        "description": "Ultra luxury 2BHK, 3BHK, 4BHK, duplex, and skyduplex residences in Hinjewadi, Mahalunge, and Baner, Pune.",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://vyomora-hinjewadi.com/logo.png"
+          "url": "https://shapoorji-vyomora.com/icon.svg"
         },
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+91-XXXXXXXXXX",
           "contactType": "sales",
           "areaServed": "IN",
-          "availableLanguage": ["English", "Hindi"]
+          "availableLanguage": ["English", "Hindi", "Marathi"]
         },
-        "additionalProperty": [
-          {
-            "@type": "PropertyValue",
-            "name": "Unit Size",
-            "value": "685 - 1434 sq. ft."
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "Location",
-            "value": "Hinjawadi, Pune"
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "Land Area",
-            "value": "25 Acres"
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "RERA Registration Number",
-            "value": "PR1260002600999"
-          }
-        ]
-      },
-      {
-        "@type": "Organization",
-        "name": "Shapoorji Pallonji Real Estate",
-        "url": "https://shapoorjirealestate.com/",
-        "logo": "https://shapoorjirealestate.com/files/assets/jpegs/all_projects/vymora-by-joyville/logo/white-logo.svg",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Off Maan Village Road, Near Phase 1",
-          "addressLocality": "Hinjawadi, Pune",
+          "streetAddress": "Off Maan Village Road, Near Phase 1, Mahalunge - Hinjawadi",
+          "addressLocality": "Pune",
           "postalCode": "411057",
+          "addressRegion": "Maharashtra",
           "addressCountry": "IN"
         }
       },
       {
+        "@type": "Product",
+        "name": "Luxury 2BHK Apartments in Hinjewadi",
+        "description": "Premium 2 BHK flats near Hinjewadi IT Park, Pune, perfect for IT professionals.",
+        "category": "Real Estate",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "INR",
+          "price": "8499000",
+          "availability": "https://schema.org/PreOrder"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "Premium 3BHK & 4BHK Flats in Mahalunge",
+        "description": "Ultra-luxury 3 BHK and 4 BHK apartments in Mahalunge, Pune. Resort-style amenities.",
+        "category": "Real Estate",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "INR",
+          "price": "14500000",
+          "availability": "https://schema.org/PreOrder"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "Luxury Duplex & Skyduplex in Baner",
+        "description": "Exclusive duplex and skyduplex penthouses for sale in Baner and Hinjewadi corridor.",
+        "category": "Real Estate",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/PreOrder"
+        }
+      },
+      {
         "@type": "Residence",
-        "@id": "https://vyomora-hinjewadi.com/#project",
-        "name": "Vyomora by Shapoorji Pallonji",
-        "description": "Luxury 2, 3 & 3 BHK Duplex residences in Hinjewadi Phase 1, Pune.",
-        "url": "https://vyomora-hinjewadi.com",
+        "@id": "https://shapoorji-vyomora.com/#project",
+        "name": "Vyomora by Shapoorji Pallonji Joyville",
+        "description": "Premium residential township development project located in Mahalunge and Hinjewadi, Pune. Featuring 2BHK, 3BHK, 4BHK, simplex and duplex homes.",
+        "url": "https://shapoorji-vyomora.com",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Hinjewadi Phase 1",
+          "streetAddress": "Hinjewadi Phase 1, Mahalunge",
           "addressLocality": "Pune",
           "addressRegion": "Maharashtra",
           "postalCode": "411057",
@@ -74,22 +79,15 @@ export default function StructuredData() {
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": "18.5912", // Approximate, replace with exact
+          "latitude": "18.5912",
           "longitude": "73.7389"
         },
-        "numberOfRooms": ["2", "3"],
+        "numberOfRooms": ["2", "3", "4", "5"],
         "petsAllowed": "True",
         "amenityFeature": [
-          {
-            "@type": "LocationFeatureSpecification",
-            "name": "Swimming Pool",
-            "value": "True"
-          },
-          {
-            "@type": "LocationFeatureSpecification",
-            "name": "Gymnasium",
-            "value": "True"
-          }
+          { "@type": "LocationFeatureSpecification", "name": "32,000+ sq. ft. Clubhouse", "value": "True" },
+          { "@type": "LocationFeatureSpecification", "name": "Elevated Eco-Deck", "value": "True" },
+          { "@type": "LocationFeatureSpecification", "name": "Smart Home Features", "value": "True" }
         ]
       },
       {
@@ -97,18 +95,18 @@ export default function StructuredData() {
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What configurations are available at Vyomora?",
+            "name": "What configurations are available at Shapoorji Pallonji Joyville Vyomora?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Vyomora offers premium 2 BHK, 3 BHK, and 3 BHK Duplex residences."
+              "text": "Vyomora offers premium 2BHK, 3BHK, 4BHK, duplex, and skyduplex residences tailored for luxury living in Pune."
             }
           },
           {
             "@type": "Question",
-            "name": "Where is Vyomora located?",
+            "name": "Where is the Shapoorji Pallonji Vyomora project located?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The project is strategically located in Phase 1, Hinjewadi, Pune, close to major IT parks."
+              "text": "The project is strategically located in the Mahalunge and Hinjewadi Phase 1 corridor in Pune, offering excellent connectivity to Baner and the IT Park."
             }
           }
         ]
