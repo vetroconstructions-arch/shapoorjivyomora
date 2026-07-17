@@ -7,12 +7,12 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./ui/Button";
 
 const navLinks = [
-  { label: "The Vision", href: "/#vision" },
-  { label: "Residences", href: "/#residences" },
-  { label: "Amenities", href: "/#amenities" },
-  { label: "Masterplan", href: "/#masterplan" },
-  { label: "Specifications", href: "/#specifications" },
-  { label: "Location", href: "/#location" },
+  { label: "The Vision", href: "/vision" },
+  { label: "Residences", href: "/residences" },
+  { label: "Amenities", href: "/amenities" },
+  { label: "Masterplan", href: "/masterplan" },
+  { label: "Specifications", href: "/specifications" },
+  { label: "Location", href: "/location" },
 ];
 
 export default function Header() {

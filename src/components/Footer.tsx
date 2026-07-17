@@ -39,11 +39,11 @@ export default function Footer() {
             <h4 className="text-xs font-bold tracking-[0.2em] text-[#a4789c] uppercase mb-8">Experience</h4>
             <ul className="space-y-4">
               {[
-                { label: "The Vision", href: "/#vision" },
-                { label: "Masterplan", href: "/#masterplan" },
-                { label: "Residences", href: "/#residences" },
-                { label: "Amenities", href: "/#amenities" },
-                { label: "Location", href: "/#location" }
+                { label: "The Vision", href: "/vision" },
+                { label: "Masterplan", href: "/masterplan" },
+                { label: "Residences", href: "/residences" },
+                { label: "Amenities", href: "/amenities" },
+                { label: "Location", href: "/location" }
               ].map((item) => (
                 <li key={item.label}>
                   <Link href={item.href} className="text-sm text-white/70 hover:text-white flex items-center group transition-colors">
