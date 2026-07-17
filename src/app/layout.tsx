@@ -5,6 +5,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import EnquiryModal from "@/components/EnquiryModal";
 import StructuredData from "@/components/StructuredData";
 import "./globals.css";
 
@@ -105,6 +106,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <FloatingCTA />
+          <EnquiryModal />
         </SmoothScroll>
       </body>
     </html>

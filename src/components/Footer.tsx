@@ -1,7 +1,46 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
+import { useState } from "react";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus("loading");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "85fb0f24-6f7b-410a-936b-9f215ccdcacc",
+          email: email,
+          subject: "New Newsletter Registration",
+          from_name: "Vyomora Website",
+        }),
+      });
+      const result = await response.json();
+      if (response.ok && result.success) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
+    
+    setTimeout(() => setStatus("idle"), 5000);
+  };
+
   return (
     <footer className="bg-[#2D2155] text-white pt-24 pb-12 border-t border-white/10 relative overflow-hidden">
       {/* Background Accent */}
@@ -90,19 +129,29 @@ export default function Footer() {
             <p className="text-sm text-white/60 mb-6 font-light">
               Register your interest to receive exclusive updates about the project.
             </p>
-            <form className="flex flex-col space-y-4">
+            <form onSubmit={handleSubscribe} className="flex flex-col space-y-4">
               <input 
                 type="email" 
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email Address" 
                 className="bg-transparent border-b border-white/20 pb-2 text-sm text-white focus:outline-none focus:border-[#a4789c] transition-colors placeholder:text-white/30 rounded-none"
               />
               <button 
-                type="button" 
-                className="text-left text-xs tracking-[0.15em] text-white hover:text-[#a4789c] uppercase flex items-center transition-colors group"
+                type="submit" 
+                disabled={status === "loading"}
+                className="text-left text-xs tracking-[0.15em] text-white hover:text-[#a4789c] uppercase flex items-center transition-colors group disabled:opacity-50"
               >
-                Register Now
+                {status === "loading" ? "Submitting..." : "Register Now"}
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
+              {status === "success" && (
+                <p className="text-xs text-green-400">Successfully registered!</p>
+              )}
+              {status === "error" && (
+                <p className="text-xs text-red-400">Something went wrong. Try again.</p>
+              )}
             </form>
           </div>
         </div>

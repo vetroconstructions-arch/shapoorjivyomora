@@ -21,21 +21,32 @@ export default function ContactPage() {
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
-      const response = await fetch('/api/contact', {
+      const submitData = {
+        ...data,
+        access_key: "85fb0f24-6f7b-410a-936b-9f215ccdcacc",
+        subject: "New Inquiry from Vyomora Website",
+        from_name: "Vyomora Website",
+      };
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(submitData),
       });
       
-      if (!response.ok) {
-        throw new Error('Failed to submit');
+      const result = await response.json();
+      
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to submit');
       }
 
       alert("Thank you for your interest. Our luxury consultant will contact you shortly.");
       reset();
     } catch (error) {
+      console.error(error);
       alert("There was an error submitting your request. Please try again or call us directly.");
     }
   };
