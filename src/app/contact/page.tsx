@@ -20,11 +20,24 @@ export default function ContactPage() {
   });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log(data);
-    alert("Thank you for your interest. Our luxury consultant will contact you shortly.");
-    reset();
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to submit');
+      }
+
+      alert("Thank you for your interest. Our luxury consultant will contact you shortly.");
+      reset();
+    } catch (error) {
+      alert("There was an error submitting your request. Please try again or call us directly.");
+    }
   };
 
   return (
@@ -150,7 +163,7 @@ export default function ContactPage() {
                 <div>
                   <h4 className="text-sm font-bold uppercase tracking-widest mb-2">Email Address</h4>
                   <p className="text-[#0F172A]/70 font-light leading-relaxed">
-                    propsmartrealty@gmail.com<br />
+                    info@vyomora-hinjewadi.com<br />
                     sales@vyomora-hinjewadi.com
                   </p>
                 </div>
