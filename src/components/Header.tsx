@@ -59,11 +59,13 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/contact">
-              <Button variant="gold" className="bg-[#2D2155] text-white border-transparent hover:bg-[#1e2338]">
-                Enquire Now
-              </Button>
-            </Link>
+            <Button 
+              variant="gold" 
+              className="bg-[#2D2155] text-white border-transparent hover:bg-[#1e2338]"
+              onClick={() => window.dispatchEvent(new Event('open-enquiry-modal'))}
+            >
+              Enquire Now
+            </Button>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -111,11 +113,16 @@ export default function Header() {
               transition={{ delay: 0.6 }}
               className="flex flex-col w-full max-w-sm space-y-4"
             >
-              <Link href="/contact" className="w-full" onClick={() => setMobileMenuOpen(false)}>
-                <Button variant="gold" className="w-full bg-[#2D2155] text-white">
-                  Enquire Now
-                </Button>
-              </Link>
+              <Button 
+                variant="gold" 
+                className="w-full bg-[#2D2155] text-white"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.dispatchEvent(new Event('open-enquiry-modal'));
+                }}
+              >
+                Enquire Now
+              </Button>
               <Button variant="outline" className="w-full border-[#1e2338]/20 text-[#1e2338] hover:bg-[#1e2338]/5">
                 Download Brochure
               </Button>

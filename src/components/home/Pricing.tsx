@@ -79,11 +79,13 @@ export default function Pricing() {
               * Above Price excludes advance maintenance and corpus fund charges, to be paid on possession.<br />
               * All taxes are subject to change as per the applicable law prevailing at such time.
             </p>
-            <Link href="/contact" className="shrink-0">
-              <Button variant="gold" className="text-sm bg-[#2D2155] text-white">
-                Enquire Now
-              </Button>
-            </Link>
+            <Button 
+              variant="gold" 
+              className="text-sm bg-[#2D2155] text-white shrink-0"
+              onClick={() => window.dispatchEvent(new Event('open-enquiry-modal'))}
+            >
+              Enquire Now
+            </Button>
           </div>
         </div>
       </div>

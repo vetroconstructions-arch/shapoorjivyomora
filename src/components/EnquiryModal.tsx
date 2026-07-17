@@ -13,15 +13,23 @@ export default function EnquiryModal() {
     // Check if the modal has already been seen in this session
     const hasSeenModal = sessionStorage.getItem("hasSeenEnquiryModal");
     
+    let timer: NodeJS.Timeout;
     if (!hasSeenModal) {
       // Pop up after 3 seconds
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setIsOpen(true);
         sessionStorage.setItem("hasSeenEnquiryModal", "true");
       }, 3000);
-      
-      return () => clearTimeout(timer);
     }
+
+    // Listen for custom event to open modal programmatically
+    const handleOpenModal = () => setIsOpen(true);
+    window.addEventListener("open-enquiry-modal", handleOpenModal);
+
+    return () => {
+      if (timer) clearTimeout(timer);
+      window.removeEventListener("open-enquiry-modal", handleOpenModal);
+    };
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
