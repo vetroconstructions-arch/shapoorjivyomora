@@ -45,9 +45,9 @@ export default function ContactPage() {
 
       alert("Thank you for your interest. Our luxury consultant will contact you shortly.");
       reset();
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      alert("There was an error submitting your request. Please try again or call us directly.");
+      alert(error.message || "There was an error submitting your request. Please try again or call us directly.");
     }
   };
 

@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,9 +33,11 @@ export default function Footer() {
         setStatus("success");
         setEmail("");
       } else {
+        setErrorMessage(result.message || "Something went wrong.");
         setStatus("error");
       }
     } catch (error) {
+      setErrorMessage("Network error.");
       setStatus("error");
     }
     
@@ -150,7 +153,7 @@ export default function Footer() {
                 <p className="text-xs text-green-400">Successfully registered!</p>
               )}
               {status === "error" && (
-                <p className="text-xs text-red-400">Something went wrong. Try again.</p>
+                <p className="text-xs text-red-400">{errorMessage}</p>
               )}
             </form>
           </div>

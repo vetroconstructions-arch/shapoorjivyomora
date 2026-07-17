@@ -7,6 +7,7 @@ import { X } from "lucide-react";
 export default function EnquiryModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     // Check if the modal has already been seen in this session
@@ -54,9 +55,11 @@ export default function EnquiryModal() {
           setStatus("idle");
         }, 3000);
       } else {
+        setErrorMessage(result.message || "Failed to submit. Please try again.");
         setStatus("error");
       }
     } catch (error) {
+      setErrorMessage("Network error or request blocked. Please try again.");
       setStatus("error");
     }
   };
@@ -137,7 +140,7 @@ export default function EnquiryModal() {
                   </div>
                   
                   {status === "error" && (
-                    <p className="text-red-500 text-xs text-center">There was an error. Please try again.</p>
+                    <p className="text-red-500 text-xs text-center">{errorMessage || "There was an error. Please try again."}</p>
                   )}
                   
                   <button 
