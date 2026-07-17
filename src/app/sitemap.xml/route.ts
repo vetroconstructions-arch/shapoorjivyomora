@@ -1,7 +1,7 @@
 import { SEOLocations, SEOConfigurations, SEOTopics } from '@/lib/programmaticSEO';
 
 export async function GET() {
-  const baseUrl = 'https://shapoorji-vyomora.com';
+  const baseUrl = 'https://www.shapoorji-vyomora.com';
   const URLS_PER_SITEMAP = 2500;
 
   // We have 25 * 20 * 25 = 12,500 programmatic combinations

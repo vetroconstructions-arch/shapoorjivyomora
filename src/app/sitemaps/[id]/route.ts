@@ -2,7 +2,7 @@ import { seoArticles } from '@/data/seoArticles';
 import { SEOLocations, SEOConfigurations, SEOTopics } from '@/lib/programmaticSEO';
 
 export async function GET(request: Request, context: { params: Promise<{ id: string }> }) {
-  const baseUrl = 'https://shapoorji-vyomora.com';
+  const baseUrl = 'https://www.shapoorji-vyomora.com';
   const URLS_PER_SITEMAP = 2500;
 
   const params = await context.params;
