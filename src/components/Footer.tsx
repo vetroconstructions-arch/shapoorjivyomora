@@ -3,9 +3,9 @@ import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F172A] text-white pt-24 pb-12 border-t border-white/10 relative overflow-hidden">
+    <footer className="bg-[#2D2155] text-white pt-24 pb-12 border-t border-white/10 relative overflow-hidden">
       {/* Background Accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-[#7DD3FC] to-transparent opacity-30" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-[#a4789c] to-transparent opacity-30" />
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-20">
@@ -26,7 +26,7 @@ export default function Footer() {
             <div className="flex space-x-4">
               {/* Social Icons Placeholders */}
               {[1, 2, 3, 4].map((i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300">
+                <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#a4789c] hover:text-white hover:border-[#a4789c] transition-all duration-300">
                   <span className="sr-only">Social {i}</span>
                   <div className="w-4 h-4 bg-current" style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }} />
                 </a>
@@ -36,15 +36,21 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="col-span-1">
-            <h4 className="text-xs font-bold tracking-[0.2em] text-[#7DD3FC] uppercase mb-8">Experience</h4>
+            <h4 className="text-xs font-bold tracking-[0.2em] text-[#a4789c] uppercase mb-8">Experience</h4>
             <ul className="space-y-4">
-              {["The Vision", "Architecture", "Residences", "Amenities", "Location"].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-sm text-white/70 hover:text-white flex items-center group transition-colors">
-                    <span className="w-0 overflow-hidden group-hover:w-4 transition-all duration-300 ease-out text-[#7DD3FC]">
+              {[
+                { label: "The Vision", href: "/#vision" },
+                { label: "Masterplan", href: "/#masterplan" },
+                { label: "Residences", href: "/#residences" },
+                { label: "Amenities", href: "/#amenities" },
+                { label: "Location", href: "/#location" }
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} className="text-sm text-white/70 hover:text-white flex items-center group transition-colors">
+                    <span className="w-0 overflow-hidden group-hover:w-4 transition-all duration-300 ease-out text-[#a4789c]">
                       <ArrowRight size={12} />
                     </span>
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">{item}</span>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                   </Link>
                 </li>
               ))}
@@ -53,10 +59,10 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="col-span-1">
-            <h4 className="text-xs font-bold tracking-[0.2em] text-[#7DD3FC] uppercase mb-8">Contact</h4>
+            <h4 className="text-xs font-bold tracking-[0.2em] text-[#a4789c] uppercase mb-8">Contact</h4>
             <ul className="space-y-6">
               <li className="flex items-start">
-                <MapPin size={18} className="text-white/40 mt-1 mr-4 shrink-0" />
+                <MapPin size={18} className="text-[#a4789c]/60 mt-1 mr-4 shrink-0" />
                 <span className="text-sm text-white/70 leading-relaxed">
                   Vyomora by Shapoorji Pallonji,<br />
                   Off Maan Village Road, Near Phase 1,<br />
@@ -64,13 +70,13 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex items-center">
-                <Phone size={18} className="text-white/40 mr-4 shrink-0" />
+                <Phone size={18} className="text-[#a4789c]/60 mr-4 shrink-0" />
                 <a href="tel:+91XXXXXXXXXX" className="text-sm text-white/70 hover:text-white transition-colors">
                   +91 XXXXXXXXXX
                 </a>
               </li>
               <li className="flex items-center">
-                <Mail size={18} className="text-white/40 mr-4 shrink-0" />
+                <Mail size={18} className="text-[#a4789c]/60 mr-4 shrink-0" />
                 <a href="mailto:info@vyomora-hinjewadi.com" className="text-sm text-white/70 hover:text-white transition-colors">
                   info@vyomora-hinjewadi.com
                 </a>
@@ -80,7 +86,7 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div className="col-span-1">
-            <h4 className="text-xs font-bold tracking-[0.2em] text-[#7DD3FC] uppercase mb-8">Stay Updated</h4>
+            <h4 className="text-xs font-bold tracking-[0.2em] text-[#a4789c] uppercase mb-8">Stay Updated</h4>
             <p className="text-sm text-white/60 mb-6 font-light">
               Register your interest to receive exclusive updates about the project.
             </p>
@@ -88,11 +94,11 @@ export default function Footer() {
               <input 
                 type="email" 
                 placeholder="Email Address" 
-                className="bg-transparent border-b border-white/20 pb-2 text-sm text-white focus:outline-none focus:border-[#7DD3FC] transition-colors placeholder:text-white/30 rounded-none"
+                className="bg-transparent border-b border-white/20 pb-2 text-sm text-white focus:outline-none focus:border-[#a4789c] transition-colors placeholder:text-white/30 rounded-none"
               />
               <button 
                 type="button" 
-                className="text-left text-xs tracking-[0.15em] text-white hover:text-[#7DD3FC] uppercase flex items-center transition-colors group"
+                className="text-left text-xs tracking-[0.15em] text-white hover:text-[#a4789c] uppercase flex items-center transition-colors group"
               >
                 Register Now
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />

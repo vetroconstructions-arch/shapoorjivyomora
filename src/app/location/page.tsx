@@ -59,7 +59,7 @@ export default function LocationPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/20 to-transparent z-10" />
           <div 
             className="w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop')" }}
+            style={{ backgroundImage: "url('https://shapoorjirealestate.com/files/assets/jpegs/all_projects/vymora-by-joyville/gallery/desktop/photo_gallery11.webp')" }}
           />
         </motion.div>
 
@@ -106,7 +106,7 @@ export default function LocationPage() {
             >
               <div 
                 className="w-full h-full rounded-sm bg-cover bg-center filter grayscale contrast-125 transition-transform duration-1000 group-hover:scale-105"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop')" }}
+                style={{ backgroundImage: "url('https://shapoorjirealestate.com/files/assets/jpegs/all_projects/vymora-by-joyville/gallery/desktop/photo_gallery11.webp')" }}
               >
                 <div className="absolute inset-0 bg-[#0F172A]/60 transition-colors duration-500 group-hover:bg-[#0F172A]/40" />
                 

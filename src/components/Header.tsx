@@ -7,12 +7,12 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./ui/Button";
 
 const navLinks = [
-  { label: "Residences", href: "/residences" },
-  { label: "Lifestyle", href: "/lifestyle" },
-  { href: "/location", label: "Location" },
-  { href: "/sustainability", label: "Sustainability" },
-  { href: "/updates", label: "Updates" },
-  { href: "/gallery", label: "Gallery" },
+  { label: "The Vision", href: "/#vision" },
+  { label: "Residences", href: "/#residences" },
+  { label: "Amenities", href: "/#amenities" },
+  { label: "Masterplan", href: "/#masterplan" },
+  { label: "Specifications", href: "/#specifications" },
+  { label: "Location", href: "/#location" },
 ];
 
 export default function Header() {
@@ -32,15 +32,15 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent ${
-          isScrolled ? "bg-[#0F172A]/80 backdrop-blur-md border-white/10 py-4" : "bg-transparent py-6"
+          isScrolled ? "bg-white/80 backdrop-blur-md border-[#1e2338]/10 py-4 shadow-sm" : "bg-transparent py-6"
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link href="/" className="z-50 flex flex-col group">
-            <span className="text-xl md:text-2xl font-serif font-bold tracking-widest text-white group-hover:text-[#7DD3FC] transition-colors duration-300">
+            <span className={`text-xl md:text-2xl font-serif font-bold tracking-widest transition-colors duration-300 text-[#2D2155]`}>
               VYOMORA
             </span>
-            <span className="text-[0.6rem] tracking-[0.2em] text-white/60 uppercase">
+            <span className={`text-[0.6rem] tracking-[0.2em] uppercase transition-colors duration-300 text-[#1e2338]/60`}>
               By Shapoorji Pallonji
             </span>
           </Link>
@@ -51,7 +51,7 @@ export default function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-white/80 hover:text-white transition-colors duration-300 tracking-wide uppercase"
+                className={`text-sm font-medium transition-colors duration-300 tracking-wide uppercase text-[#1e2338]/70 hover:text-[#2D2155]`}
               >
                 {link.label}
               </Link>
@@ -59,11 +59,8 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="hidden lg:inline-flex">
-              Download Brochure
-            </Button>
             <Link href="/contact">
-              <Button variant="gold">
+              <Button variant="gold" className="bg-[#2D2155] text-white border-transparent hover:bg-[#1e2338]">
                 Enquire Now
               </Button>
             </Link>
@@ -71,11 +68,11 @@ export default function Header() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden z-50 text-white p-2"
+            className={`md:hidden z-50 p-2 transition-colors duration-300 text-[#2D2155]`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileMenuOpen ? <X size={28} className="text-[#2D2155]" /> : <Menu size={28} />}
           </button>
         </div>
       </header>
@@ -88,7 +85,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-[#0F172A] flex flex-col justify-center items-center px-6"
+            className="fixed inset-0 z-40 bg-[#FDFBF7] flex flex-col justify-center items-center px-6"
           >
             <nav className="flex flex-col items-center space-y-8 mb-12">
               {navLinks.map((link, i) => (
@@ -101,7 +98,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-3xl font-serif tracking-wider text-white hover:text-[#7DD3FC] transition-colors"
+                    className="text-3xl font-serif tracking-wider text-[#2D2155] hover:text-[#a4789c] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -115,11 +112,11 @@ export default function Header() {
               className="flex flex-col w-full max-w-sm space-y-4"
             >
               <Link href="/contact" className="w-full" onClick={() => setMobileMenuOpen(false)}>
-                <Button variant="gold" className="w-full">
+                <Button variant="gold" className="w-full bg-[#2D2155] text-white">
                   Enquire Now
                 </Button>
               </Link>
-              <Button variant="outline" className="w-full">
+              <Button variant="outline" className="w-full border-[#1e2338]/20 text-[#1e2338] hover:bg-[#1e2338]/5">
                 Download Brochure
               </Button>
             </motion.div>

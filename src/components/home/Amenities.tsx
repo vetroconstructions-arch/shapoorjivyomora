@@ -5,36 +5,38 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Waves, Dumbbell, Trophy, Film } from "lucide-react";
+import { detailedAmenities } from "./amenitiesData";
 
 const amenitiesList = [
   {
     title: "Lap Pool",
     description: "Swim into the horizon with temperature-controlled waters.",
     icon: <Waves size={32} strokeWidth={1} />,
-    image: "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=2000&auto=format&fit=crop"
+    image: "/images/pool_bg.jpg"
   },
   {
     title: "Wellness Studio & Gym",
     description: "State-of-the-art gymnasium, yoga studio, and luxury spa.",
     icon: <Dumbbell size={32} strokeWidth={1} />,
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000&auto=format&fit=crop"
+    image: "/images/story_bg.jpg"
   },
   {
     title: "Active Sports",
     description: "Professional pickleball courts and a mini football turf.",
     icon: <Trophy size={32} strokeWidth={1} />,
-    image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=2000&auto=format&fit=crop"
+    image: "/images/masterplan_bg.jpg"
   },
   {
     title: "Entertainment Hub",
     description: "Mini theatre, digital dome, and a premium co-working lounge.",
     icon: <Film size={32} strokeWidth={1} />,
-    image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=2000&auto=format&fit=crop"
+    image: "/images/hero_bg.jpg"
   }
 ];
 
 export default function Amenities() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const detailsRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     if (!containerRef.current) return;
@@ -61,21 +63,22 @@ export default function Amenities() {
   }, []);
 
   return (
-    <section id="amenities" className="py-32 bg-[#F5F5F3] relative" ref={containerRef}>
+    <section id="amenities" className="py-24 md:py-32 bg-[#FDFBF7] relative overflow-hidden" ref={containerRef}>
       <div className="container mx-auto px-6 md:px-12">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#7DD3FC] mb-4 block">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#a4789c] mb-4 block">
             Signature Lifestyle
           </span>
-          <h2 className="text-4xl md:text-6xl font-serif text-[#0F172A] leading-tight mb-6">
+          <h2 className="text-4xl md:text-6xl font-serif text-[#2D2155] leading-tight mb-6">
             Curated For The Extraordinary.
           </h2>
-          <p className="text-[#0F172A]/70 font-light text-lg">
+          <p className="text-[#1e2338]/80 font-light text-lg">
             Immerse yourself in a world of world-class amenities designed to cater to your every desire, from wellness to entertainment.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Top 4 Visual Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
           {amenitiesList.map((amenity, index) => (
             <motion.div 
               key={index}
@@ -90,7 +93,7 @@ export default function Amenities() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
               
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="w-12 h-12 rounded-full glass border border-white/20 flex items-center justify-center text-white mb-6 group-hover:bg-[#7DD3FC] group-hover:border-[#7DD3FC] transition-colors duration-500">
+                <div className="w-12 h-12 rounded-full glass border border-white/20 flex items-center justify-center text-white mb-6 group-hover:bg-[#a4789c] group-hover:border-[#a4789c] transition-colors duration-500">
                   {amenity.icon}
                 </div>
                 <h3 className="text-2xl font-serif text-white mb-3">{amenity.title}</h3>
@@ -101,6 +104,52 @@ export default function Amenities() {
             </motion.div>
           ))}
         </div>
+
+        {/* Detailed Comprehensive List */}
+        <div ref={detailsRef} className="pt-20 border-t border-[#2D2155]/10">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mb-16">
+            <div className="lg:w-1/3">
+              <h3 className="text-3xl md:text-4xl font-serif text-[#2D2155] leading-tight mb-4 uppercase tracking-wide">
+                A COMMUNITY <br/> <span className="text-[#1e2338]/60">THAT HAS IT ALL.</span>
+              </h3>
+            </div>
+            <div className="lg:w-2/3 flex items-center">
+              <p className="text-[#1e2338]/80 font-light leading-relaxed">
+                Shapoorji Pallonji Vyomora brings together thoughtful planning and a wide spectrum of lifestyle amenities within one integrated community. From wellness and recreation to work and celebration, every space is designed to support balance, connection, and everyday joy.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+            {detailedAmenities.map((section, idx) => (
+              <div key={idx} className="flex flex-col">
+                <h4 className="text-sm font-bold tracking-[0.2em] text-[#2D2155] uppercase mb-8 pb-4 border-b border-[#2D2155]/10">
+                  {section.category}
+                </h4>
+                <ul className="space-y-6">
+                  {section.items.map((item, itemIdx) => {
+                    const Icon = item.icon;
+                    return (
+                      <li key={itemIdx} className="flex items-center group">
+                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-[#2D2155]/5 mr-4 group-hover:bg-[#2D2155] group-hover:text-white transition-colors duration-300">
+                          <Icon size={18} strokeWidth={1.5} className="text-[#2D2155] group-hover:text-white transition-colors" />
+                        </div>
+                        <span className="text-[#1e2338]/80 font-light text-sm">
+                          {item.name}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      {/* Decorative Mascot Image (Bottom Right) */}
+      <div className="absolute bottom-0 right-0 w-64 h-64 md:w-80 md:h-80 opacity-50 pointer-events-none translate-x-1/4 translate-y-1/4">
+        <div className="w-full h-full bg-gradient-to-tr from-[#a4789c]/20 to-[#2D2155]/10 rounded-full blur-3xl" />
       </div>
     </section>
   );

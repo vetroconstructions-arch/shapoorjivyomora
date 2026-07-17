@@ -10,9 +10,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const amenityCategories = [
   {
-    title: "The 32,000 Sq.Ft. Clubhouse",
-    description: "The heart of Vyomora's social life. A sprawling architectural marvel designed for recreation, wellness, and community gatherings.",
-    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000&auto=format&fit=crop",
+    title: "Clubhouse & Recreation",
+    description: "A sprawling 32,000 sq. ft. clubhouse serving as the heart of community life, featuring indoor games, a mini-theatre, and lounges.",
+    image: "https://shapoorjirealestate.com/files/assets/jpegs/all_projects/vymora-by-joyville/gallery/desktop/photo_gallery2.webp",
     features: [
       { name: "Grand Reception & Lounge", icon: <Coffee size={20} /> },
       { name: "Mini Theatre", icon: <Film size={20} /> },
@@ -23,7 +23,7 @@ const amenityCategories = [
   {
     title: "Health & Wellness",
     description: "State-of-the-art facilities dedicated to your physical and mental well-being, providing a sanctuary of calm.",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000&auto=format&fit=crop",
+    image: "https://shapoorjirealestate.com/files/assets/jpegs/all_projects/vymora-by-joyville/gallery/desktop/photo_gallery8.webp",
     features: [
       { name: "Temperature Controlled Lap Pool", icon: <Waves size={20} /> },
       { name: "Fully Equipped Gymnasium", icon: <Dumbbell size={20} /> },
@@ -34,7 +34,7 @@ const amenityCategories = [
   {
     title: "Active Sports",
     description: "Professional-grade sporting arenas designed to foster an active, energetic lifestyle for all age groups.",
-    image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=2000&auto=format&fit=crop",
+    image: "https://shapoorjirealestate.com/files/assets/jpegs/all_projects/vymora-by-joyville/gallery/desktop/photo_gallery4.webp",
     features: [
       { name: "Pickleball Courts", icon: <Trophy size={20} /> },
       { name: "Mini Football Turf", icon: <Trophy size={20} /> },
@@ -45,7 +45,7 @@ const amenityCategories = [
   {
     title: "Elevated Eco-Deck & Gardens",
     description: "Lush green expanses and elevated walkways that blend nature seamlessly with modern living.",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000&auto=format&fit=crop",
+    image: "https://shapoorjirealestate.com/files/assets/jpegs/all_projects/vymora-by-joyville/gallery/desktop/photo_gallery5.webp",
     features: [
       { name: "Thematic Gardens", icon: <Trees size={20} /> },
       { name: "Amphitheatre", icon: <Music size={20} /> },
@@ -96,10 +96,10 @@ export default function LifestylePage() {
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/60 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/20 to-transparent z-10" />
           <div 
             className="w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=2000&auto=format&fit=crop')" }}
+            style={{ backgroundImage: "url('https://shapoorjirealestate.com/files/assets/jpegs/all_projects/vymora-by-joyville/gallery/desktop/photo_gallery7.webp')" }}
           />
         </motion.div>
 

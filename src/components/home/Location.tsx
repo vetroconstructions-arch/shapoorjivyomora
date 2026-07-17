@@ -3,34 +3,56 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MapPin, Briefcase, GraduationCap, Train } from "lucide-react";
+import { Train, Bus, ArrowRight, GraduationCap, Building2, ShoppingBag, TreePine, Map, PlusSquare } from "lucide-react";
 
-const landmarks = [
-  { icon: <Briefcase size={20} />, title: "Infosys & Wipro", time: "5 Mins" },
-  { icon: <Train size={20} />, title: "Upcoming Metro", time: "2 Mins" },
-  { icon: <GraduationCap size={20} />, title: "Symbiosis", time: "15 Mins" },
-  { icon: <MapPin size={20} />, title: "Mumbai-Pune Expressway", time: "10 Mins" },
+const legendItems = [
+  { label: "National Highway", icon: <Map size={16} strokeWidth={2} className="text-emerald-500" /> },
+  { label: "Key Connecting Roads", icon: <Map size={16} strokeWidth={2} className="text-blue-500" /> },
+  { label: "Metro Stations", icon: <Train size={16} strokeWidth={2} className="text-purple-600" /> },
+  { label: "Major Transport Modes", icon: <Bus size={16} strokeWidth={2} className="text-orange-500" /> },
+  { label: "Entry Point", icon: <ArrowRight size={16} strokeWidth={2} className="text-red-500" /> },
+  { label: "Education", icon: <GraduationCap size={16} strokeWidth={2} className="text-blue-600" /> },
+  { label: "Health Care", icon: <PlusSquare size={16} strokeWidth={2} className="text-red-600" /> },
+  { label: "IT Park and SEZ", icon: <Building2 size={16} strokeWidth={2} className="text-indigo-600" /> },
+  { label: "Retail and Entertainment", icon: <ShoppingBag size={16} strokeWidth={2} className="text-pink-500" /> },
+  { label: "Sports, Wellness and Nature", icon: <TreePine size={16} strokeWidth={2} className="text-green-600" /> },
 ];
 
 export default function Location() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
-    const items = containerRef.current.querySelectorAll('.landmark-item');
+    if (!containerRef.current || !mapRef.current) return;
     
     const ctx = gsap.context(() => {
-      gsap.fromTo(items,
-        { opacity: 0, x: -30 },
+      // Fade in legend
+      gsap.fromTo('.legend-item',
+        { opacity: 0, x: -20 },
         {
           opacity: 1,
           x: 0,
-          duration: 0.8,
-          stagger: 0.1,
+          duration: 0.5,
+          stagger: 0.05,
           ease: "power2.out",
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top 60%",
+          }
+        }
+      );
+
+      // Fade up map
+      gsap.fromTo(mapRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 50%",
           }
         }
       );
@@ -40,49 +62,71 @@ export default function Location() {
   }, []);
 
   return (
-    <section id="location" className="py-32 bg-[#0F172A] text-white relative overflow-hidden" ref={containerRef}>
+    <section 
+      id="location" 
+      className="py-24 md:py-32 relative overflow-hidden bg-gradient-to-b from-white via-[#FDFBF7]/30 to-[#fdfbf7]" 
+      ref={containerRef}
+    >
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+        
+        {/* Title Section */}
+        <div className="mb-12 md:mb-20 max-w-2xl">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#a4789c] mb-6 block">
+            Strategic Connectivity
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#2D2155] leading-tight tracking-wide">
+            A LOCATION <br/>
+            <span className="text-[#1e2338]/60">THAT MOVES WITH YOU.</span>
+          </h2>
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
           
-          <div className="w-full lg:w-1/3">
-            <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#7DD3FC] mb-4 block">
-              Strategic Connectivity
-            </span>
-            <h2 className="text-4xl md:text-5xl font-serif leading-tight mb-6">
-              The Heart of Hinjewadi.
-            </h2>
-            <p className="text-white/70 font-light text-lg mb-12">
-              Situated in Phase 1, Vyomora offers unparalleled access to top IT parks, educational institutions, and healthcare, keeping you connected to everything that matters.
-            </p>
-            
-            <div className="space-y-6">
-              {landmarks.map((item, index) => (
-                <div key={index} className="landmark-item flex items-center justify-between border-b border-white/10 pb-6">
-                  <div className="flex items-center gap-4">
-                    <div className="text-[#7DD3FC]">{item.icon}</div>
-                    <span className="text-lg font-light tracking-wide">{item.title}</span>
-                  </div>
-                  <span className="text-sm uppercase tracking-widest text-white/50">{item.time}</span>
-                </div>
-              ))}
+          {/* Legend Sidebar */}
+          <div className="w-full lg:w-1/4 flex flex-col justify-start">
+            <div className="bg-white/60 backdrop-blur-md p-6 rounded-sm border border-[#2D2155]/10 shadow-sm sticky top-32">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-[#1e2338]/80 mb-6 pb-4 border-b border-[#2D2155]/10">
+                Map Legend
+              </h3>
+              <ul className="space-y-4">
+                {legendItems.map((item, index) => (
+                  <li key={index} className="legend-item flex items-center group">
+                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-[#2D2155]/10 mr-4 transition-transform group-hover:scale-110">
+                      {item.icon}
+                    </div>
+                    <span className="text-sm font-light text-[#1e2338]/80 group-hover:text-[#2D2155] transition-colors">
+                      {item.label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          <div className="w-full lg:w-2/3 h-[500px] lg:h-[700px] relative rounded-sm overflow-hidden glass border-white/10 p-2">
-             {/* Map Placeholder */}
-             <div 
-               className="w-full h-full rounded-sm bg-cover bg-center filter grayscale contrast-125"
-               style={{ backgroundImage: "url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop')" }}
-             >
-               <div className="absolute inset-0 bg-[#0F172A]/40" />
-               
-               {/* Pulsing Location Marker */}
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-                 <div className="w-6 h-6 bg-[#7DD3FC] rounded-full relative z-10" />
-                 <div className="absolute w-24 h-24 border border-[#7DD3FC] rounded-full animate-ping opacity-20" style={{ animationDuration: '3s' }} />
-                 <div className="absolute w-16 h-16 border border-[#7DD3FC] rounded-full animate-ping opacity-40" style={{ animationDuration: '2s' }} />
-               </div>
-             </div>
+          {/* Map Display (Distortion-free) */}
+          <div className="w-full lg:w-3/4" ref={mapRef}>
+            <div className="relative w-full rounded-sm overflow-hidden bg-white/50 border border-[#2D2155]/10 shadow-sm p-2 md:p-4 group">
+              {/* Note: The image uses object-contain to prevent any distortion of the complex map */}
+              <div className="relative w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[2/1] bg-[#FDFBF7] rounded-sm overflow-hidden flex items-center justify-center cursor-zoom-in">
+                
+                {/* 
+                  Using a placeholder that can be replaced by the actual Map SVG or Image. 
+                  We use object-contain so it never stretches or distorts.
+                */}
+                <iframe 
+                  src="https://maps.google.com/maps?q=Joyville%20Vyomora&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                  title="Vyomora Location Map"
+                  className="w-full h-full border-0 filter grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+
+              </div>
+              <p className="text-right text-[10px] text-[#1e2338]/40 mt-2 font-light uppercase tracking-widest">
+                Map not to scale
+              </p>
+            </div>
           </div>
 
         </div>

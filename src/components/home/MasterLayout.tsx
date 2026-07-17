@@ -35,22 +35,22 @@ export default function MasterLayout() {
   const activeData = layoutData.find((d) => d.id === activeTab) || layoutData[0];
 
   return (
-    <section className="py-24 md:py-32 bg-[#0F172A] relative overflow-hidden">
+    <section id="masterplan" className="py-24 md:py-32 bg-[#FDFBF7] relative overflow-hidden">
       {/* Decorative background blur */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-[#7DD3FC]/5 blur-[150px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-[#a4789c]/5 blur-[150px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
-            <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#7DD3FC] mb-6 block">
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#a4789c] mb-6 block">
               Architectural Vision
             </span>
-            <h2 className="text-4xl md:text-6xl font-serif text-white max-w-2xl">
-              Master Plan & <span className="text-white/50 italic">Layouts</span>
+            <h2 className="text-4xl md:text-6xl font-serif text-[#2D2155] max-w-2xl">
+              Master Plan & <span className="text-[#a4789c] italic">Layouts</span>
             </h2>
           </div>
           <Link href="/residences">
-            <Button variant="outline" className="group">
+            <Button variant="outline" className="group border-[#2D2155]/20 text-[#2D2155] hover:bg-[#2D2155]/5">
               View All Specifications 
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
@@ -68,11 +68,11 @@ export default function MasterLayout() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`text-left px-6 py-4 rounded-sm transition-all duration-300 border-l-2 whitespace-nowrap lg:whitespace-normal flex-shrink-0 ${
                     activeTab === tab.id 
-                    ? "border-l-[#7DD3FC] glass" 
-                    : "border-l-transparent text-white/50 hover:text-white hover:bg-white/5"
+                    ? "border-l-[#a4789c] bg-white/60 shadow-sm backdrop-blur-md" 
+                    : "border-l-transparent text-[#1e2338]/50 hover:text-[#2D2155] hover:bg-white/40"
                   }`}
                 >
-                  <h3 className={`text-lg font-serif mb-1 ${activeTab === tab.id ? "text-[#7DD3FC]" : ""}`}>
+                  <h3 className={`text-lg font-serif mb-1 ${activeTab === tab.id ? "text-[#a4789c]" : ""}`}>
                     {tab.title}
                   </h3>
                   <p className="text-xs uppercase tracking-widest opacity-70">
@@ -90,13 +90,13 @@ export default function MasterLayout() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="bg-black/20 p-6 rounded-sm border border-white/5"
+                className="bg-white/80 backdrop-blur-md p-6 rounded-sm border border-[#2D2155]/10 shadow-sm"
               >
-                <h4 className="text-xs uppercase tracking-[0.2em] text-white/50 mb-4">Highlights</h4>
+                <h4 className="text-xs uppercase tracking-[0.2em] text-[#1e2338]/50 mb-4">Highlights</h4>
                 <ul className="space-y-3">
                   {activeData.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm font-light text-white/80">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#7DD3FC] mr-3" />
+                    <li key={idx} className="flex items-center text-sm font-light text-[#1e2338]/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#a4789c] mr-3" />
                       {feature}
                     </li>
                   ))}
@@ -107,7 +107,7 @@ export default function MasterLayout() {
 
           {/* Image Display (Right side) */}
           <div className="lg:col-span-8">
-            <div className="glass rounded-sm p-4 md:p-8 h-[400px] md:h-[600px] relative group flex items-center justify-center">
+            <div className="bg-white/40 backdrop-blur-md border border-[#2D2155]/5 shadow-sm rounded-sm p-4 md:p-8 h-[400px] md:h-[600px] relative group flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
@@ -118,15 +118,15 @@ export default function MasterLayout() {
                   className="relative w-full h-full flex items-center justify-center"
                 >
                   {/* Blueprint grid effect background */}
-                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-white/5 opacity-10 pointer-events-none" />
                   
                   <img 
                     src={activeData.image}
                     alt={`${activeData.title} Layout for Shapoorji Vyomora`}
-                    className="max-w-full max-h-full object-contain filter invert brightness-200 opacity-90 drop-shadow-[0_0_15px_rgba(125,211,252,0.3)] transition-all duration-700 group-hover:scale-105"
+                    className="max-w-full max-h-full object-contain mix-blend-multiply opacity-90 transition-all duration-700 group-hover:scale-105"
                   />
                   
-                  <Link href="/residences" className="absolute bottom-4 right-4 bg-[#7DD3FC] text-black w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_20px_rgba(125,211,252,0.5)]">
+                  <Link href="/residences" className="absolute bottom-4 right-4 bg-[#2D2155] text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md">
                     <Maximize2 className="w-4 h-4" />
                   </Link>
                 </motion.div>
