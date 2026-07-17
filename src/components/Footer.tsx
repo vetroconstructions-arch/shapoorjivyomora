@@ -9,36 +9,9 @@ export default function Footer() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
+  // We no longer use fetch for submission because Cloudflare blocks AJAX requests.
+  const handleSubscribe = () => {
     setStatus("loading");
-    try {
-      const formData = new FormData();
-      formData.append("access_key", "85fb0f24-6f7b-410a-936b-9f215ccdcacc");
-      formData.append("email", email);
-      formData.append("subject", "New Newsletter Registration");
-      formData.append("from_name", "Vyomora Website");
-
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-      const result = await response.json();
-      if (response.ok && result.success) {
-        setStatus("success");
-        setEmail("");
-      } else {
-        setErrorMessage(result.message || "Something went wrong.");
-        setStatus("error");
-      }
-    } catch (error) {
-      setErrorMessage("Network error.");
-      setStatus("error");
-    }
-    
-    setTimeout(() => setStatus("idle"), 5000);
   };
 
   return (
@@ -129,9 +102,15 @@ export default function Footer() {
             <p className="text-sm text-white/60 mb-6 font-light">
               Register your interest to receive exclusive updates about the project.
             </p>
-            <form onSubmit={handleSubscribe} className="flex flex-col space-y-4">
+            <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubscribe} className="flex flex-col space-y-4">
+              <input type="hidden" name="access_key" value="85fb0f24-6f7b-410a-936b-9f215ccdcacc" />
+              <input type="hidden" name="subject" value="New Newsletter Registration" />
+              <input type="hidden" name="from_name" value="Vyomora Website" />
+              <input type="hidden" name="redirect" value="https://shapoorjivyomora-pi.vercel.app/" />
+
               <input 
                 type="email" 
+                name="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

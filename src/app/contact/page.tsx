@@ -19,33 +19,11 @@ export default function ContactPage() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    try {
-      const formData = new FormData();
-      Object.entries(data).forEach(([key, value]) => {
-        formData.append(key, value as string);
-      });
-      formData.append("access_key", "85fb0f24-6f7b-410a-936b-9f215ccdcacc");
-      formData.append("subject", "New Inquiry from Vyomora Website");
-      formData.append("from_name", "Vyomora Website");
-
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData,
-      });
-      
-      const result = await response.json();
-      
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Failed to submit');
-      }
-
-      alert("Thank you for your interest. Our luxury consultant will contact you shortly.");
-      reset();
-    } catch (error: any) {
-      console.error(error);
-      alert(error.message || "There was an error submitting your request. Please try again or call us directly.");
-    }
+  const onSubmit = () => {
+    // Form will naturally navigate away. We don't preventDefault.
+    // react-hook-form handles validation, then triggers this function.
+    // However, since we are doing a native HTML submit, we must bypass preventDefault.
+    // Wait, react-hook-form's handleSubmit automatically calls preventDefault!
   };
 
   return (
@@ -75,7 +53,11 @@ export default function ContactPage() {
             className="bg-white p-8 md:p-12 shadow-2xl shadow-black/5 rounded-sm"
           >
             <h3 className="text-2xl font-serif mb-8">Register Interest</h3>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
+              <input type="hidden" name="access_key" value="85fb0f24-6f7b-410a-936b-9f215ccdcacc" />
+              <input type="hidden" name="subject" value="New Inquiry from Vyomora Website" />
+              <input type="hidden" name="from_name" value="Vyomora Website" />
+              <input type="hidden" name="redirect" value="https://shapoorjivyomora-pi.vercel.app/contact?success=true" />
               
               <div>
                 <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Full Name</label>
@@ -122,8 +104,8 @@ export default function ContactPage() {
               </div>
 
               <div className="pt-6">
-                <Button variant="gold" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? "Submitting..." : "Submit Inquiry"}
+                <Button type="submit" variant="gold" className="w-full">
+                  Submit Inquiry
                 </Button>
               </div>
             </form>

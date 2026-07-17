@@ -32,40 +32,11 @@ export default function EnquiryModal() {
     };
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  // We no longer use fetch for submission because Cloudflare blocks AJAX requests.
+  // The form will submit natively to Web3Forms.
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setStatus("loading");
-    
-    const formElement = e.currentTarget;
-    const formData = new FormData(formElement);
-    
-    // Append required Web3Forms fields
-    formData.append("access_key", "85fb0f24-6f7b-410a-936b-9f215ccdcacc");
-    formData.append("subject", "New Inquiry from Popup Modal");
-    formData.append("from_name", "Vyomora Website");
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-      
-      const result = await response.json();
-      
-      if (response.ok && result.success) {
-        setStatus("success");
-        setTimeout(() => {
-          setIsOpen(false);
-          setStatus("idle");
-        }, 3000);
-      } else {
-        setErrorMessage(result.message || "Failed to submit. Please try again.");
-        setStatus("error");
-      }
-    } catch (error) {
-      setErrorMessage("Network error or request blocked. Please try again.");
-      setStatus("error");
-    }
+    // Form will naturally navigate away. We don't preventDefault.
   };
 
   return (
@@ -114,7 +85,12 @@ export default function EnquiryModal() {
                   <p className="text-[#0F172A]/70 text-sm">Our luxury consultant will contact you shortly.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit} className="space-y-4">
+                  <input type="hidden" name="access_key" value="85fb0f24-6f7b-410a-936b-9f215ccdcacc" />
+                  <input type="hidden" name="subject" value="New Inquiry from Popup Modal" />
+                  <input type="hidden" name="from_name" value="Vyomora Website" />
+                  <input type="hidden" name="redirect" value="https://shapoorjivyomora-pi.vercel.app/" />
+
                   <div>
                     <input 
                       type="text" 
