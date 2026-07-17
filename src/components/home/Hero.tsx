@@ -56,8 +56,8 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           className="max-w-5xl"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-[#2D2155] leading-[1.1] tracking-tight mb-6">
-            Shapoorji Pallonji <span className="text-gradient">Vyomora Hinjewadi</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-[#2D2155] leading-[1.1] tracking-tight mb-6">
+            An Endless Horizon Of <span className="text-gradient">Happiness</span>.
           </h1>
           
           <motion.p 
@@ -66,7 +66,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 1 }}
             className="text-lg md:text-xl text-[#1e2338]/80 max-w-2xl mx-auto font-light leading-relaxed mb-10"
           >
-            Experience premium living at Joyville Homes Vyomora. Luxury 2 BHK, 3 BHK & 4 BHK Apartments in the heart of Pune's IT Corridor.
+            A master-planned environment shaped around openness, structure, and everyday ease in Hinjawadi.
           </motion.p>
           
           <motion.div
