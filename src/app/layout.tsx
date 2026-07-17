@@ -20,12 +20,28 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.shapoorji-vyomora.com'),
-  title: "Vyomora Hinjewadi | Luxury 2BHK, 3BHK, 4BHK & Duplex by Shapoorji Pallonji",
-  description: "Experience luxury living at Shapoorji Pallonji Joyville Homes Vyomora. Premium 2BHK, 3BHK, 4BHK, and Duplex residences in the Mahalunge-Hinjewadi corridor, Pune.",
-  keywords: ["shapoorji pallonji joyville homes vyomora pune", "2bhk flats in hinjewadi", "3bhk apartments in mahalunge", "4bhk luxury flats baner", "duplex for sale in pune west", "shapoorji pallonji real estate", "premium township mahalunge hinjewadi"],
+  title: "Shapoorji Pallonji Vyomora Hinjewadi | Premium Joyville Homes Pune",
+  description: "Invest in Shapoorji Pallonji Joyville Homes Vyomora Hinjewadi. Discover luxury 2BHK, 3BHK, 4BHK apartments near Rajiv Gandhi Infotech Park, West Pune. Download the floor plan and brochure today.",
+  keywords: [
+    "Shapoorji Pallonji Vyomora Hinjewadi", 
+    "Joyville Homes Vyomora Hinjewadi", 
+    "Shapoorji Pallonji Vyomora Pune",
+    "Shapoorji Pallonji Projects in Hinjewadi",
+    "Luxury Apartments Hinjewadi",
+    "Premium Flats in Hinjewadi",
+    "New Launch Projects Hinjewadi",
+    "Apartments Near Hinjewadi IT Park",
+    "Shapoorji Pallonji Vyomora Price",
+    "Shapoorji Pallonji Vyomora Floor Plan",
+    "Pune Real Estate",
+    "Pune Property Market",
+    "Property Investment in Pune",
+    "Invest in Hinjewadi",
+    "Best Residential Projects in Hinjewadi"
+  ],
   openGraph: {
-    title: "Shapoorji Pallonji Vyomora | Luxury Real Estate in Pune",
-    description: "Discover ultra-premium 2BHK, 3BHK, 4BHK and Duplex apartments in Hinjewadi and Mahalunge. Book your dream home with Shapoorji Pallonji today.",
+    title: "Shapoorji Pallonji Vyomora Hinjewadi | Luxury Real Estate Pune",
+    description: "Explore Joyville Vyomora by Shapoorji Pallonji. Premium gated community apartments in the heart of West Pune's IT Corridor.",
     url: "https://www.shapoorji-vyomora.com",
     siteName: "Shapoorji Pallonji Joyville Homes Vyomora",
     images: [
@@ -33,7 +49,7 @@ export const metadata: Metadata = {
         url: "https://www.shapoorji-vyomora.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Shapoorji Pallonji Joyville Vyomora Luxury Project",
+        alt: "Shapoorji Pallonji Joyville Vyomora Luxury Project in Hinjewadi",
       }
     ],
     locale: "en_IN",
@@ -42,7 +58,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Shapoorji Pallonji Vyomora | Premium Residences Pune",
-    description: "Luxury 2, 3, 4 BHK & Duplex homes in Mahalunge-Hinjewadi corridor.",
+    description: "Luxury homes and premium apartments in the Hinjewadi IT Corridor.",
     images: ["https://www.shapoorji-vyomora.com/og-image.jpg"],
   },
   alternates: {
