@@ -4,14 +4,14 @@ export default function StructuredData() {
     "@graph": [
       {
         "@type": "RealEstateAgent",
-        "@id": "https://shapoorji-vyomora.com/#organization",
+        "@id": "https://www.shapoorji-vyomora.com/#organization",
         "name": "Shapoorji Pallonji Joyville Homes Vyomora",
-        "url": "https://shapoorji-vyomora.com",
+        "url": "https://www.shapoorji-vyomora.com",
         "priceRange": "Premium",
-        "description": "Ultra luxury 2BHK, 3BHK, 4BHK, duplex, and skyduplex residences in Hinjewadi, Mahalunge, and Baner, Pune.",
+        "description": "Ultra luxury 2BHK, 3BHK, 4BHK apartments in Hinjewadi, Pune by Shapoorji Pallonji.",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://shapoorji-vyomora.com/icon.svg"
+          "url": "https://www.shapoorji-vyomora.com/icon.svg"
         },
         "contactPoint": {
           "@type": "ContactPoint",
@@ -22,56 +22,27 @@ export default function StructuredData() {
         },
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Off Maan Village Road, Near Phase 1, Mahalunge - Hinjawadi",
-          "addressLocality": "Pune",
+          "streetAddress": "Off Maan Village Road, Near Phase 1, Rajiv Gandhi Infotech Park",
+          "addressLocality": "Hinjewadi, Pune",
           "postalCode": "411057",
           "addressRegion": "Maharashtra",
           "addressCountry": "IN"
-        }
-      },
-      {
-        "@type": "Product",
-        "name": "Luxury 2BHK Apartments in Hinjewadi",
-        "description": "Premium 2 BHK flats near Hinjewadi IT Park, Pune, perfect for IT professionals.",
-        "category": "Real Estate",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "INR",
-          "price": "8499000",
-          "availability": "https://schema.org/PreOrder"
-        }
-      },
-      {
-        "@type": "Product",
-        "name": "Premium 3BHK & 4BHK Flats in Mahalunge",
-        "description": "Ultra-luxury 3 BHK and 4 BHK apartments in Mahalunge, Pune. Resort-style amenities.",
-        "category": "Real Estate",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "INR",
-          "price": "14500000",
-          "availability": "https://schema.org/PreOrder"
-        }
-      },
-      {
-        "@type": "Product",
-        "name": "Luxury Duplex & Skyduplex in Baner",
-        "description": "Exclusive duplex and skyduplex penthouses for sale in Baner and Hinjewadi corridor.",
-        "category": "Real Estate",
-        "offers": {
-          "@type": "Offer",
-          "availability": "https://schema.org/PreOrder"
-        }
+        },
+        "sameAs": [
+          "https://www.facebook.com/shapoorjipallonji/",
+          "https://twitter.com/shapoorjipallonji",
+          "https://www.instagram.com/shapoorjipallonji/"
+        ]
       },
       {
         "@type": "Residence",
-        "@id": "https://shapoorji-vyomora.com/#project",
+        "@id": "https://www.shapoorji-vyomora.com/#project",
         "name": "Vyomora by Shapoorji Pallonji Joyville",
-        "description": "Premium residential township development project located in Mahalunge and Hinjewadi, Pune. Featuring 2BHK, 3BHK, 4BHK, simplex and duplex homes.",
-        "url": "https://shapoorji-vyomora.com",
+        "description": "Premium residential township development project located in Hinjewadi, Pune. Featuring luxury 2BHK, 3BHK, and 4BHK apartments.",
+        "url": "https://www.shapoorji-vyomora.com",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Hinjewadi Phase 1, Mahalunge",
+          "streetAddress": "Hinjewadi Phase 1, Near Infosys",
           "addressLocality": "Pune",
           "addressRegion": "Maharashtra",
           "postalCode": "411057",
@@ -82,11 +53,11 @@ export default function StructuredData() {
           "latitude": "18.5912",
           "longitude": "73.7389"
         },
-        "numberOfRooms": ["2", "3", "4", "5"],
+        "numberOfRooms": ["2", "3", "4"],
         "petsAllowed": "True",
         "amenityFeature": [
           { "@type": "LocationFeatureSpecification", "name": "32,000+ sq. ft. Clubhouse", "value": "True" },
-          { "@type": "LocationFeatureSpecification", "name": "Elevated Eco-Deck", "value": "True" },
+          { "@type": "LocationFeatureSpecification", "name": "IT Corridor Connectivity", "value": "True" },
           { "@type": "LocationFeatureSpecification", "name": "Smart Home Features", "value": "True" }
         ]
       },
@@ -95,18 +66,42 @@ export default function StructuredData() {
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What configurations are available at Shapoorji Pallonji Joyville Vyomora?",
+            "name": "Is Shapoorji Pallonji Vyomora worth buying?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Vyomora offers premium 2BHK, 3BHK, 4BHK, duplex, and skyduplex residences tailored for luxury living in Pune."
+              "text": "Yes, Joyville Homes Vyomora is highly recommended. It offers luxury living, a massive clubhouse, and is strategically located in the Hinjewadi IT Corridor, ensuring high ROI and excellent capital appreciation."
             }
           },
           {
             "@type": "Question",
-            "name": "Where is the Shapoorji Pallonji Vyomora project located?",
+            "name": "Is Hinjewadi good for investment?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The project is strategically located in the Mahalunge and Hinjewadi Phase 1 corridor in Pune, offering excellent connectivity to Baner and the IT Park."
+              "text": "Hinjewadi is one of the best areas for real estate investment in Pune. Driven by the Rajiv Gandhi Infotech Park, the upcoming Pune Metro, and massive infrastructure growth, properties here yield high rental income and strong appreciation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which is the best residential project in Hinjewadi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Shapoorji Pallonji Joyville Vyomora is widely considered the best residential project in Hinjewadi due to its premium 2, 3 & 4 BHK configurations, trusted 150-year builder legacy, and unmatched lifestyle amenities."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Shapoorji Pallonji a trusted builder?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. Shapoorji Pallonji has an unparalleled 150-year legacy in real estate and construction, delivering iconic structures across India. They are renowned for transparency, quality, and timely possession."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the future of Hinjewadi real estate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The future of Hinjewadi real estate is extremely bright. With massive IT park expansions, smart city initiatives, and seamless connectivity via the Mumbai-Pune Expressway, property values are projected to soar."
             }
           }
         ]
