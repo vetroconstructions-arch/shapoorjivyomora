@@ -32,13 +32,9 @@ export default function EnquiryModal() {
     };
   }, []);
 
-  // We no longer use fetch for submission because Cloudflare blocks AJAX requests.
-  // The form will submit natively to Web3Forms.
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    // Delay the state update so the browser's native submit action isn't cancelled
-    // by the submit button becoming disabled synchronously.
-    setTimeout(() => setStatus("loading"), 50);
-  };
+  // We completely removed the onSubmit handler. The form will purely rely
+  // on native browser submission, completely bypassing React's synthetic event system
+  // which can occasionally abort native form submissions on mobile browsers.
 
   return (
     <AnimatePresence>
@@ -86,7 +82,7 @@ export default function EnquiryModal() {
                   <p className="text-[#0F172A]/70 text-sm">Our luxury consultant will contact you shortly.</p>
                 </div>
               ) : (
-                <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit} className="space-y-4">
+                <form action="https://api.web3forms.com/submit" method="POST" className="space-y-4">
                   <input type="hidden" name="access_key" value="85fb0f24-6f7b-410a-936b-9f215ccdcacc" />
                   <input type="hidden" name="subject" value="New Inquiry from Popup Modal" />
                   <input type="hidden" name="from_name" value="Vyomora Website" />
@@ -126,10 +122,9 @@ export default function EnquiryModal() {
                   
                   <button 
                     type="submit" 
-                    disabled={status === "loading"}
-                    className="w-full bg-[#2D2155] text-white uppercase tracking-widest text-xs font-bold py-4 rounded-sm hover:bg-[#a4789c] transition-colors disabled:opacity-70 mt-4"
+                    className="w-full bg-[#2D2155] text-white uppercase tracking-widest text-xs font-bold py-4 rounded-sm hover:bg-[#a4789c] transition-colors mt-4"
                   >
-                    {status === "loading" ? "Submitting..." : "Get Instant Callback"}
+                    Get Instant Callback
                   </button>
                   <p className="text-[10px] text-center text-[#0F172A]/40 mt-4">
                     By submitting this form, you agree to our privacy policy and consent to receive updates.
