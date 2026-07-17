@@ -4,15 +4,15 @@ import { SEOLocations, SEOConfigurations, SEOTopics, generateSEOContent } from "
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 interface Props {
-  params: {
+  params: Promise<{
     location: string;
     configuration: string;
     topic: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { location, configuration, topic } = params;
+  const { location, configuration, topic } = await params;
 
   // Validate to prevent spam/junk URLs from hurting SEO
   if (!SEOLocations.includes(location) || !SEOConfigurations.includes(configuration) || !SEOTopics.includes(topic)) {
@@ -29,13 +29,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: content.description,
     },
     alternates: {
-      canonical: `https://shapoorji-vyomora.com/market/${location}/${configuration}/${topic}`,
+      canonical: `https://www.shapoorji-vyomora.com/market/${location}/${configuration}/${topic}`,
     }
   };
 }
 
-export default function ProgrammaticSEOPage({ params }: Props) {
-  const { location, configuration, topic } = params;
+export default async function ProgrammaticSEOPage({ params }: Props) {
+  const { location, configuration, topic } = await params;
 
   // Validate
   if (!SEOLocations.includes(location) || !SEOConfigurations.includes(configuration) || !SEOTopics.includes(topic)) {
