@@ -35,8 +35,9 @@ export default function EnquiryModal() {
   // We no longer use fetch for submission because Cloudflare blocks AJAX requests.
   // The form will submit natively to Web3Forms.
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    setStatus("loading");
-    // Form will naturally navigate away. We don't preventDefault.
+    // Delay the state update so the browser's native submit action isn't cancelled
+    // by the submit button becoming disabled synchronously.
+    setTimeout(() => setStatus("loading"), 50);
   };
 
   return (

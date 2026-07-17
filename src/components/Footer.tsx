@@ -11,7 +11,9 @@ export default function Footer() {
 
   // We no longer use fetch for submission because Cloudflare blocks AJAX requests.
   const handleSubscribe = () => {
-    setStatus("loading");
+    // Delay the state update so the browser's native submit action isn't cancelled
+    // by the submit button becoming disabled synchronously.
+    setTimeout(() => setStatus("loading"), 50);
   };
 
   return (
