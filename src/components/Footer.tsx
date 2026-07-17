@@ -71,14 +71,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="text-[#a4789c]/60 mr-4 shrink-0" />
-                <a href="tel:+91XXXXXXXXXX" className="text-sm text-white/70 hover:text-white transition-colors">
-                  +91 XXXXXXXXXX
+                <a href="tel:+917744009295" className="text-sm text-white/70 hover:text-white transition-colors">
+                  +91 7744009295
                 </a>
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="text-[#a4789c]/60 mr-4 shrink-0" />
-                <a href="mailto:info@vyomora-hinjewadi.com" className="text-sm text-white/70 hover:text-white transition-colors">
-                  info@vyomora-hinjewadi.com
+                <a href="mailto:propsmartrealty@gmail.com" className="text-sm text-white/70 hover:text-white transition-colors">
+                  propsmartrealty@gmail.com
                 </a>
               </li>
             </ul>

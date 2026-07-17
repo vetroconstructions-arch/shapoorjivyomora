@@ -15,7 +15,7 @@ export default function StructuredData() {
         },
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+91-XXXXXXXXXX",
+          "telephone": "+91-7744009295",
           "contactType": "sales",
           "areaServed": "IN",
           "availableLanguage": ["English", "Hindi", "Marathi"]

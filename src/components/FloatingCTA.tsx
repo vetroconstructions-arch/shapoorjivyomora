@@ -33,7 +33,7 @@ export default function FloatingCTA() {
         >
           {/* WhatsApp Button */}
           <a
-            href="https://wa.me/91XXXXXXXXXX"
+            href="https://wa.me/917744009295"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex items-center justify-center w-14 h-14 bg-[#25D366] rounded-full text-white shadow-lg shadow-black/20 hover:scale-110 transition-transform duration-300"
@@ -46,7 +46,7 @@ export default function FloatingCTA() {
 
           {/* Call Button */}
           <a
-            href="tel:+91XXXXXXXXXX"
+            href="tel:+917744009295"
             className="group relative flex items-center justify-center w-14 h-14 bg-white rounded-full text-black shadow-lg shadow-black/20 hover:scale-110 transition-transform duration-300"
           >
             <Phone size={24} />

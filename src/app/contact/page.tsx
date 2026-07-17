@@ -137,8 +137,8 @@ export default function ContactPage() {
                 <div>
                   <h4 className="text-sm font-bold uppercase tracking-widest mb-2">Contact Numbers</h4>
                   <p className="text-[#0F172A]/70 font-light leading-relaxed">
-                    Sales: +91 XXXXXXXXXX<br />
-                    Support: +91 XXXXXXXXXX
+                    Sales: +91 7744009295<br />
+                    Support: +91 7744009295
                   </p>
                 </div>
               </div>
@@ -150,7 +150,7 @@ export default function ContactPage() {
                 <div>
                   <h4 className="text-sm font-bold uppercase tracking-widest mb-2">Email Address</h4>
                   <p className="text-[#0F172A]/70 font-light leading-relaxed">
-                    info@vyomora-hinjewadi.com<br />
+                    propsmartrealty@gmail.com<br />
                     sales@vyomora-hinjewadi.com
                   </p>
                 </div>
