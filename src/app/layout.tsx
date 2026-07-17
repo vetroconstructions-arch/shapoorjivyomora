@@ -19,17 +19,18 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.shapoorji-vyomora.com'),
   title: "Vyomora Hinjewadi | Luxury 2BHK, 3BHK, 4BHK & Duplex by Shapoorji Pallonji",
   description: "Experience luxury living at Shapoorji Pallonji Joyville Homes Vyomora. Premium 2BHK, 3BHK, 4BHK, and Duplex residences in the Mahalunge-Hinjewadi corridor, Pune.",
   keywords: ["shapoorji pallonji joyville homes vyomora pune", "2bhk flats in hinjewadi", "3bhk apartments in mahalunge", "4bhk luxury flats baner", "duplex for sale in pune west", "shapoorji pallonji real estate", "premium township mahalunge hinjewadi"],
   openGraph: {
     title: "Shapoorji Pallonji Vyomora | Luxury Real Estate in Pune",
     description: "Discover ultra-premium 2BHK, 3BHK, 4BHK and Duplex apartments in Hinjewadi and Mahalunge. Book your dream home with Shapoorji Pallonji today.",
-    url: "https://shapoorji-vyomora.com",
+    url: "https://www.shapoorji-vyomora.com",
     siteName: "Shapoorji Pallonji Joyville Homes Vyomora",
     images: [
       {
-        url: "https://shapoorji-vyomora.com/og-image.jpg",
+        url: "https://www.shapoorji-vyomora.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Shapoorji Pallonji Joyville Vyomora Luxury Project",
@@ -42,10 +43,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shapoorji Pallonji Vyomora | Premium Residences Pune",
     description: "Luxury 2, 3, 4 BHK & Duplex homes in Mahalunge-Hinjewadi corridor.",
-    images: ["https://shapoorji-vyomora.com/og-image.jpg"],
+    images: ["https://www.shapoorji-vyomora.com/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://shapoorji-vyomora.com",
+    canonical: "https://www.shapoorji-vyomora.com",
   },
   robots: {
     index: true,
@@ -61,6 +62,7 @@ export const metadata: Metadata = {
   verification: {
     google: '_plOwnQGpvv_iPs3H6LA4ghAOe9XbJprhoQyky_lWko',
   },
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
