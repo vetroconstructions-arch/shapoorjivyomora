@@ -21,20 +21,17 @@ export default function ContactPage() {
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
-      const submitData = {
-        ...data,
-        access_key: "85fb0f24-6f7b-410a-936b-9f215ccdcacc",
-        subject: "New Inquiry from Vyomora Website",
-        from_name: "Vyomora Website",
-      };
+      const formData = new FormData();
+      Object.entries(data).forEach(([key, value]) => {
+        formData.append(key, value as string);
+      });
+      formData.append("access_key", "85fb0f24-6f7b-410a-936b-9f215ccdcacc");
+      formData.append("subject", "New Inquiry from Vyomora Website");
+      formData.append("from_name", "Vyomora Website");
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(submitData),
+        body: formData,
       });
       
       const result = await response.json();

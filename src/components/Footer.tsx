@@ -15,18 +15,15 @@ export default function Footer() {
 
     setStatus("loading");
     try {
+      const formData = new FormData();
+      formData.append("access_key", "85fb0f24-6f7b-410a-936b-9f215ccdcacc");
+      formData.append("email", email);
+      formData.append("subject", "New Newsletter Registration");
+      formData.append("from_name", "Vyomora Website");
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "85fb0f24-6f7b-410a-936b-9f215ccdcacc",
-          email: email,
-          subject: "New Newsletter Registration",
-          from_name: "Vyomora Website",
-        }),
+        body: formData,
       });
       const result = await response.json();
       if (response.ok && result.success) {

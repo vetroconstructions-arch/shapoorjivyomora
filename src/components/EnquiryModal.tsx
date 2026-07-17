@@ -36,22 +36,18 @@ export default function EnquiryModal() {
     e.preventDefault();
     setStatus("loading");
     
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
     
+    // Append required Web3Forms fields
+    formData.append("access_key", "85fb0f24-6f7b-410a-936b-9f215ccdcacc");
+    formData.append("subject", "New Inquiry from Popup Modal");
+    formData.append("from_name", "Vyomora Website");
+
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          ...data,
-          access_key: "85fb0f24-6f7b-410a-936b-9f215ccdcacc",
-          subject: "New Inquiry from Popup Modal",
-          from_name: "Vyomora Website",
-        }),
+        body: formData,
       });
       
       const result = await response.json();
