@@ -4,6 +4,12 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Train, Bus, ArrowRight, GraduationCap, Building2, ShoppingBag, TreePine, Map, PlusSquare } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const DynamicMap = dynamic(() => import("./InteractiveMap"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-[#1a1a1a] flex items-center justify-center animate-pulse"><div className="w-8 h-8 border-4 border-[#C5A059] border-t-transparent rounded-full animate-spin"></div></div>
+});
 
 const legendItems = [
   { label: "National Highway", icon: <Map size={16} strokeWidth={2} className="text-emerald-500" /> },
@@ -113,14 +119,7 @@ export default function Location() {
                   Using a placeholder that can be replaced by the actual Map SVG or Image. 
                   We use object-contain so it never stretches or distorts.
                 */}
-                <iframe 
-                  src="https://maps.google.com/maps?q=Joyville%20Vyomora&t=&z=14&ie=UTF8&iwloc=&output=embed" 
-                  title="Vyomora Location Map"
-                  className="w-full h-full border-0 filter grayscale-[20%] hover:grayscale-0 transition-all duration-500"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                <DynamicMap />
 
               </div>
               <p className="text-right text-[10px] text-[#1e2338]/40 mt-2 font-light uppercase tracking-widest">
