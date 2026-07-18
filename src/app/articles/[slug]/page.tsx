@@ -86,20 +86,20 @@ export default function ArticlePage({ params }: ArticleProps) {
           ]} 
         />
         
-        <article className="bg-white p-8 md:p-16 rounded-sm shadow-sm border border-[#2D2155]/5 mt-8">
-          <header className="mb-10 pb-10 border-b border-[#2D2155]/10">
-            <div className="text-sm text-[#a4789c] mb-6 tracking-widest uppercase font-semibold">
+        <article className="bg-white p-8 md:p-16 rounded-sm shadow-sm border border-[#0A192F]/5 mt-8">
+          <header className="mb-10 pb-10 border-b border-[#0A192F]/10">
+            <div className="text-sm text-[#C5A059] mb-6 tracking-widest uppercase font-semibold">
               {new Date(article.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#2D2155] leading-tight mb-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#0A192F] leading-tight mb-8">
               {article.title}
             </h1>
-            <p className="text-xl text-[#1e2338]/60 font-light leading-relaxed border-l-4 border-[#a4789c] pl-6 italic">
+            <p className="text-xl text-[#1e2338]/60 font-light leading-relaxed border-l-4 border-[#C5A059] pl-6 italic">
               {article.excerpt}
             </p>
           </header>
           
-          <div className="prose prose-lg prose-headings:font-serif prose-headings:text-[#2D2155] prose-p:text-[#1e2338]/80 prose-p:font-light prose-p:leading-loose prose-a:text-[#a4789c] max-w-none">
+          <div className="prose prose-lg prose-headings:font-serif prose-headings:text-[#0A192F] prose-p:text-[#1e2338]/80 prose-p:font-light prose-p:leading-loose prose-a:text-[#C5A059] max-w-none">
             {article.content}
           </div>
         </article>

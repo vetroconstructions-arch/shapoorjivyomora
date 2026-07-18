@@ -14,7 +14,7 @@ const buttonVariants = cva(
         outline:
           "border border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40",
         ghost: "hover:bg-white/10 text-white",
-        gold: "bg-[#7DD3FC] text-black hover:bg-[#38BDF8] shadow-lg hover:shadow-xl transition-all duration-300",
+        gold: "bg-[#E5D3B3] text-black hover:bg-[#38BDF8] shadow-lg hover:shadow-xl transition-all duration-300",
         glass: "glass text-white hover:bg-white/10",
       },
       size: {

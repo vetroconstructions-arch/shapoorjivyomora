@@ -6,8 +6,8 @@
 
 @theme {
   --color-primary: #1e2338;
-  --color-accent: #a4789c;
-  --color-dark-purple: #2D2155;
+  --color-accent: #C5A059;
+  --color-dark-purple: #0A192F;
   --color-white: #FFFFFF;
   --color-stone: #FDFBF7;
   --color-glass-white: rgba(255,255,255,0.4);
@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .text-gradient {
-    background: linear-gradient(to right, #2D2155, #a4789c);
+    background: linear-gradient(to right, #0A192F, #C5A059);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

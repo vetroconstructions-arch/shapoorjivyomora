@@ -21,15 +21,15 @@ export default function Pricing() {
   return (
     <section id="residences" className="py-24 md:py-32 bg-watercolor relative overflow-hidden">
       {/* Decorative background blur */}
-      <div className="absolute bottom-0 left-0 w-1/2 h-full bg-[#a4789c]/10 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-1/2 h-full bg-[#C5A059]/10 blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#a4789c] mb-4 block">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#C5A059] mb-4 block">
             Pricing & Configurations
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif text-[#2D2155] mb-6">
-            Intelligent Spaces. <span className="text-[#a4789c] italic">Impeccable Value.</span>
+          <h2 className="text-4xl md:text-5xl font-serif text-[#0A192F] mb-6">
+            Intelligent Spaces. <span className="text-[#C5A059] italic">Impeccable Value.</span>
           </h2>
           <p className="text-[#1e2338]/80 font-light max-w-2xl mx-auto">
             Discover thoughtfully crafted residences with layouts optimized for modern living. Choose from our diverse range of 2 & 3 BHK configurations.
@@ -37,14 +37,14 @@ export default function Pricing() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white/60 backdrop-blur-md rounded-sm overflow-hidden border border-[#2D2155]/10 shadow-sm">
+          <div className="bg-white/60 backdrop-blur-md rounded-sm overflow-hidden border border-[#0A192F]/10 shadow-sm">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-[#2D2155]/10 bg-white/40">
-                    <th className="py-5 px-6 font-serif text-[#2D2155] text-sm tracking-widest uppercase whitespace-nowrap">Typology</th>
-                    <th className="py-5 px-6 font-serif text-[#2D2155] text-sm tracking-widest uppercase whitespace-nowrap">Total Usable Area (sq.ft.)</th>
-                    <th className="py-5 px-6 font-serif text-[#2D2155] text-sm tracking-widest uppercase whitespace-nowrap">Price Range</th>
+                  <tr className="border-b border-[#0A192F]/10 bg-white/40">
+                    <th className="py-5 px-6 font-serif text-[#0A192F] text-sm tracking-widest uppercase whitespace-nowrap">Typology</th>
+                    <th className="py-5 px-6 font-serif text-[#0A192F] text-sm tracking-widest uppercase whitespace-nowrap">Total Usable Area (sq.ft.)</th>
+                    <th className="py-5 px-6 font-serif text-[#0A192F] text-sm tracking-widest uppercase whitespace-nowrap">Price Range</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -55,15 +55,15 @@ export default function Pricing() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="border-b border-[#2D2155]/5 hover:bg-white/80 transition-colors group"
+                      className="border-b border-[#0A192F]/5 hover:bg-white/80 transition-colors group"
                     >
-                      <td className="py-5 px-6 text-[#2D2155] font-medium whitespace-nowrap group-hover:text-[#a4789c] transition-colors">
+                      <td className="py-5 px-6 text-[#0A192F] font-medium whitespace-nowrap group-hover:text-[#C5A059] transition-colors">
                         {row.typology}
                       </td>
                       <td className="py-5 px-6 text-[#1e2338]/80 font-light">
                         {row.area}
                       </td>
-                      <td className="py-5 px-6 text-[#2D2155] font-medium">
+                      <td className="py-5 px-6 text-[#0A192F] font-medium">
                         {row.price}
                       </td>
                     </motion.tr>
@@ -81,7 +81,7 @@ export default function Pricing() {
             </p>
             <Button 
               variant="gold" 
-              className="text-sm bg-[#2D2155] text-white shrink-0"
+              className="text-sm bg-[#0A192F] text-white shrink-0"
               onClick={() => window.dispatchEvent(new Event('open-enquiry-modal'))}
             >
               Enquire Now

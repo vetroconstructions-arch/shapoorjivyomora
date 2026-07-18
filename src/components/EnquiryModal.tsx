@@ -125,7 +125,7 @@ export default function EnquiryModal() {
             
             <div className="p-8 md:p-10 text-[#0F172A]">
               <div className="text-center mb-8">
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#7DD3FC] mb-2 block">
+                <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#E5D3B3] mb-2 block">
                   Exclusive Preview
                 </span>
                 <h3 className="text-3xl font-serif leading-tight">Register Your Interest</h3>
@@ -143,7 +143,7 @@ export default function EnquiryModal() {
                   <p className="text-[#0F172A]/70 text-sm">Our luxury consultant will contact you shortly.</p>
                   <button 
                     onClick={() => setIsOpen(false)}
-                    className="mt-6 text-[#2D2155] border-b border-[#2D2155] pb-1 text-sm font-medium hover:text-[#a4789c] transition-colors"
+                    className="mt-6 text-[#0A192F] border-b border-[#0A192F] pb-1 text-sm font-medium hover:text-[#C5A059] transition-colors"
                   >
                     Close Window
                   </button>
@@ -157,7 +157,7 @@ export default function EnquiryModal() {
                       {...register("name")}
                       type="text" 
                       placeholder="Full Name"
-                      className={`w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-base ${errors.name ? 'border-red-400' : 'border-transparent'}`}
+                      className={`w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border focus:ring-1 focus:ring-[#E5D3B3] outline-none transition-all placeholder:text-[#0F172A]/40 text-base ${errors.name ? 'border-red-400' : 'border-transparent'}`}
                     />
                     {errors.name && <p className="text-red-500 text-[10px] mt-1 ml-1">{errors.name.message}</p>}
                   </div>
@@ -166,7 +166,7 @@ export default function EnquiryModal() {
                       {...register("email")}
                       type="email" 
                       placeholder="Email Address"
-                      className={`w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-base ${errors.email ? 'border-red-400' : 'border-transparent'}`}
+                      className={`w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border focus:ring-1 focus:ring-[#E5D3B3] outline-none transition-all placeholder:text-[#0F172A]/40 text-base ${errors.email ? 'border-red-400' : 'border-transparent'}`}
                     />
                     {errors.email && <p className="text-red-500 text-[10px] mt-1 ml-1">{errors.email.message}</p>}
                   </div>
@@ -175,14 +175,14 @@ export default function EnquiryModal() {
                       {...register("phone")}
                       type="tel" 
                       placeholder="Phone Number"
-                      className={`w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-base ${errors.phone ? 'border-red-400' : 'border-transparent'}`}
+                      className={`w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border focus:ring-1 focus:ring-[#E5D3B3] outline-none transition-all placeholder:text-[#0F172A]/40 text-base ${errors.phone ? 'border-red-400' : 'border-transparent'}`}
                     />
                     {errors.phone && <p className="text-red-500 text-[10px] mt-1 ml-1">{errors.phone.message}</p>}
                   </div>
                   <div>
                     <select 
                       {...register("configuration")}
-                      className={`w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all text-base appearance-none text-[#0F172A] ${errors.configuration ? 'border-red-400' : 'border-transparent'}`}
+                      className={`w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border focus:ring-1 focus:ring-[#E5D3B3] outline-none transition-all text-base appearance-none text-[#0F172A] ${errors.configuration ? 'border-red-400' : 'border-transparent'}`}
                     >
                       <option value="">Select Configuration</option>
                       <option value="2bhk">2 BHK Premium Residence</option>
@@ -196,7 +196,7 @@ export default function EnquiryModal() {
                       {...register("visit_date")}
                       type="date" 
                       placeholder="Schedule a Visit (Optional)"
-                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border border-transparent focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-base"
+                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border border-transparent focus:ring-1 focus:ring-[#E5D3B3] outline-none transition-all placeholder:text-[#0F172A]/40 text-base"
                     />
                   </div>
                   
@@ -207,7 +207,7 @@ export default function EnquiryModal() {
                   <button 
                     type="submit" 
                     disabled={status === "loading"}
-                    className="w-full bg-[#2D2155] text-white uppercase tracking-widest text-xs font-bold py-4 rounded-sm hover:bg-[#a4789c] transition-colors mt-4 disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
+                    className="w-full bg-[#0A192F] text-white uppercase tracking-widest text-xs font-bold py-4 rounded-sm hover:bg-[#C5A059] transition-colors mt-4 disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
                   >
                     {status === "loading" ? (
                       <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></span>

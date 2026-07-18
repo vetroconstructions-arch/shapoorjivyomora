@@ -33,14 +33,14 @@ export default function Preloader() {
               transition={{ duration: 1, ease: "easeOut" }}
               className="text-center"
             >
-              <div className="text-3xl font-serif text-[#7DD3FC] tracking-widest uppercase drop-shadow-[0_0_15px_rgba(125,211,252,0.3)]">
+              <div className="text-3xl font-serif text-[#E5D3B3] tracking-widest uppercase drop-shadow-[0_0_15px_rgba(125,211,252,0.3)]">
                 Vyomora
               </div>
               <motion.div 
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ delay: 0.5, duration: 1, ease: "easeInOut" }}
-                className="h-[1px] bg-[#7DD3FC]/50 mt-4 mb-3 mx-auto"
+                className="h-[1px] bg-[#E5D3B3]/50 mt-4 mb-3 mx-auto"
               />
               <motion.div
                 initial={{ opacity: 0 }}

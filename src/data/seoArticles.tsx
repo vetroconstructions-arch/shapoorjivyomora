@@ -23,11 +23,11 @@ export const seoArticles: SEOArticle[] = [
         <p>
           The <strong>Baner-Mahalunge corridor</strong> has rapidly evolved into Pune’s most sought-after destination for luxury real estate. With its strategic proximity to the Hinjewadi IT Park and the vibrant lifestyle of Balewadi High Street, this micro-market is witnessing unprecedented demand for <strong>luxury 3BHK, 4BHK, and duplex apartments</strong>.
         </p>
-        <h2 className="text-2xl font-serif text-[#2D2155] mt-8 mb-4">Why Invest in Mahalunge and Baner?</h2>
+        <h2 className="text-2xl font-serif text-[#0A192F] mt-8 mb-4">Why Invest in Mahalunge and Baner?</h2>
         <p>
           Investing in premium real estate in West Pune guarantees robust capital appreciation. Projects like <em>Shapoorji Pallonji Joyville Vyomora</em> are redefining the skyline with architectural brilliance. Whether you are looking for a sprawling <strong>4BHK luxury duplex in Baner</strong> or a thoughtfully designed <strong>3BHK flat in Mahalunge</strong>, the area offers a perfect blend of natural tranquility and urban convenience.
         </p>
-        <h3 className="text-xl font-serif text-[#2D2155] mt-6 mb-3">The Demand for Duplex and Skyduplex Homes</h3>
+        <h3 className="text-xl font-serif text-[#0A192F] mt-6 mb-3">The Demand for Duplex and Skyduplex Homes</h3>
         <p>
           Post-pandemic, the demand for expansive living spaces has skyrocketed. Discerning homebuyers are exclusively seeking <strong>skyduplexes and simplexes</strong> that offer private decks, home offices, and resort-style amenities. The integration of 40+ world-class amenities within gated townships ensures a holistic lifestyle for families.
         </p>
@@ -50,7 +50,7 @@ export const seoArticles: SEOArticle[] = [
         <p>
           As the epicenter of Pune's IT and corporate boom, <strong>Hinjewadi</strong> attracts thousands of professionals annually. For IT professionals and astute investors alike, securing a <strong>premium 2BHK flat near Hinjewadi Phase 1</strong> represents one of the most lucrative real estate decisions in India.
         </p>
-        <h2 className="text-2xl font-serif text-[#2D2155] mt-8 mb-4">The Live-Work-Play Ecosystem</h2>
+        <h2 className="text-2xl font-serif text-[#0A192F] mt-8 mb-4">The Live-Work-Play Ecosystem</h2>
         <p>
           The daily commute is a significant factor for homebuyers. Properties situated in the Mahalunge-Hinjewadi corridor, such as <em>Shapoorji Pallonji Joyville Vyomora</em>, completely eliminate traffic woes. Residents enjoy walk-to-work concepts or a breezy drive to major tech parks, including the Infosys Circle and Wipro campus.
         </p>
@@ -78,11 +78,11 @@ export const seoArticles: SEOArticle[] = [
         <p>
           Welcome to the definitive guide on <strong>Shapoorji Pallonji Joyville Vyomora</strong>, an extraordinary premium residential development project located strategically between Mahalunge and Hinjewadi. This expansive township is designed to elevate the standard of living in Pune.
         </p>
-        <h2 className="text-2xl font-serif text-[#2D2155] mt-8 mb-4">Architectural Brilliance and Offerings</h2>
+        <h2 className="text-2xl font-serif text-[#0A192F] mt-8 mb-4">Architectural Brilliance and Offerings</h2>
         <p>
           Spanning over acres of lush greenery, Vyomora offers a meticulously curated selection of residences, ranging from ultra-efficient <strong>2BHK apartments</strong> to sprawling <strong>3BHK, 4BHK, and exclusive duplex layouts</strong>. The development is characterized by its signature multi-tier security, sustainable architecture, and panoramic views of the surrounding hills and riverscapes.
         </p>
-        <h3 className="text-xl font-serif text-[#2D2155] mt-6 mb-3">World-Class Amenities</h3>
+        <h3 className="text-xl font-serif text-[#0A192F] mt-6 mb-3">World-Class Amenities</h3>
         <p>
           Residents of <em>Joyville Vyomora</em> gain exclusive access to a monumental 32,000+ sq. ft. clubhouse, elevated eco-decks, temperature-controlled swimming pools, and dedicated wellness zones. Every square foot is optimized to foster community interaction while preserving absolute privacy.
         </p>

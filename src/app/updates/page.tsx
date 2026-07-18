@@ -41,7 +41,7 @@ export default function UpdatesPage() {
     <div className="pt-32 pb-24 bg-[#0F172A] min-h-screen text-white relative">
       <div className="container mx-auto px-6 md:px-12 max-w-5xl">
         <div className="text-center mb-20">
-          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#7DD3FC] mb-4 block">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#E5D3B3] mb-4 block">
             Construction Timeline
           </span>
           <h1 className="text-5xl md:text-7xl font-serif mb-6">
@@ -63,16 +63,16 @@ export default function UpdatesPage() {
             >
               {/* Timeline dot */}
               <div className={`absolute -left-3.5 top-1 flex items-center justify-center w-7 h-7 rounded-full bg-[#0F172A] border-2 ${
-                item.status === 'completed' ? 'border-[#7DD3FC] text-[#7DD3FC]' : 
+                item.status === 'completed' ? 'border-[#E5D3B3] text-[#E5D3B3]' : 
                 item.status === 'in-progress' ? 'border-yellow-500 text-yellow-500' : 
                 'border-white/30 text-white/30'
               }`}>
                 {item.status === 'completed' ? <CheckCircle2 size={14} /> : <Clock size={14} />}
               </div>
 
-              <div className="glass p-6 md:p-8 rounded-sm hover:border-[#7DD3FC]/30 transition-colors">
+              <div className="glass p-6 md:p-8 rounded-sm hover:border-[#E5D3B3]/30 transition-colors">
                 <span className={`text-xs font-bold tracking-widest uppercase mb-2 block ${
-                  item.status === 'completed' ? 'text-[#7DD3FC]' : 
+                  item.status === 'completed' ? 'text-[#E5D3B3]' : 
                   item.status === 'in-progress' ? 'text-yellow-500' : 
                   'text-white/50'
                 }`}>

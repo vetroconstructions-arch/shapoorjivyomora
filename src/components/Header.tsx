@@ -37,7 +37,7 @@ export default function Header() {
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link href="/" className="z-50 flex flex-col group">
-            <span className={`text-xl md:text-2xl font-serif font-bold tracking-widest transition-colors duration-300 text-[#2D2155]`}>
+            <span className={`text-xl md:text-2xl font-serif font-bold tracking-widest transition-colors duration-300 text-[#0A192F]`}>
               VYOMORA
             </span>
             <span className={`text-[0.6rem] tracking-[0.2em] uppercase transition-colors duration-300 text-[#1e2338]/60`}>
@@ -51,7 +51,7 @@ export default function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-300 tracking-wide uppercase text-[#1e2338]/70 hover:text-[#2D2155]`}
+                className={`text-sm font-medium transition-colors duration-300 tracking-wide uppercase text-[#1e2338]/70 hover:text-[#0A192F]`}
               >
                 {link.label}
               </Link>
@@ -61,7 +61,7 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-4">
             <Button 
               variant="gold" 
-              className="bg-[#2D2155] text-white border-transparent hover:bg-[#1e2338]"
+              className="bg-[#0A192F] text-white border-transparent hover:bg-[#1e2338]"
               onClick={() => window.dispatchEvent(new Event('open-enquiry-modal'))}
             >
               Enquire Now
@@ -70,11 +70,11 @@ export default function Header() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className={`md:hidden z-50 p-2 transition-colors duration-300 text-[#2D2155]`}
+            className={`md:hidden z-50 p-2 transition-colors duration-300 text-[#0A192F]`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X size={28} className="text-[#2D2155]" /> : <Menu size={28} />}
+            {mobileMenuOpen ? <X size={28} className="text-[#0A192F]" /> : <Menu size={28} />}
           </button>
         </div>
       </header>
@@ -100,7 +100,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-3xl font-serif tracking-wider text-[#2D2155] hover:text-[#a4789c] transition-colors"
+                    className="text-3xl font-serif tracking-wider text-[#0A192F] hover:text-[#C5A059] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -115,7 +115,7 @@ export default function Header() {
             >
               <Button 
                 variant="gold" 
-                className="w-full bg-[#2D2155] text-white"
+                className="w-full bg-[#0A192F] text-white"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   window.dispatchEvent(new Event('open-enquiry-modal'));

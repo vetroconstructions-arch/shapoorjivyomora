@@ -24,7 +24,7 @@ export default function ThankYouPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#7DD3FC] mb-4 block">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#E5D3B3] mb-4 block">
             Submission Successful
           </span>
           <h1 className="text-4xl md:text-6xl font-serif leading-tight mb-6">

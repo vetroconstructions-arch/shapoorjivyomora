@@ -53,13 +53,13 @@ export default function AboutDeveloper() {
         <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
           
           <div className="w-full lg:w-1/2">
-            <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#a4789c] mb-6 block">
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#C5A059] mb-6 block">
               The Legacy
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#2D2155] leading-tight mb-8">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#0A192F] leading-tight mb-8">
               Shapoorji Pallonji Real Estate.
             </h2>
-            <div className="w-12 h-1 bg-[#a4789c] mb-8" />
+            <div className="w-12 h-1 bg-[#C5A059] mb-8" />
             <p className="text-lg text-[#1e2338]/80 font-light leading-relaxed mb-6">
               With a legacy spanning over 150 years, Shapoorji Pallonji has been a driving force in India's real estate sector. Our commitment to cutting-edge design, sustainable engineering, and uncompromising quality has shaped some of the country's most iconic landmarks.
             </p>
@@ -68,9 +68,9 @@ export default function AboutDeveloper() {
             </p>
           </div>
 
-          <div className="w-full lg:w-1/2 relative h-[500px] rounded-sm overflow-hidden group shadow-sm border border-[#2D2155]/10">
+          <div className="w-full lg:w-1/2 relative h-[500px] rounded-sm overflow-hidden group shadow-sm border border-[#0A192F]/10">
             <div 
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+              className="absolute inset-0 bg-cover bg-center brightness-[1.15] contrast-[1.05] transition-transform duration-1000 group-hover:scale-105"
               style={{ backgroundImage: "url('/images/story_bg.jpg')" }}
             />
             <div className="absolute inset-0 bg-black/20" />
@@ -95,13 +95,13 @@ export default function AboutDeveloper() {
         </div>
 
         {/* Stats Section */}
-        <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-[#2D2155]/10 pt-16">
+        <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-[#0A192F]/10 pt-16">
           {stats.map((stat, idx) => (
             <div key={idx} className="stat-item flex flex-col items-center text-center">
-              <div className="text-[#a4789c] mb-6">
+              <div className="text-[#C5A059] mb-6">
                 {stat.icon}
               </div>
-              <h4 className="text-4xl md:text-5xl font-serif text-[#2D2155] mb-2">{stat.value}</h4>
+              <h4 className="text-4xl md:text-5xl font-serif text-[#0A192F] mb-2">{stat.value}</h4>
               <p className="text-sm uppercase tracking-widest text-[#1e2338]/70">{stat.label}</p>
             </div>
           ))}

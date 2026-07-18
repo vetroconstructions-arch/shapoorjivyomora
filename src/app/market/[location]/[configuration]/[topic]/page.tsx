@@ -76,11 +76,11 @@ export default async function ProgrammaticSEOPage({ params }: Props) {
           <Breadcrumbs items={breadcrumbItems} />
         </div>
 
-        <article className="prose prose-lg prose-headings:font-serif prose-headings:text-[#2D2155] prose-p:text-gray-600 prose-p:font-light max-w-none">
+        <article className="prose prose-lg prose-headings:font-serif prose-headings:text-[#0A192F] prose-p:text-gray-600 prose-p:font-light max-w-none">
           <h1 className="text-3xl md:text-5xl mb-8 leading-tight">{content.h1}</h1>
           
           <div className="bg-white p-8 md:p-12 shadow-xl rounded-2xl mb-12 border border-black/5 relative overflow-hidden">
-             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#a4789c]/10 to-transparent rounded-bl-full" />
+             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#C5A059]/10 to-transparent rounded-bl-full" />
              <p className="text-lg leading-relaxed mb-6">{content.p1}</p>
              <p className="text-lg leading-relaxed">{content.p2}</p>
           </div>
@@ -89,7 +89,7 @@ export default async function ProgrammaticSEOPage({ params }: Props) {
           <div className="space-y-6">
             {content.faqs.map((faq, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-black/5">
-                <h3 className="text-xl font-medium mb-3 text-[#2D2155]">{faq.question}</h3>
+                <h3 className="text-xl font-medium mb-3 text-[#0A192F]">{faq.question}</h3>
                 <p className="text-gray-600 font-light leading-relaxed">{faq.answer}</p>
               </div>
             ))}

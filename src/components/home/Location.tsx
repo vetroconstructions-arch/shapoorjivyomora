@@ -71,10 +71,10 @@ export default function Location() {
         
         {/* Title Section */}
         <div className="mb-12 md:mb-20 max-w-2xl">
-          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#a4789c] mb-6 block">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#C5A059] mb-6 block">
             Strategic Connectivity
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#2D2155] leading-tight tracking-wide">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#0A192F] leading-tight tracking-wide">
             A LOCATION <br/>
             <span className="text-[#1e2338]/60">THAT MOVES WITH YOU.</span>
           </h2>
@@ -84,17 +84,17 @@ export default function Location() {
           
           {/* Legend Sidebar */}
           <div className="w-full lg:w-1/4 flex flex-col justify-start">
-            <div className="bg-white/60 backdrop-blur-md p-6 rounded-sm border border-[#2D2155]/10 shadow-sm sticky top-32">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-[#1e2338]/80 mb-6 pb-4 border-b border-[#2D2155]/10">
+            <div className="bg-white/60 backdrop-blur-md p-6 rounded-sm border border-[#0A192F]/10 shadow-sm sticky top-32">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-[#1e2338]/80 mb-6 pb-4 border-b border-[#0A192F]/10">
                 Map Legend
               </h3>
               <ul className="space-y-4">
                 {legendItems.map((item, index) => (
                   <li key={index} className="legend-item flex items-center group">
-                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-[#2D2155]/10 mr-4 transition-transform group-hover:scale-110">
+                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-[#0A192F]/10 mr-4 transition-transform group-hover:scale-110">
                       {item.icon}
                     </div>
-                    <span className="text-sm font-light text-[#1e2338]/80 group-hover:text-[#2D2155] transition-colors">
+                    <span className="text-sm font-light text-[#1e2338]/80 group-hover:text-[#0A192F] transition-colors">
                       {item.label}
                     </span>
                   </li>
@@ -105,7 +105,7 @@ export default function Location() {
 
           {/* Map Display (Distortion-free) */}
           <div className="w-full lg:w-3/4" ref={mapRef}>
-            <div className="relative w-full rounded-sm overflow-hidden bg-white/50 border border-[#2D2155]/10 shadow-sm p-2 md:p-4 group">
+            <div className="relative w-full rounded-sm overflow-hidden bg-white/50 border border-[#0A192F]/10 shadow-sm p-2 md:p-4 group">
               {/* Note: The image uses object-contain to prevent any distortion of the complex map */}
               <div className="relative w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[2/1] bg-[#FDFBF7] rounded-sm overflow-hidden flex items-center justify-center cursor-zoom-in">
                 

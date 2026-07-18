@@ -30,14 +30,14 @@ export default function SustainabilityPage() {
   return (
     <div className="pt-32 pb-24 bg-[#0F172A] min-h-screen text-white relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#7DD3FC]/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#E5D3B3]/5 rounded-full blur-[150px] pointer-events-none" />
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-20">
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-xs font-bold tracking-[0.3em] uppercase text-[#7DD3FC] mb-4 block"
+            className="text-xs font-bold tracking-[0.3em] uppercase text-[#E5D3B3] mb-4 block"
           >
             Green Living
           </motion.span>
@@ -66,9 +66,9 @@ export default function SustainabilityPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 + idx * 0.1, duration: 0.6 }}
-              className="glass p-8 md:p-12 border-t-2 border-t-[#7DD3FC]/50 hover:border-t-[#7DD3FC] transition-colors group"
+              className="glass p-8 md:p-12 border-t-2 border-t-[#E5D3B3]/50 hover:border-t-[#E5D3B3] transition-colors group"
             >
-              <div className="w-16 h-16 rounded-full bg-[#7DD3FC]/10 flex items-center justify-center text-[#7DD3FC] mb-8 group-hover:scale-110 transition-transform duration-500">
+              <div className="w-16 h-16 rounded-full bg-[#E5D3B3]/10 flex items-center justify-center text-[#E5D3B3] mb-8 group-hover:scale-110 transition-transform duration-500">
                 {feature.icon}
               </div>
               <h3 className="text-2xl font-serif mb-4">{feature.title}</h3>

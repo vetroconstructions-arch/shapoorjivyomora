@@ -67,24 +67,24 @@ export default function Specifications() {
         
         {/* Header */}
         <div className="spec-header text-center mb-16 max-w-3xl mx-auto">
-          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#a4789c] mb-4 block">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#C5A059] mb-4 block">
             Home Specifications
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif text-[#2D2155] leading-tight tracking-wide mb-6">
+          <h2 className="text-4xl md:text-5xl font-serif text-[#0A192F] leading-tight tracking-wide mb-6">
             CRAFTED FOR <br className="hidden md:block"/>
-            <span className="italic text-[#2D2155]/80">EVERYDAY COMFORT</span>
+            <span className="italic text-[#0A192F]/80">EVERYDAY COMFORT</span>
           </h2>
-          <p className="text-[#2D2155]/60 font-light text-sm md:text-base">
+          <p className="text-[#0A192F]/60 font-light text-sm md:text-base">
             Every detail at Vyomora is meticulously selected to ensure a life of luxury, convenience, and unparalleled comfort. Explore the specifications of our residences.
           </p>
         </div>
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-white/50 backdrop-blur-md p-1.5 rounded-full border border-[#2D2155]/10 shadow-sm relative">
+          <div className="inline-flex bg-white/50 backdrop-blur-md p-1.5 rounded-full border border-[#0A192F]/10 shadow-sm relative">
             {/* Active Highlight */}
             <div 
-              className="absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-[#2D2155] rounded-full transition-transform duration-500 ease-out shadow-md"
+              className="absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-[#0A192F] rounded-full transition-transform duration-500 ease-out shadow-md"
               style={{ 
                 transform: activeTab === "2_3_BHK" ? "translateX(0)" : "translateX(100%)",
                 left: activeTab === "2_3_BHK" ? "6px" : "calc(6px + 6px)" // slight offset adjustments
@@ -94,7 +94,7 @@ export default function Specifications() {
             <button
               onClick={() => setActiveTab("2_3_BHK")}
               className={`relative z-10 px-8 py-3 rounded-full text-sm font-semibold tracking-wide uppercase transition-colors duration-300 w-48 ${
-                activeTab === "2_3_BHK" ? "text-white" : "text-[#2D2155]/60 hover:text-[#2D2155]"
+                activeTab === "2_3_BHK" ? "text-white" : "text-[#0A192F]/60 hover:text-[#0A192F]"
               }`}
             >
               2 & 3 BHKs
@@ -102,7 +102,7 @@ export default function Specifications() {
             <button
               onClick={() => setActiveTab("Duplexes")}
               className={`relative z-10 px-8 py-3 rounded-full text-sm font-semibold tracking-wide uppercase transition-colors duration-300 w-48 ${
-                activeTab === "Duplexes" ? "text-white" : "text-[#2D2155]/60 hover:text-[#2D2155]"
+                activeTab === "Duplexes" ? "text-white" : "text-[#0A192F]/60 hover:text-[#0A192F]"
               }`}
             >
               Duplexes
@@ -117,14 +117,14 @@ export default function Specifications() {
             return (
               <div 
                 key={`${activeTab}-${index}`} 
-                className="spec-card break-inside-avoid bg-white rounded-xl shadow-sm border border-[#2D2155]/5 overflow-hidden hover:shadow-md hover:border-[#a4789c]/30 transition-all duration-300 group"
+                className="spec-card break-inside-avoid bg-white rounded-xl shadow-sm border border-[#0A192F]/5 overflow-hidden hover:shadow-md hover:border-[#C5A059]/30 transition-all duration-300 group"
               >
                 {/* Category Header */}
-                <div className="px-6 pt-6 pb-4 flex items-center gap-4 border-b border-[#2D2155]/5">
-                  <div className="w-10 h-10 rounded-full bg-[#FDFBF7] border border-[#2D2155]/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#2D2155] group-hover:border-[#2D2155] transition-all duration-300">
-                    <Icon size={18} className="text-[#a4789c] group-hover:text-white transition-colors duration-300" />
+                <div className="px-6 pt-6 pb-4 flex items-center gap-4 border-b border-[#0A192F]/5">
+                  <div className="w-10 h-10 rounded-full bg-[#FDFBF7] border border-[#0A192F]/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#0A192F] group-hover:border-[#0A192F] transition-all duration-300">
+                    <Icon size={18} className="text-[#C5A059] group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-sm font-bold tracking-[0.15em] uppercase text-[#2D2155]">
+                  <h3 className="text-sm font-bold tracking-[0.15em] uppercase text-[#0A192F]">
                     {category.title}
                   </h3>
                 </div>
@@ -134,8 +134,8 @@ export default function Specifications() {
                   <ul className="space-y-4">
                     {category.items.map((item, iIdx) => (
                       <li key={iIdx} className="flex items-start">
-                        <Check size={14} className="text-[#a4789c] mt-1 mr-3 shrink-0" />
-                        <span className="text-xs md:text-sm text-[#2D2155]/70 leading-relaxed font-light">
+                        <Check size={14} className="text-[#C5A059] mt-1 mr-3 shrink-0" />
+                        <span className="text-xs md:text-sm text-[#0A192F]/70 leading-relaxed font-light">
                           {item}
                         </span>
                       </li>

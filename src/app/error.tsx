@@ -20,11 +20,11 @@ export default function Error({
     <div className="min-h-screen bg-[#0F172A] text-white flex flex-col items-center justify-center p-6 relative overflow-hidden">
       
       {/* Decorative Background Elements */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#7DD3FC]/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#7DD3FC]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#E5D3B3]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#E5D3B3]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 max-w-2xl text-center flex flex-col items-center">
-        <div className="text-[#7DD3FC] mb-8 font-serif tracking-[0.2em] uppercase text-sm border-b border-[#7DD3FC]/30 pb-2">
+        <div className="text-[#E5D3B3] mb-8 font-serif tracking-[0.2em] uppercase text-sm border-b border-[#E5D3B3]/30 pb-2">
           System Interruption
         </div>
         

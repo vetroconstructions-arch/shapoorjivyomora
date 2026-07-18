@@ -72,7 +72,7 @@ export default function GalleryPage() {
         
         {/* Header */}
         <div className="mb-20 text-center">
-          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#7DD3FC] mb-4 block">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#E5D3B3] mb-4 block">
             Visual Experience
           </span>
           <h1 className="text-4xl md:text-6xl font-serif leading-tight mb-6">
@@ -96,8 +96,8 @@ export default function GalleryPage() {
                 alt={image.title} 
                 className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                <span className="text-[#7DD3FC] text-xs font-bold tracking-[0.2em] uppercase mb-2">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <span className="text-[#E5D3B3] text-xs font-bold tracking-[0.2em] uppercase mb-2">
                   {image.category}
                 </span>
                 <span className="text-white text-lg font-serif">
@@ -121,7 +121,7 @@ export default function GalleryPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] bg-black/98 flex items-center justify-center p-4 md:p-12"
+            className="fixed inset-0 z-[100] bg-[#0A192F]/95 flex items-center justify-center p-4 md:p-12"
             onClick={() => setSelectedImage(null)}
           >
             <button 

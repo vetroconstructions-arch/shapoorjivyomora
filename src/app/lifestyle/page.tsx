@@ -98,7 +98,7 @@ export default function LifestylePage() {
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/20 to-transparent z-10" />
           <div 
-            className="w-full h-full bg-cover bg-center"
+            className="w-full h-full bg-cover bg-center brightness-[1.15] contrast-[1.05]"
             style={{ backgroundImage: "url('https://shapoorjirealestate.com/files/assets/jpegs/all_projects/vymora-by-joyville/gallery/desktop/photo_gallery7.webp')" }}
           />
         </motion.div>
@@ -108,7 +108,7 @@ export default function LifestylePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-xs font-bold tracking-[0.3em] uppercase text-[#7DD3FC] mb-6 block"
+            className="text-xs font-bold tracking-[0.3em] uppercase text-[#E5D3B3] mb-6 block"
           >
             Curated Experiences
           </motion.span>
@@ -141,7 +141,7 @@ export default function LifestylePage() {
               <div className="w-full lg:w-1/2">
                 <div className="relative aspect-[4/3] rounded-sm overflow-hidden group">
                   <div 
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 filter grayscale-[30%] contrast-125"
+                    className="absolute inset-0 bg-cover bg-center brightness-[1.15] contrast-[1.05] transition-transform duration-1000 group-hover:scale-105 filter grayscale-[30%] contrast-125"
                     style={{ backgroundImage: `url('${category.image}')` }}
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
@@ -150,7 +150,7 @@ export default function LifestylePage() {
 
               <div className="w-full lg:w-1/2">
                 <h2 className="text-4xl font-serif mb-6">{category.title}</h2>
-                <div className="w-12 h-1 bg-[#7DD3FC] mb-8" />
+                <div className="w-12 h-1 bg-[#E5D3B3] mb-8" />
                 <p className="text-lg text-white/70 font-light leading-relaxed mb-12">
                   {category.description}
                 </p>
@@ -158,10 +158,10 @@ export default function LifestylePage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {category.features.map((feature, fIdx) => (
                     <div key={fIdx} className="flex items-center gap-4 group">
-                      <div className="w-12 h-12 rounded-full glass border border-white/10 flex items-center justify-center text-[#7DD3FC] group-hover:bg-[#7DD3FC] group-hover:text-white transition-colors duration-300">
+                      <div className="w-12 h-12 rounded-full glass border border-white/10 flex items-center justify-center text-[#E5D3B3] group-hover:bg-[#E5D3B3] group-hover:text-white transition-colors duration-300">
                         {feature.icon}
                       </div>
-                      <span className="text-lg font-light tracking-wide group-hover:text-[#7DD3FC] transition-colors duration-300">{feature.name}</span>
+                      <span className="text-lg font-light tracking-wide group-hover:text-[#E5D3B3] transition-colors duration-300">{feature.name}</span>
                     </div>
                   ))}
                 </div>

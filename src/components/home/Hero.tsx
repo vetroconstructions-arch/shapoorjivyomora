@@ -40,10 +40,10 @@ export default function Hero() {
     >
       {/* Background Image / Video Placeholder */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[#FDFBF7]/60 z-10" />
+        <div className="absolute inset-0 bg-[#FDFBF7]/20 z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#FDFBF7]/90 via-transparent to-[#FDFBF7] z-10" />
         <div 
-          className="w-full h-full bg-cover bg-center transform scale-105 transition-transform duration-10000 hover:scale-110 opacity-90"
+          className="w-full h-full bg-cover bg-center brightness-[1.15] contrast-[1.05] transform scale-105 transition-transform duration-10000 hover:scale-110 opacity-90"
           style={{ backgroundImage: "url('/images/hero_bg.jpg')" }}
         />
       </div>
@@ -56,7 +56,7 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           className="max-w-5xl"
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-[#2D2155] leading-[1.1] tracking-tight mb-6">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-[#0A192F] leading-[1.1] tracking-tight mb-6">
             An Endless Horizon Of <span className="text-gradient">Happiness</span>.
           </h1>
           
@@ -75,10 +75,10 @@ export default function Hero() {
             transition={{ duration: 1, delay: 1.2 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <Button variant="gold" size="lg" className="w-full sm:w-auto bg-[#2D2155] text-white">
+            <Button variant="gold" size="lg" className="w-full sm:w-auto bg-[#0A192F] text-white">
               Book Site Visit
             </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto border-[#2D2155]/20 text-[#2D2155] hover:bg-[#2D2155]/5">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto border-[#0A192F]/20 text-[#0A192F] hover:bg-[#0A192F]/5">
               Download Brochure
             </Button>
           </motion.div>
@@ -94,7 +94,7 @@ export default function Hero() {
           <span className="text-[0.6rem] uppercase tracking-[0.3em] text-[#1e2338]/50 mb-4">Discover</span>
           <div className="w-[1px] h-16 bg-[#1e2338]/20 relative overflow-hidden">
             <motion.div 
-              className="absolute top-0 left-0 w-full h-1/2 bg-[#2D2155]"
+              className="absolute top-0 left-0 w-full h-1/2 bg-[#0A192F]"
               animate={{ top: ["-50%", "100%"] }}
               transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
             />
@@ -109,8 +109,8 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute left-6 md:left-12 bottom-20 z-20 hidden lg:block"
       >
-        <div className="bg-white/80 backdrop-blur-md p-6 rounded-sm border-l-4 border-l-[#a4789c] shadow-sm">
-          <p className="text-3xl font-serif text-[#2D2155] mb-1">25<span className="text-[#a4789c] text-lg ml-1">Acres</span></p>
+        <div className="bg-white/80 backdrop-blur-md p-6 rounded-sm border-l-4 border-l-[#C5A059] shadow-sm">
+          <p className="text-3xl font-serif text-[#0A192F] mb-1">25<span className="text-[#C5A059] text-lg ml-1">Acres</span></p>
           <p className="text-xs uppercase tracking-[0.1em] text-[#1e2338]/60">Integrated Development</p>
         </div>
       </motion.div>
@@ -121,8 +121,8 @@ export default function Hero() {
         transition={{ delay: 1.7, duration: 1 }}
         className="absolute right-6 md:right-12 bottom-32 z-20 hidden lg:block"
       >
-        <div className="bg-white/80 backdrop-blur-md p-6 rounded-sm border-r-4 border-r-[#a4789c] text-right shadow-sm">
-          <p className="text-3xl font-serif text-[#2D2155] mb-1">685<span className="text-[#a4789c] text-lg ml-1">-1434</span></p>
+        <div className="bg-white/80 backdrop-blur-md p-6 rounded-sm border-r-4 border-r-[#C5A059] text-right shadow-sm">
+          <p className="text-3xl font-serif text-[#0A192F] mb-1">685<span className="text-[#C5A059] text-lg ml-1">-1434</span></p>
           <p className="text-xs uppercase tracking-[0.1em] text-[#1e2338]/60">Sq. Ft. Residences</p>
         </div>
       </motion.div>

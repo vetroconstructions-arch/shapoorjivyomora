@@ -35,10 +35,10 @@ export default function ArticlesPage() {
         <Breadcrumbs items={[{ label: "Articles", href: "/articles" }]} />
         
         <div className="mb-16 max-w-3xl">
-          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#a4789c] mb-6 block">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#C5A059] mb-6 block">
             Market Insights
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#2D2155] leading-tight tracking-wide mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#0A192F] leading-tight tracking-wide mb-6">
             Pune Real Estate <br/>
             <span className="text-[#1e2338]/60">Market & Trends.</span>
           </h1>
@@ -52,18 +52,18 @@ export default function ArticlesPage() {
             <Link 
               href={`/articles/${article.slug}`} 
               key={article.id}
-              className="bg-white p-8 rounded-sm shadow-sm border border-[#2D2155]/5 hover:shadow-md transition-shadow group flex flex-col"
+              className="bg-white p-8 rounded-sm shadow-sm border border-[#0A192F]/5 hover:shadow-md transition-shadow group flex flex-col"
             >
-              <div className="text-xs text-[#a4789c] mb-4 tracking-wider uppercase font-semibold">
+              <div className="text-xs text-[#C5A059] mb-4 tracking-wider uppercase font-semibold">
                 {new Date(article.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
               </div>
-              <h2 className="text-2xl font-serif text-[#2D2155] mb-4 group-hover:text-[#a4789c] transition-colors line-clamp-2">
+              <h2 className="text-2xl font-serif text-[#0A192F] mb-4 group-hover:text-[#C5A059] transition-colors line-clamp-2">
                 {article.title}
               </h2>
               <p className="text-[#1e2338]/60 font-light line-clamp-3 mb-6 flex-grow">
                 {article.excerpt}
               </p>
-              <span className="text-sm font-medium text-[#2D2155] uppercase tracking-wider flex items-center group-hover:underline">
+              <span className="text-sm font-medium text-[#0A192F] uppercase tracking-wider flex items-center group-hover:underline">
                 Read Article
               </span>
             </Link>

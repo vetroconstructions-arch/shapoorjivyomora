@@ -64,7 +64,7 @@ export default function ContactPage() {
         
         {/* Header */}
         <div className="mb-20 text-center">
-          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#7DD3FC] mb-4 block">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#E5D3B3] mb-4 block">
             Private Viewing
           </span>
           <h1 className="text-4xl md:text-6xl font-serif leading-tight mb-6">
@@ -112,7 +112,7 @@ export default function ContactPage() {
                   <input 
                     {...register("name")}
                     type="text" 
-                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base ${errors.name ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#7DD3FC]'}`}
+                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base ${errors.name ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#E5D3B3]'}`}
                   />
                   {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                 </div>
@@ -122,7 +122,7 @@ export default function ContactPage() {
                   <input 
                     {...register("email")}
                     type="email" 
-                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#7DD3FC]'}`}
+                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#E5D3B3]'}`}
                   />
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                 </div>
@@ -132,7 +132,7 @@ export default function ContactPage() {
                   <input 
                     {...register("phone")}
                     type="tel" 
-                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base ${errors.phone ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#7DD3FC]'}`}
+                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base ${errors.phone ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#E5D3B3]'}`}
                   />
                   {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
                 </div>
@@ -141,7 +141,7 @@ export default function ContactPage() {
                   <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Interested In</label>
                   <select 
                     {...register("interest")}
-                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base text-[#0F172A] appearance-none ${errors.interest ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#7DD3FC]'}`}
+                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base text-[#0F172A] appearance-none ${errors.interest ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#E5D3B3]'}`}
                   >
                     <option value="">Select Configuration</option>
                     <option value="2bhk">2 BHK Premium Residence</option>
@@ -177,7 +177,7 @@ export default function ContactPage() {
           >
             <div className="space-y-12">
               <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full border border-[#7DD3FC] flex items-center justify-center text-[#7DD3FC] shrink-0 mr-6">
+                <div className="w-12 h-12 rounded-full border border-[#E5D3B3] flex items-center justify-center text-[#E5D3B3] shrink-0 mr-6">
                   <MapPin size={20} />
                 </div>
                 <div>
@@ -191,7 +191,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full border border-[#7DD3FC] flex items-center justify-center text-[#7DD3FC] shrink-0 mr-6">
+                <div className="w-12 h-12 rounded-full border border-[#E5D3B3] flex items-center justify-center text-[#E5D3B3] shrink-0 mr-6">
                   <Phone size={20} />
                 </div>
                 <div>
@@ -204,7 +204,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full border border-[#7DD3FC] flex items-center justify-center text-[#7DD3FC] shrink-0 mr-6">
+                <div className="w-12 h-12 rounded-full border border-[#E5D3B3] flex items-center justify-center text-[#E5D3B3] shrink-0 mr-6">
                   <Mail size={20} />
                 </div>
                 <div>
@@ -217,7 +217,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full border border-[#7DD3FC] flex items-center justify-center text-[#7DD3FC] shrink-0 mr-6">
+                <div className="w-12 h-12 rounded-full border border-[#E5D3B3] flex items-center justify-center text-[#E5D3B3] shrink-0 mr-6">
                   <Clock size={20} />
                 </div>
                 <div>

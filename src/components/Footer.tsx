@@ -60,9 +60,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#2D2155] text-white pt-24 pb-12 border-t border-white/10 relative overflow-hidden">
+    <footer className="bg-[#0A192F] text-white pt-24 pb-12 border-t border-white/10 relative overflow-hidden">
       {/* Background Accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-[#a4789c] to-transparent opacity-30" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-30" />
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-20">
@@ -83,7 +83,7 @@ export default function Footer() {
             <div className="flex space-x-4">
               {/* Social Icons Placeholders */}
               {[1, 2, 3, 4].map((i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#a4789c] hover:text-white hover:border-[#a4789c] transition-all duration-300">
+                <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#C5A059] hover:text-white hover:border-[#C5A059] transition-all duration-300">
                   <span className="sr-only">Social {i}</span>
                   <div className="w-4 h-4 bg-current" style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }} />
                 </a>
@@ -93,7 +93,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="col-span-1">
-            <h4 className="text-xs font-bold tracking-[0.2em] text-[#a4789c] uppercase mb-8">Experience</h4>
+            <h4 className="text-xs font-bold tracking-[0.2em] text-[#C5A059] uppercase mb-8">Experience</h4>
             <ul className="space-y-4">
               {[
                 { label: "The Vision", href: "/vision" },
@@ -104,7 +104,7 @@ export default function Footer() {
               ].map((item) => (
                 <li key={item.label}>
                   <Link href={item.href} className="text-sm text-white/70 hover:text-white flex items-center group transition-colors">
-                    <span className="w-0 overflow-hidden group-hover:w-4 transition-all duration-300 ease-out text-[#a4789c]">
+                    <span className="w-0 overflow-hidden group-hover:w-4 transition-all duration-300 ease-out text-[#C5A059]">
                       <ArrowRight size={12} />
                     </span>
                     <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
@@ -116,10 +116,10 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="col-span-1">
-            <h4 className="text-xs font-bold tracking-[0.2em] text-[#a4789c] uppercase mb-8">Contact</h4>
+            <h4 className="text-xs font-bold tracking-[0.2em] text-[#C5A059] uppercase mb-8">Contact</h4>
             <ul className="space-y-6">
               <li className="flex items-start">
-                <MapPin size={18} className="text-[#a4789c]/60 mt-1 mr-4 shrink-0" />
+                <MapPin size={18} className="text-[#C5A059]/60 mt-1 mr-4 shrink-0" />
                 <span className="text-sm text-white/70 leading-relaxed">
                   Vyomora by Shapoorji Pallonji,<br />
                   Off Maan Village Road, Near Phase 1,<br />
@@ -127,13 +127,13 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex items-center">
-                <Phone size={18} className="text-[#a4789c]/60 mr-4 shrink-0" />
+                <Phone size={18} className="text-[#C5A059]/60 mr-4 shrink-0" />
                 <a href="tel:+917744009295" className="text-sm text-white/70 hover:text-white transition-colors">
                   +91 7744009295
                 </a>
               </li>
               <li className="flex items-center">
-                <Mail size={18} className="text-[#a4789c]/60 mr-4 shrink-0" />
+                <Mail size={18} className="text-[#C5A059]/60 mr-4 shrink-0" />
                 <a href="mailto:info@vyomora-hinjewadi.com" className="text-sm text-white/70 hover:text-white transition-colors">
                   info@vyomora-hinjewadi.com
                 </a>
@@ -143,11 +143,11 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div className="col-span-1">
-            <h4 className="text-xs font-bold tracking-[0.2em] text-[#a4789c] uppercase mb-8">Stay Updated</h4>
+            <h4 className="text-xs font-bold tracking-[0.2em] text-[#C5A059] uppercase mb-8">Stay Updated</h4>
             
             {status === "success" ? (
-              <div className="bg-white/5 border border-[#a4789c]/30 rounded-sm p-6 text-center">
-                <CheckCircle2 className="w-8 h-8 text-[#a4789c] mx-auto mb-3" />
+              <div className="bg-white/5 border border-[#C5A059]/30 rounded-sm p-6 text-center">
+                <CheckCircle2 className="w-8 h-8 text-[#C5A059] mx-auto mb-3" />
                 <h5 className="text-sm font-bold text-white mb-1">Subscribed!</h5>
                 <p className="text-xs text-white/60">Thank you for registering your interest.</p>
               </div>
@@ -164,7 +164,7 @@ export default function Footer() {
                       {...register("email")}
                       type="email" 
                       placeholder="Email Address" 
-                      className={`bg-transparent border-b pb-2 text-base text-white focus:outline-none transition-colors placeholder:text-white/30 rounded-none ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-white/20 focus:border-[#a4789c]'}`}
+                      className={`bg-transparent border-b pb-2 text-base text-white focus:outline-none transition-colors placeholder:text-white/30 rounded-none ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-white/20 focus:border-[#C5A059]'}`}
                     />
                     {errors.email && <p className="text-red-400 text-[10px] mt-1">{errors.email.message}</p>}
                   </div>
@@ -176,7 +176,7 @@ export default function Footer() {
                   <button 
                     type="submit" 
                     disabled={status === "loading"}
-                    className="text-left text-xs tracking-[0.15em] text-white hover:text-[#a4789c] uppercase flex items-center transition-colors group disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="text-left text-xs tracking-[0.15em] text-white hover:text-[#C5A059] uppercase flex items-center transition-colors group disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {status === "loading" ? "Registering..." : "Register Now"}
                     {!status && <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />}
@@ -189,7 +189,7 @@ export default function Footer() {
 
         {/* SEO Articles Links (Visually Minimal) */}
         <div className="border-t border-white/10 pt-8 mt-12 mb-4">
-          <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#a4789c] uppercase mb-4 text-center md:text-left">Market Insights & Real Estate Trends</h4>
+          <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#C5A059] uppercase mb-4 text-center md:text-left">Market Insights & Real Estate Trends</h4>
           <ul className="flex flex-wrap gap-x-6 gap-y-3 justify-center md:justify-start">
             <li>
               <Link href="/articles/luxury-3bhk-4bhk-duplex-apartments-in-baner-mahalunge" className="text-[10px] text-white/40 hover:text-white transition-colors">
@@ -207,7 +207,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/articles" className="text-[10px] text-white/40 hover:text-[#a4789c] transition-colors underline underline-offset-2">
+              <Link href="/articles" className="text-[10px] text-white/40 hover:text-[#C5A059] transition-colors underline underline-offset-2">
                 View All Articles
               </Link>
             </li>
