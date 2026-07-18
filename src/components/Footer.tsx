@@ -70,10 +70,10 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="col-span-1 lg:col-span-1">
             <Link href="/" className="flex flex-col group mb-8">
-              <span className="text-2xl font-serif tracking-widest text-white">
+              <span className="text-2xl font-serif tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#C5A059]">
                 VYOMORA
               </span>
-              <span className="text-[0.65rem] tracking-[0.2em] text-white/50 uppercase mt-1">
+              <span className="text-[0.65rem] tracking-[0.25em] text-[#C5A059] font-bold uppercase mt-1">
                 By Shapoorji Pallonji
               </span>
             </Link>

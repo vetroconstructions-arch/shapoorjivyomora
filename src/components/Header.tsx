@@ -37,10 +37,10 @@ export default function Header() {
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link href="/" className="z-50 flex flex-col group">
-            <span className={`text-xl md:text-2xl font-serif font-bold tracking-widest transition-colors duration-300 text-[#0A192F]`}>
+            <span className={`text-xl md:text-2xl font-serif font-bold tracking-widest transition-all duration-300 text-transparent bg-clip-text bg-gradient-to-r from-[#0A192F] via-[#0A192F] to-[#C5A059] group-hover:to-[#E5D3B3]`}>
               VYOMORA
             </span>
-            <span className={`text-[0.6rem] tracking-[0.2em] uppercase transition-colors duration-300 text-[#1e2338]/60`}>
+            <span className={`text-[0.6rem] tracking-[0.25em] uppercase transition-colors duration-300 text-[#C5A059] font-bold mt-0.5`}>
               By Shapoorji Pallonji
             </span>
           </Link>
