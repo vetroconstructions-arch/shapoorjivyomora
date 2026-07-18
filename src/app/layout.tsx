@@ -117,7 +117,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <StructuredData />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} antialiased overflow-x-hidden max-w-full`}>
         <Preloader />
         <SmoothScroll>
           <Header />
