@@ -47,14 +47,20 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-10">
-            {navLinks.map((link) => (
-              <Link
+            {navLinks.map((link, i) => (
+              <motion.div
                 key={link.label}
-                href={link.href}
-                className={`text-sm font-medium transition-colors duration-300 tracking-wide uppercase text-[#1e2338]/70 hover:text-[#0A192F]`}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                {link.label}
-              </Link>
+                <Link
+                  href={link.href}
+                  className={`text-[15px] font-bold transition-all duration-300 tracking-wide uppercase text-[#1e2338]/80 hover:text-[#0A192F] hover:scale-105 inline-block`}
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
             ))}
           </nav>
 
