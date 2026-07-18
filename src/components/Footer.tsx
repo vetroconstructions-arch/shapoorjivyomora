@@ -32,7 +32,7 @@ export default function Footer() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/vikas.yewle@gmail.com", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

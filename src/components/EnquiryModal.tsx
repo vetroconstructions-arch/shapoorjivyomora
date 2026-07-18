@@ -70,7 +70,7 @@ export default function EnquiryModal() {
 
     try {
       // We use the AJAX endpoint for formsubmit so the user never leaves the page.
-      const response = await fetch("https://formsubmit.co/ajax/vikas.yewle@gmail.com", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
