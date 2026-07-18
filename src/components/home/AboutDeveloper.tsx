@@ -52,7 +52,13 @@ export default function AboutDeveloper() {
         
         <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
           
-          <div className="w-full lg:w-1/2">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full lg:w-1/2"
+          >
             <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#C5A059] mb-6 block">
               The Legacy
             </span>
@@ -66,9 +72,15 @@ export default function AboutDeveloper() {
             <p className="text-lg text-[#1e2338]/80 font-light leading-relaxed mb-10">
               Through the Joyville brand, we continue this tradition of excellence, bringing premium housing that combines thoughtful design with world-class amenities to aspiring homebuyers.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="w-full lg:w-1/2 relative h-[500px] rounded-sm overflow-hidden group shadow-sm border border-[#0A192F]/10">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="w-full lg:w-1/2 relative h-[500px] rounded-sm overflow-hidden group shadow-sm border border-[#0A192F]/10"
+          >
             <div 
               className="absolute inset-0 bg-cover bg-center brightness-[1.15] contrast-[1.05] transition-transform duration-1000 group-hover:scale-105"
               style={{ backgroundImage: "url('/images/story_bg.jpg')" }}
@@ -90,7 +102,7 @@ export default function AboutDeveloper() {
             <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 z-30 pointer-events-none scale-75 md:scale-100">
               <TrustBadge />
             </div>
-          </div>
+          </motion.div>
 
         </div>
 
@@ -98,9 +110,13 @@ export default function AboutDeveloper() {
         <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-[#0A192F]/10 pt-16">
           {stats.map((stat, idx) => (
             <div key={idx} className="stat-item flex flex-col items-center text-center">
-              <div className="text-[#C5A059] mb-6">
+              <motion.div 
+                className="text-[#C5A059] mb-6"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}
+              >
                 {stat.icon}
-              </div>
+              </motion.div>
               <h4 className="text-4xl md:text-5xl font-serif text-[#0A192F] mb-2">{stat.value}</h4>
               <p className="text-sm uppercase tracking-widest text-[#1e2338]/70">{stat.label}</p>
             </div>

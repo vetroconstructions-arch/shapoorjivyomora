@@ -24,7 +24,13 @@ export default function Pricing() {
       <div className="absolute bottom-0 left-0 w-1/2 h-full bg-[#C5A059]/10 blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-16"
+        >
           <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#C5A059] mb-4 block">
             Pricing & Configurations
           </span>
@@ -34,7 +40,7 @@ export default function Pricing() {
           <p className="text-[#1e2338]/80 font-light max-w-2xl mx-auto">
             Discover thoughtfully crafted residences with layouts optimized for modern living. Choose from our diverse range of 2 & 3 BHK configurations.
           </p>
-        </div>
+        </motion.div>
 
         <div className="max-w-4xl mx-auto">
           <div className="bg-white/60 backdrop-blur-md rounded-sm overflow-hidden border border-[#0A192F]/10 shadow-sm">

@@ -122,7 +122,14 @@ export default function Amenities() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
             {detailedAmenities.map((section, idx) => (
-              <div key={idx} className="flex flex-col">
+              <motion.div 
+                key={idx} 
+                className="flex flex-col"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.6, delay: idx * 0.15 }}
+              >
                 <h4 className="text-sm font-bold tracking-[0.2em] text-[#0A192F] uppercase mb-8 pb-4 border-b border-[#0A192F]/10">
                   {section.category}
                 </h4>
@@ -130,18 +137,25 @@ export default function Amenities() {
                   {section.items.map((item, itemIdx) => {
                     const Icon = item.icon;
                     return (
-                      <li key={itemIdx} className="flex items-center group">
+                      <motion.li 
+                        key={itemIdx} 
+                        className="flex items-center group"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: (idx * 0.15) + (itemIdx * 0.05) }}
+                      >
                         <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-[#0A192F]/5 mr-4 group-hover:bg-[#0A192F] group-hover:text-white transition-colors duration-300">
                           <Icon size={18} strokeWidth={1.5} className="text-[#0A192F] group-hover:text-white transition-colors" />
                         </div>
-                        <span className="text-[#1e2338]/80 font-light text-sm">
+                        <span className="text-[#1e2338]/80 font-light text-sm group-hover:text-[#0A192F] group-hover:font-medium transition-all">
                           {item.name}
                         </span>
-                      </li>
+                      </motion.li>
                     );
                   })}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
