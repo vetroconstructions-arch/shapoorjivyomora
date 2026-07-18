@@ -6,6 +6,9 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 export const metadata: Metadata = {
   title: "The Vision | Shapoorji Pallonji Joyville Vyomora",
   description: "Discover the architectural vision behind Shapoorji Pallonji Joyville Vyomora in Pune.",
+  alternates: {
+    canonical: "https://www.shapoorji-vyomora.com/vision",
+  }
 };
 
 export default function VisionPage() {

@@ -6,6 +6,9 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Location & Connectivity | Shapoorji Pallonji Joyville Vyomora",
   description: "View the location and connectivity of Shapoorji Pallonji Joyville Vyomora in Mahalunge-Hinjewadi, Pune.",
+  alternates: {
+    canonical: "https://www.shapoorji-vyomora.com/location",
+  }
 };
 
 export default function LocationPage() {

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Real Estate Insights & Articles | Shapoorji Pallonji Vyomora Pune",
   description: "Read the latest insights on the Pune real estate market, covering luxury 2BHK, 3BHK, 4BHK flats, duplex homes, and investment trends in Baner, Mahalunge, and Hinjewadi.",
   keywords: ["Pune real estate market", "Baner real estate", "Mahalunge real estate", "Hinjewadi real estate market", "Shapoorji Pallonji Joyville Homes Vyomora"],
+  alternates: {
+    canonical: "https://www.shapoorji-vyomora.com/articles",
+  }
 };
 
 export default function ArticlesPage() {

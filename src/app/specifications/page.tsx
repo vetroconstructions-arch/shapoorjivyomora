@@ -5,6 +5,9 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Specifications | Shapoorji Pallonji Joyville Vyomora",
   description: "Detailed specifications for Shapoorji Pallonji Joyville Vyomora luxury residences in Pune.",
+  alternates: {
+    canonical: "https://www.shapoorji-vyomora.com/specifications",
+  }
 };
 
 export default function SpecificationsPage() {

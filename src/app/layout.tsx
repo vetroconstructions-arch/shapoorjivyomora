@@ -85,9 +85,6 @@ export const metadata: Metadata = {
     description: "Luxury homes and premium apartments in the Hinjewadi IT Corridor.",
     images: ["https://www.shapoorji-vyomora.com/og-image.jpg"],
   },
-  alternates: {
-    canonical: "https://www.shapoorji-vyomora.com",
-  },
   robots: {
     index: true,
     follow: true,

@@ -5,6 +5,9 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Masterplan | Shapoorji Pallonji Joyville Vyomora",
   description: "View the masterplan and layout of the premium township Joyville Vyomora in Pune.",
+  alternates: {
+    canonical: "https://www.shapoorji-vyomora.com/masterplan",
+  }
 };
 
 export default function MasterplanPage() {

@@ -5,6 +5,9 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Luxury Residences | Shapoorji Pallonji Joyville Vyomora",
   description: "Explore 2BHK, 3BHK, 4BHK, and Duplex residences at Shapoorji Pallonji Joyville Vyomora.",
+  alternates: {
+    canonical: "https://www.shapoorji-vyomora.com/residences",
+  }
 };
 
 export default function ResidencesPage() {
