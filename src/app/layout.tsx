@@ -19,6 +19,13 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.shapoorji-vyomora.com'),
   title: "Shapoorji Pallonji Vyomora Hinjewadi | Premium Joyville Homes Pune",

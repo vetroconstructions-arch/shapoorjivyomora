@@ -65,11 +65,11 @@ export default function EnquiryModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="relative z-10 w-full max-w-lg overflow-hidden bg-white shadow-2xl rounded-sm"
+            className="relative z-10 w-full max-w-lg bg-white shadow-2xl rounded-sm max-h-[90vh] overflow-y-auto overflow-x-hidden no-scrollbar"
           >
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-[#0F172A]/50 hover:text-[#0F172A] transition-colors z-20"
+              className="absolute top-4 right-4 text-[#0F172A]/50 hover:text-[#0F172A] transition-colors z-20 bg-white rounded-full p-1"
             >
               <X size={24} />
             </button>
@@ -107,7 +107,7 @@ export default function EnquiryModal() {
                       name="name" 
                       required
                       placeholder="Full Name"
-                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-sm"
+                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-base"
                     />
                   </div>
                   <div>
@@ -116,7 +116,7 @@ export default function EnquiryModal() {
                       name="email" 
                       required
                       placeholder="Email Address"
-                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-sm"
+                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-base"
                     />
                   </div>
                   <div>
@@ -127,14 +127,14 @@ export default function EnquiryModal() {
                       pattern="[0-9]{10,15}"
                       title="Please enter a valid phone number (10 to 15 digits)"
                       placeholder="Phone Number"
-                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-sm"
+                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-base"
                     />
                   </div>
                   <div>
                     <select 
                       name="configuration" 
                       required
-                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all text-sm appearance-none text-[#0F172A]"
+                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all text-base appearance-none text-[#0F172A]"
                     >
                       <option value="">Select Configuration</option>
                       <option value="2bhk">2 BHK Premium Residence</option>
@@ -147,7 +147,7 @@ export default function EnquiryModal() {
                       type="date" 
                       name="visit_date" 
                       placeholder="Schedule a Visit (Optional)"
-                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-sm"
+                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-base"
                     />
                   </div>
                   
