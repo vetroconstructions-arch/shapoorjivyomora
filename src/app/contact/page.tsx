@@ -205,19 +205,6 @@ export default function ContactPage() {
 
               <div className="flex items-start">
                 <div className="w-12 h-12 rounded-full border border-[#E5D3B3] flex items-center justify-center text-[#E5D3B3] shrink-0 mr-6">
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest mb-2">Email Address</h4>
-                  <p className="text-[#0F172A]/70 font-light leading-relaxed">
-                    info@vyomora-hinjewadi.com<br />
-                    sales@vyomora-hinjewadi.com
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full border border-[#E5D3B3] flex items-center justify-center text-[#E5D3B3] shrink-0 mr-6">
                   <Clock size={20} />
                 </div>
                 <div>

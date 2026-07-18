@@ -132,12 +132,7 @@ export default function Footer() {
                   +91 7744009295
                 </a>
               </li>
-              <li className="flex items-center">
-                <Mail size={18} className="text-[#C5A059]/60 mr-4 shrink-0" />
-                <a href="mailto:info@vyomora-hinjewadi.com" className="text-sm text-white/70 hover:text-white transition-colors">
-                  info@vyomora-hinjewadi.com
-                </a>
-              </li>
+
             </ul>
           </div>
 
