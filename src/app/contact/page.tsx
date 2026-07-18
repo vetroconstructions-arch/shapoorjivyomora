@@ -19,11 +19,12 @@ export default function ContactPage() {
     resolver: zodResolver(formSchema),
   });
 
+  // By calling the native HTMLFormElement.submit(), we completely bypass
+  // React's form hijacking which converts string actions into fetch requests.
   const onSubmit = () => {
-    // Form will naturally navigate away. We don't preventDefault.
-    // react-hook-form handles validation, then triggers this function.
-    // However, since we are doing a native HTML submit, we must bypass preventDefault.
-    // Wait, react-hook-form's handleSubmit automatically calls preventDefault!
+    // We must find the form element and submit it natively.
+    const form = document.getElementById("contactForm") as HTMLFormElement;
+    if (form) form.submit();
   };
 
   return (
@@ -53,7 +54,7 @@ export default function ContactPage() {
             className="bg-white p-8 md:p-12 shadow-2xl shadow-black/5 rounded-sm"
           >
             <h3 className="text-2xl font-serif mb-8">Register Interest</h3>
-            <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <input type="hidden" name="access_key" value="85fb0f24-6f7b-410a-936b-9f215ccdcacc" />
               <input type="hidden" name="subject" value="New Inquiry from Vyomora Website" />
               <input type="hidden" name="from_name" value="Vyomora Website" />

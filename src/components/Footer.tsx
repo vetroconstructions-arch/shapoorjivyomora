@@ -6,8 +6,13 @@ import { useState } from "react";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
-  // We completely removed the onSubmit handler. The form will purely rely
-  // on native browser submission, completely bypassing React's synthetic event system.
+
+  // By calling the native HTMLFormElement.submit(), we completely bypass
+  // React's form hijacking which converts string actions into fetch requests.
+  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    e.currentTarget.submit();
+  };
 
   return (
     <footer className="bg-[#2D2155] text-white pt-24 pb-12 border-t border-white/10 relative overflow-hidden">
@@ -97,7 +102,7 @@ export default function Footer() {
             <p className="text-sm text-white/60 mb-6 font-light">
               Register your interest to receive exclusive updates about the project.
             </p>
-            <form action="https://api.web3forms.com/submit" method="POST" className="flex flex-col space-y-4">
+            <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubscribe} className="flex flex-col space-y-4">
               <input type="hidden" name="access_key" value="85fb0f24-6f7b-410a-936b-9f215ccdcacc" />
               <input type="hidden" name="subject" value="New Newsletter Registration" />
               <input type="hidden" name="from_name" value="Vyomora Website" />

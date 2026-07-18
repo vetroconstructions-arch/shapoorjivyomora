@@ -32,9 +32,12 @@ export default function EnquiryModal() {
     };
   }, []);
 
-  // We completely removed the onSubmit handler. The form will purely rely
-  // on native browser submission, completely bypassing React's synthetic event system
-  // which can occasionally abort native form submissions on mobile browsers.
+  // By calling the native HTMLFormElement.submit(), we completely bypass
+  // React's form hijacking which converts string actions into fetch requests.
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    e.currentTarget.submit();
+  };
 
   return (
     <AnimatePresence>
@@ -82,7 +85,7 @@ export default function EnquiryModal() {
                   <p className="text-[#0F172A]/70 text-sm">Our luxury consultant will contact you shortly.</p>
                 </div>
               ) : (
-                <form action="https://api.web3forms.com/submit" method="POST" className="space-y-4">
+                <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit} className="space-y-4">
                   <input type="hidden" name="access_key" value="85fb0f24-6f7b-410a-936b-9f215ccdcacc" />
                   <input type="hidden" name="subject" value="New Inquiry from Popup Modal" />
                   <input type="hidden" name="from_name" value="Vyomora Website" />
