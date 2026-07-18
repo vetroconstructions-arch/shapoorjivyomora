@@ -6,6 +6,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import EnquiryModal from "@/components/EnquiryModal";
+import ExitIntentModal from "@/components/ExitIntentModal";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 import StructuredData from "@/components/StructuredData";
 import "./globals.css";
 
@@ -114,6 +116,8 @@ export default function RootLayout({
           <Footer />
           <FloatingCTA />
           <EnquiryModal />
+          <ExitIntentModal />
+          <WhatsAppWidget />
         </SmoothScroll>
       </body>
     </html>
