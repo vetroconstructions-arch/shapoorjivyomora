@@ -30,6 +30,20 @@ export const viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.shapoorji-vyomora.com'),
+  applicationName: "Shapoorji Pallonji Vyomora",
+  authors: [{ name: "Shapoorji Pallonji Real Estate", url: "https://shapoorjirealestate.com" }],
+  creator: "Shapoorji Pallonji",
+  publisher: "Shapoorji Pallonji Real Estate",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Vyomora",
+  },
   title: "Shapoorji Pallonji Vyomora Hinjewadi | Premium Joyville Homes Pune",
   description: "Invest in Shapoorji Pallonji Joyville Homes Vyomora Hinjewadi. Discover luxury 2BHK, 3BHK, 4BHK apartments near Rajiv Gandhi Infotech Park, West Pune. Download the floor plan and brochure today.",
   keywords: [
