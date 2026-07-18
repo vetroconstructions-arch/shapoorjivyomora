@@ -102,11 +102,10 @@ export default function Footer() {
             <p className="text-sm text-white/60 mb-6 font-light">
               Register your interest to receive exclusive updates about the project.
             </p>
-            <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubscribe} className="flex flex-col space-y-4">
-              <input type="hidden" name="access_key" value="85fb0f24-6f7b-410a-936b-9f215ccdcacc" />
-              <input type="hidden" name="subject" value="New Newsletter Registration" />
-              <input type="hidden" name="from_name" value="Vyomora Website" />
-              <input type="hidden" name="redirect" value="https://shapoorjivyomora-pi.vercel.app/" />
+            <form action="https://formsubmit.co/vikas.yewle@gmail.com" method="POST" onSubmit={handleSubscribe} className="flex flex-col space-y-4">
+              <input type="hidden" name="_subject" value="New Newsletter Registration" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="https://shapoorjivyomora-pi.vercel.app/" />
 
               <input 
                 type="email" 

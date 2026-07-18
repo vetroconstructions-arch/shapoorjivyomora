@@ -10,15 +10,24 @@ export default function EnquiryModal() {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    // Check if the modal has already been seen in this session
-    const hasSeenModal = sessionStorage.getItem("hasSeenEnquiryModal");
+    // Wrap in try-catch to prevent Safari Private Mode crashes (QuotaExceededError)
+    let hasSeenModal = false;
+    try {
+      hasSeenModal = sessionStorage.getItem("hasSeenEnquiryModal") === "true";
+    } catch (e) {
+      console.warn("sessionStorage is not available", e);
+    }
     
     let timer: NodeJS.Timeout;
     if (!hasSeenModal) {
       // Pop up after 3 seconds
       timer = setTimeout(() => {
         setIsOpen(true);
-        sessionStorage.setItem("hasSeenEnquiryModal", "true");
+        try {
+          sessionStorage.setItem("hasSeenEnquiryModal", "true");
+        } catch (e) {
+          // ignore
+        }
       }, 3000);
     }
 
@@ -85,11 +94,10 @@ export default function EnquiryModal() {
                   <p className="text-[#0F172A]/70 text-sm">Our luxury consultant will contact you shortly.</p>
                 </div>
               ) : (
-                <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit} className="space-y-4">
-                  <input type="hidden" name="access_key" value="85fb0f24-6f7b-410a-936b-9f215ccdcacc" />
-                  <input type="hidden" name="subject" value="New Inquiry from Popup Modal" />
-                  <input type="hidden" name="from_name" value="Vyomora Website" />
-                  <input type="hidden" name="redirect" value="https://shapoorjivyomora-pi.vercel.app/" />
+                <form action="https://formsubmit.co/vikas.yewle@gmail.com" method="POST" onSubmit={handleSubmit} className="space-y-4">
+                  <input type="hidden" name="_subject" value="New Inquiry from Popup Modal" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_next" value="https://shapoorjivyomora-pi.vercel.app/" />
 
                   <div>
                     <input 
@@ -115,6 +123,26 @@ export default function EnquiryModal() {
                       name="phone" 
                       required
                       placeholder="Phone Number"
+                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-sm"
+                    />
+                  </div>
+                  <div>
+                    <select 
+                      name="configuration" 
+                      required
+                      className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all text-sm appearance-none text-[#0F172A]"
+                    >
+                      <option value="">Select Configuration</option>
+                      <option value="2bhk">2 BHK Premium Residence</option>
+                      <option value="3bhk">3 BHK Luxury Residence</option>
+                      <option value="duplex">3 BHK Duplex Sky Villa</option>
+                    </select>
+                  </div>
+                  <div>
+                    <input 
+                      type="date" 
+                      name="visit_date" 
+                      placeholder="Schedule a Visit (Optional)"
                       className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-sm"
                     />
                   </div>

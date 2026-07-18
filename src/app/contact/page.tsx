@@ -54,11 +54,10 @@ export default function ContactPage() {
             className="bg-white p-8 md:p-12 shadow-2xl shadow-black/5 rounded-sm"
           >
             <h3 className="text-2xl font-serif mb-8">Register Interest</h3>
-            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <input type="hidden" name="access_key" value="85fb0f24-6f7b-410a-936b-9f215ccdcacc" />
-              <input type="hidden" name="subject" value="New Inquiry from Vyomora Website" />
-              <input type="hidden" name="from_name" value="Vyomora Website" />
-              <input type="hidden" name="redirect" value="https://shapoorjivyomora-pi.vercel.app/contact?success=true" />
+            <form id="contactForm" action="https://formsubmit.co/vikas.yewle@gmail.com" method="POST" onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <input type="hidden" name="_subject" value="New Inquiry from Vyomora Website" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="https://shapoorjivyomora-pi.vercel.app/contact?success=true" />
               
               <div>
                 <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Full Name</label>
