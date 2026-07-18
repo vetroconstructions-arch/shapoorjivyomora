@@ -57,7 +57,9 @@ export default function ContactPage() {
             <form id="contactForm" action="https://formsubmit.co/vikas.yewle@gmail.com" method="POST" onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <input type="hidden" name="_subject" value="New Inquiry from Vyomora Website" />
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://shapoorjivyomora-pi.vercel.app/contact?success=true" />
+              <input type="hidden" name="_next" value="https://shapoorjivyomora-pi.vercel.app/thank-you" />
+              <input type="hidden" name="_autoresponse" value="Thank you for your interest in Shapoorji Pallonji Vyomora. Our luxury property consultant has received your inquiry and will be in touch with you shortly. For immediate assistance, you can reach us at +91 7744009295." />
+              <input type="text" name="_honey" style={{ display: 'none' }} />
               
               <div>
                 <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Full Name</label>
@@ -84,6 +86,8 @@ export default function ContactPage() {
                 <input 
                   {...register("phone")}
                   type="tel" 
+                  pattern="[0-9]{10,15}"
+                  title="Please enter a valid phone number (10 to 15 digits)"
                   className="w-full bg-transparent border-b border-[#0F172A]/20 pb-3 focus:outline-none focus:border-[#7DD3FC] transition-colors"
                 />
                 {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}

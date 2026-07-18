@@ -105,7 +105,9 @@ export default function Footer() {
             <form action="https://formsubmit.co/vikas.yewle@gmail.com" method="POST" onSubmit={handleSubscribe} className="flex flex-col space-y-4">
               <input type="hidden" name="_subject" value="New Newsletter Registration" />
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://shapoorjivyomora-pi.vercel.app/" />
+              <input type="hidden" name="_next" value="https://shapoorjivyomora-pi.vercel.app/thank-you" />
+              <input type="hidden" name="_autoresponse" value="Thank you for subscribing to updates from Shapoorji Pallonji Vyomora. We will keep you informed about our latest news and exclusive offers." />
+              <input type="text" name="_honey" style={{ display: 'none' }} />
 
               <input 
                 type="email" 

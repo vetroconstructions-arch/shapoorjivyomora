@@ -97,7 +97,9 @@ export default function EnquiryModal() {
                 <form action="https://formsubmit.co/vikas.yewle@gmail.com" method="POST" onSubmit={handleSubmit} className="space-y-4">
                   <input type="hidden" name="_subject" value="New Inquiry from Popup Modal" />
                   <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_next" value="https://shapoorjivyomora-pi.vercel.app/" />
+                  <input type="hidden" name="_next" value="https://shapoorjivyomora-pi.vercel.app/thank-you" />
+                  <input type="hidden" name="_autoresponse" value="Thank you for your interest in Shapoorji Pallonji Vyomora. Our luxury property consultant has received your inquiry and will be in touch with you shortly. For immediate assistance, you can reach us at +91 7744009295." />
+                  <input type="text" name="_honey" style={{ display: 'none' }} />
 
                   <div>
                     <input 
@@ -122,6 +124,8 @@ export default function EnquiryModal() {
                       type="tel" 
                       name="phone" 
                       required
+                      pattern="[0-9]{10,15}"
+                      title="Please enter a valid phone number (10 to 15 digits)"
                       placeholder="Phone Number"
                       className="w-full bg-[#F5F5F3] px-4 py-3 rounded-sm border-none focus:ring-1 focus:ring-[#7DD3FC] outline-none transition-all placeholder:text-[#0F172A]/40 text-sm"
                     />
