@@ -24,17 +24,6 @@ export default function WhatsAppWidget() {
       transition={{ duration: 0.5, type: "spring", stiffness: 260, damping: 20 }}
       className="fixed bottom-6 left-6 md:bottom-10 md:left-10 z-[45] flex items-end gap-3"
     >
-      {/* Tooltip bubble */}
-      <motion.div 
-        initial={{ opacity: 0, x: -10 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1, duration: 0.5 }}
-        className="hidden md:block bg-white text-[#0A192F] text-sm font-medium px-4 py-2 rounded-t-xl rounded-br-xl shadow-lg border border-black/5 relative mb-2"
-      >
-        Questions? Chat with us!
-        {/* Little triangle pointing to the icon */}
-        <div className="absolute -bottom-2 right-4 w-3 h-3 bg-white rotate-45 border-b border-r border-black/5" />
-      </motion.div>
 
       {/* Main pulsing icon */}
       <a
