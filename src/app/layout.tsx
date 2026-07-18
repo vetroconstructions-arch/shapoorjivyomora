@@ -9,6 +9,7 @@ import EnquiryModal from "@/components/EnquiryModal";
 import ExitIntentModal from "@/components/ExitIntentModal";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import StructuredData from "@/components/StructuredData";
+import CustomCursor from "@/components/ui/CustomCursor";
 import "./globals.css";
 
 const inter = Inter({
@@ -119,6 +120,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased overflow-x-hidden max-w-full`}>
         <Preloader />
+        <CustomCursor />
         <SmoothScroll>
           <Header />
           <main className="flex flex-col min-h-screen">
