@@ -1,17 +1,62 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
+import { ArrowRight, MapPin, Phone, Mail, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
+const footerSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+  _honey: z.string().max(0, "Spam detected").optional(),
+});
+
+type FooterFormData = z.infer<typeof footerSchema>;
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  // By calling the native HTMLFormElement.submit(), we completely bypass
-  // React's form hijacking which converts string actions into fetch requests.
-  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    e.currentTarget.submit();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm<FooterFormData>({
+    resolver: zodResolver(footerSchema),
+  });
+
+  const onSubmit = async (data: FooterFormData) => {
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/vikas.yewle@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          _subject: "New Newsletter Registration",
+          _captcha: "false",
+          _autoresponse: "Thank you for subscribing to updates from Shapoorji Pallonji Vyomora. We will keep you informed about our latest news and exclusive offers.",
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        reset();
+      } else {
+        throw new Error("Failed to submit");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+      setErrorMessage("Network error. Please try again.");
+    }
   };
 
   return (
@@ -99,33 +144,46 @@ export default function Footer() {
           {/* Newsletter */}
           <div className="col-span-1">
             <h4 className="text-xs font-bold tracking-[0.2em] text-[#a4789c] uppercase mb-8">Stay Updated</h4>
-            <p className="text-sm text-white/60 mb-6 font-light">
-              Register your interest to receive exclusive updates about the project.
-            </p>
-            <form action="https://formsubmit.co/vikas.yewle@gmail.com" method="POST" onSubmit={handleSubscribe} className="flex flex-col space-y-4">
-              <input type="hidden" name="_subject" value="New Newsletter Registration" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://shapoorjivyomora-pi.vercel.app/thank-you" />
-              <input type="hidden" name="_autoresponse" value="Thank you for subscribing to updates from Shapoorji Pallonji Vyomora. We will keep you informed about our latest news and exclusive offers." />
-              <input type="text" name="_honey" style={{ display: 'none' }} />
+            
+            {status === "success" ? (
+              <div className="bg-white/5 border border-[#a4789c]/30 rounded-sm p-6 text-center">
+                <CheckCircle2 className="w-8 h-8 text-[#a4789c] mx-auto mb-3" />
+                <h5 className="text-sm font-bold text-white mb-1">Subscribed!</h5>
+                <p className="text-xs text-white/60">Thank you for registering your interest.</p>
+              </div>
+            ) : (
+              <>
+                <p className="text-sm text-white/60 mb-6 font-light">
+                  Register your interest to receive exclusive updates about the project.
+                </p>
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-4">
+                  <input type="text" {...register("_honey")} style={{ display: 'none' }} />
 
-              <input 
-                type="email" 
-                name="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email Address" 
-                className="bg-transparent border-b border-white/20 pb-2 text-sm text-white focus:outline-none focus:border-[#a4789c] transition-colors placeholder:text-white/30 rounded-none"
-              />
-              <button 
-                type="submit" 
-                className="text-left text-xs tracking-[0.15em] text-white hover:text-[#a4789c] uppercase flex items-center transition-colors group"
-              >
-                Register Now
-                <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </form>
+                  <div className="flex flex-col">
+                    <input 
+                      {...register("email")}
+                      type="email" 
+                      placeholder="Email Address" 
+                      className={`bg-transparent border-b pb-2 text-base text-white focus:outline-none transition-colors placeholder:text-white/30 rounded-none ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-white/20 focus:border-[#a4789c]'}`}
+                    />
+                    {errors.email && <p className="text-red-400 text-[10px] mt-1">{errors.email.message}</p>}
+                  </div>
+                  
+                  {status === "error" && (
+                    <p className="text-red-400 text-xs">{errorMessage}</p>
+                  )}
+                  
+                  <button 
+                    type="submit" 
+                    disabled={status === "loading"}
+                    className="text-left text-xs tracking-[0.15em] text-white hover:text-[#a4789c] uppercase flex items-center transition-colors group disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {status === "loading" ? "Registering..." : "Register Now"}
+                    {!status && <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
 

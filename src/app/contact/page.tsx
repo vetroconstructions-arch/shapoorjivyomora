@@ -1,30 +1,61 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MapPin, Phone, Mail, Clock, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Valid phone number is required"),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().regex(/^[0-9]{10,15}$/, "Phone number must be between 10 and 15 digits"),
   interest: z.string().min(1, "Please select an interest"),
+  _honey: z.string().max(0, "Spam detected").optional(),
 });
 
+type ContactFormData = z.infer<typeof formSchema>;
+
 export default function ContactPage() {
-  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<z.infer<typeof formSchema>>({
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>({
     resolver: zodResolver(formSchema),
   });
 
-  // By calling the native HTMLFormElement.submit(), we completely bypass
-  // React's form hijacking which converts string actions into fetch requests.
-  const onSubmit = () => {
-    // We must find the form element and submit it natively.
-    const form = document.getElementById("contactForm") as HTMLFormElement;
-    if (form) form.submit();
+  const onSubmit = async (data: ContactFormData) => {
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/vikas.yewle@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          _subject: "New Inquiry from Vyomora Website",
+          _captcha: "false",
+          _autoresponse: "Thank you for your interest in Shapoorji Pallonji Vyomora. Our luxury property consultant has received your inquiry and will be in touch with you shortly. For immediate assistance, you can reach us at +91 7744009295.",
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        reset();
+      } else {
+        throw new Error("Failed to submit form");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+      setErrorMessage("Network error. Please try again or contact us directly.");
+    }
   };
 
   return (
@@ -54,65 +85,87 @@ export default function ContactPage() {
             className="bg-white p-8 md:p-12 shadow-2xl shadow-black/5 rounded-sm"
           >
             <h3 className="text-2xl font-serif mb-8">Register Interest</h3>
-            <form id="contactForm" action="https://formsubmit.co/vikas.yewle@gmail.com" method="POST" onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <input type="hidden" name="_subject" value="New Inquiry from Vyomora Website" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://shapoorjivyomora-pi.vercel.app/thank-you" />
-              <input type="hidden" name="_autoresponse" value="Thank you for your interest in Shapoorji Pallonji Vyomora. Our luxury property consultant has received your inquiry and will be in touch with you shortly. For immediate assistance, you can reach us at +91 7744009295." />
-              <input type="text" name="_honey" style={{ display: 'none' }} />
-              
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Full Name</label>
-                <input 
-                  {...register("name")}
-                  type="text" 
-                  className="w-full bg-transparent border-b border-[#0F172A]/20 pb-3 focus:outline-none focus:border-[#7DD3FC] transition-colors"
-                />
-                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
-              </div>
-
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Email Address</label>
-                <input 
-                  {...register("email")}
-                  type="email" 
-                  className="w-full bg-transparent border-b border-[#0F172A]/20 pb-3 focus:outline-none focus:border-[#7DD3FC] transition-colors"
-                />
-                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
-              </div>
-
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Phone Number</label>
-                <input 
-                  {...register("phone")}
-                  type="tel" 
-                  pattern="[0-9]{10,15}"
-                  title="Please enter a valid phone number (10 to 15 digits)"
-                  className="w-full bg-transparent border-b border-[#0F172A]/20 pb-3 focus:outline-none focus:border-[#7DD3FC] transition-colors"
-                />
-                {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
-              </div>
-
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Interested In</label>
-                <select 
-                  {...register("interest")}
-                  className="w-full bg-transparent border-b border-[#0F172A]/20 pb-3 focus:outline-none focus:border-[#7DD3FC] transition-colors text-[#0F172A] appearance-none"
-                >
-                  <option value="">Select Configuration</option>
-                  <option value="2bhk">2 BHK Premium Residence</option>
-                  <option value="3bhk">3 BHK Luxury Residence</option>
-                  <option value="duplex">3 BHK Duplex Sky Villa</option>
-                </select>
-                {errors.interest && <p className="text-red-500 text-xs mt-1">{errors.interest.message}</p>}
-              </div>
-
-              <div className="pt-6">
-                <Button type="submit" variant="gold" className="w-full">
-                  Submit Inquiry
+            
+            {status === "success" ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-12"
+              >
+                <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle2 size={40} strokeWidth={1.5} />
+                </div>
+                <h4 className="text-2xl font-serif mb-3">Submission Successful</h4>
+                <p className="text-[#0F172A]/70 leading-relaxed mb-8">
+                  Your inquiry has been received. Our luxury consultant will be in touch with you shortly.
+                </p>
+                <Button variant="outline" onClick={() => setStatus("idle")} className="border-[#0F172A]/20">
+                  Send Another Message
                 </Button>
-              </div>
-            </form>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <input type="text" {...register("_honey")} style={{ display: 'none' }} />
+                
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Full Name</label>
+                  <input 
+                    {...register("name")}
+                    type="text" 
+                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base ${errors.name ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#7DD3FC]'}`}
+                  />
+                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                </div>
+
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Email Address</label>
+                  <input 
+                    {...register("email")}
+                    type="email" 
+                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#7DD3FC]'}`}
+                  />
+                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                </div>
+
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Phone Number</label>
+                  <input 
+                    {...register("phone")}
+                    type="tel" 
+                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base ${errors.phone ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#7DD3FC]'}`}
+                  />
+                  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+                </div>
+
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Interested In</label>
+                  <select 
+                    {...register("interest")}
+                    className={`w-full bg-transparent border-b pb-3 focus:outline-none transition-colors text-base text-[#0F172A] appearance-none ${errors.interest ? 'border-red-400 focus:border-red-400' : 'border-[#0F172A]/20 focus:border-[#7DD3FC]'}`}
+                  >
+                    <option value="">Select Configuration</option>
+                    <option value="2bhk">2 BHK Premium Residence</option>
+                    <option value="3bhk">3 BHK Luxury Residence</option>
+                    <option value="duplex">3 BHK Duplex Sky Villa</option>
+                  </select>
+                  {errors.interest && <p className="text-red-500 text-xs mt-1">{errors.interest.message}</p>}
+                </div>
+                
+                {status === "error" && (
+                  <p className="text-red-500 text-xs text-center font-medium bg-red-50 p-3 rounded-sm border border-red-100">{errorMessage}</p>
+                )}
+
+                <div className="pt-6">
+                  <Button type="submit" variant="gold" className="w-full flex justify-center items-center h-12" disabled={status === "loading"}>
+                    {status === "loading" ? (
+                      <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></span>
+                    ) : (
+                      "Submit Inquiry"
+                    )}
+                  </Button>
+                </div>
+              </form>
+            )}
           </motion.div>
 
           {/* Contact Details */}
