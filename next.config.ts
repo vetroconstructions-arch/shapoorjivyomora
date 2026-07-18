@@ -1,12 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'shapoorjirealestate.com',
+      },
+    ],
+  },
   async headers() {
     const cspHeader = `
       default-src 'self';
       script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-      img-src 'self' blob: data: https://images.unsplash.com https://i.ytimg.com;
+      img-src 'self' blob: data: https://images.unsplash.com https://i.ytimg.com https://shapoorjirealestate.com;
       font-src 'self' https://fonts.gstatic.com;
       object-src 'none';
       base-uri 'self';

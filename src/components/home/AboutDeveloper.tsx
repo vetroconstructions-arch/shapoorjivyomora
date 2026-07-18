@@ -6,6 +6,7 @@ import { TrustBadge } from "@/components/ui/TrustBadge";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Award, Building2, History, Users } from "lucide-react";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -90,9 +91,11 @@ export default function AboutDeveloper() {
             {/* Overlay logo or graphic */}
             <div className="absolute inset-0 flex items-center justify-center p-12">
                <div className="w-full h-full border border-white/30 flex items-center justify-center backdrop-blur-sm bg-black/20">
-                 <img 
+                 <Image 
                     src="https://shapoorjirealestate.com/files/assets/jpegs/all_projects/vymora-by-joyville/logo/white-logo.svg" 
                     alt="Shapoorji Pallonji Real Estate Logo" 
+                    width={200}
+                    height={80}
                     className="w-48 opacity-90"
                  />
                </div>

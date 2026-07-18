@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
+import Image from "next/image";
 
 // Placeholder images for luxury gallery
 const galleryImages = [
@@ -91,9 +92,11 @@ export default function GalleryPage() {
               className="relative overflow-hidden group rounded-sm cursor-pointer break-inside-avoid mb-4 md:mb-6"
               onClick={() => setSelectedImage(image.src)}
             >
-              <img 
+              <Image 
                 src={image.src} 
                 alt={image.title} 
+                width={800}
+                height={600}
                 className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">

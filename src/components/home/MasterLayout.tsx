@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Maximize2 } from "lucide-react";
 
 const layoutData = [
@@ -120,10 +121,11 @@ export default function MasterLayout() {
                   {/* Blueprint grid effect background */}
                   <div className="absolute inset-0 bg-white/5 opacity-10 pointer-events-none" />
                   
-                  <img 
+                  <Image 
                     src={activeData.image}
                     alt={`${activeData.title} Layout for Shapoorji Vyomora`}
-                    className="max-w-full max-h-full object-contain mix-blend-multiply opacity-90 transition-all duration-700 group-hover:scale-105"
+                    fill
+                    className="object-contain mix-blend-multiply opacity-90 transition-all duration-700 group-hover:scale-105"
                   />
                   
                   <Link href="/residences" className="absolute bottom-4 right-4 bg-[#0A192F] text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md">
