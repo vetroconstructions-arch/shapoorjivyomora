@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SEOLocations, SEOConfigurations, SEOTopics, generateSEOContent } from "@/lib/programmaticSEO";
+import { SEOLocations, SEONRILocations, SEOConfigurations, SEOTopics, generateSEOContent } from "@/lib/programmaticSEO";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 interface Props {
@@ -14,8 +14,10 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { location, configuration, topic } = await params;
 
+  const allLocations = [...SEOLocations, ...SEONRILocations];
+
   // Validate to prevent spam/junk URLs from hurting SEO
-  if (!SEOLocations.includes(location) || !SEOConfigurations.includes(configuration) || !SEOTopics.includes(topic)) {
+  if (!allLocations.includes(location) || !SEOConfigurations.includes(configuration) || !SEOTopics.includes(topic)) {
     return {};
   }
 
@@ -37,8 +39,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProgrammaticSEOPage({ params }: Props) {
   const { location, configuration, topic } = await params;
 
+  const allLocations = [...SEOLocations, ...SEONRILocations];
+
   // Validate
-  if (!SEOLocations.includes(location) || !SEOConfigurations.includes(configuration) || !SEOTopics.includes(topic)) {
+  if (!allLocations.includes(location) || !SEOConfigurations.includes(configuration) || !SEOTopics.includes(topic)) {
     notFound();
   }
 
@@ -50,25 +54,40 @@ export default async function ProgrammaticSEOPage({ params }: Props) {
     { label: content.title, href: `/market/${location}/${configuration}/${topic}` }
   ];
 
-  // Dynamic FAQ Schema Injection
-  const faqSchema = {
+  // Dynamic FAQ & Breadcrumb Schema Injection
+  const schemaOrg = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": content.faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
+    "@graph": [
+      {
+        "@type": "FAQPage",
+        "mainEntity": content.faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "item": {
+            "@id": `https://www.shapoorji-vyomora.com${item.href}`,
+            "name": item.label
+          }
+        }))
       }
-    }))
+    ]
   };
 
   return (
     <div className="bg-[#FDFBF7] min-h-screen pt-32 pb-24">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
       />
       
       <div className="container mx-auto px-6 md:px-12 max-w-4xl">

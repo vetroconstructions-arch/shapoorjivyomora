@@ -1,14 +1,29 @@
 export const SEOLocations = [
+  // Core Pune Hubs
   "hinjewadi", "mahalunge", "baner", "wakad", "balewadi",
   "pimpri-chinchwad", "aundh", "pashan", "bavdhan", "sus",
   "punawale", "tathawade", "ravet", "kothrud", "shivaji-nagar",
   "viman-nagar", "kalyani-nagar", "koregaon-park", "kharadi", "magarpatta",
-  "hadapsar", "wagholi", "pune-west", "pune-mumbai-highway", "hinjewadi-phase-1",
-  "rajiv-gandhi-infotech-park", "maan-road", "marunji", "infosys-hinjewadi", 
-  "wipro-hinjewadi", "tcs-hinjewadi", "tech-mahindra-hinjewadi", "cognizant-hinjewadi", 
-  "hinjewadi-metro", "pune", "pcmc", "pune-city", "mumbai-pune-expressway",
+  "hadapsar", "wagholi", "pune-west", "pune-mumbai-highway", 
+  
+  // IT Corridor Granular Micro-Markets
+  "hinjewadi-phase-1", "hinjewadi-phase-2", "hinjewadi-phase-3", 
+  "rajiv-gandhi-infotech-park", "maan-road", "marunji", "marunji-road", "infosys-circle-hinjewadi", 
+  "wipro-circle-hinjewadi", "tcs-hinjewadi", "tech-mahindra-hinjewadi", "cognizant-hinjewadi", 
+  "hinjewadi-metro", "bhumkar-chowk", "wakad-bridge", "baner-pashan-link-road", 
+  "balewadi-high-street", "sus-road", "bavdhan-khurd", "tathawade-ravet-corridor",
+
+  // Broader Pune Limits
+  "pune", "pcmc", "pune-city", "mumbai-pune-expressway",
   "bhosari", "chakan", "talegaon", "akurdi", "nigdi", "mukai-chowk",
-  "kiwale", "hinjewadi-phase-2", "hinjewadi-phase-3", "pune-it-corridor"
+  "kiwale", "pune-it-corridor", "pune-real-estate-market"
+];
+
+// Global NRI Targeting
+export const SEONRILocations = [
+  "dubai", "usa", "singapore", "uk", "london", "kuwait", "qatar", 
+  "uae", "nri-investors", "foreign-investment", "global-investors", 
+  "nri-real-estate-india", "nri-property-investment", "california-nri"
 ];
 
 export const SEOConfigurations = [
