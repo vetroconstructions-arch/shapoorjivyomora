@@ -77,10 +77,10 @@ export const metadata: Metadata = {
     "Top Properties in West Pune"
   ],
   openGraph: {
-    title: "Shapoorji Pallonji Vyomora Hinjewadi | Luxury Real Estate Pune",
-    description: "Explore Joyville Vyomora by Shapoorji Pallonji. Premium gated community apartments in the heart of West Pune's IT Corridor.",
-    url: "https://www.shapoorji-vyomora.com",
-    siteName: "Shapoorji Pallonji Joyville Homes Vyomora",
+    title: "Shapoorji Pallonji Vyomora | Joyville Homes Hinjewadi Vyomora",
+    description: "Shapoorji Pallonji Vyomora is the ultimate luxury real estate project in Pune. Discover premium 2, 3 & 4 BHK apartments at Joyville Homes Hinjewadi Vyomora.",
+    url: "https://shapoorji-vyomora.com",
+    siteName: "Shapoorji Pallonji Vyomora",
     images: [
       {
         url: "https://www.shapoorji-vyomora.com/og-image.jpg",

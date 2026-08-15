@@ -87,8 +87,8 @@ export function generateSEOContent(location: string, configuration: string, topi
   const p1 = intros[hash % intros.length] + ' ' + midsections[(hash + 1) % midsections.length];
   const p2 = midsections[(hash + 2) % midsections.length] + ' ' + ctas[(hash + 3) % ctas.length];
 
-  const title = `${cleanConfig} in ${cleanLocation} | ${cleanTopic} | Shapoorji Pallonji Vyomora`;
-  const description = `Explore the best ${cleanConfig} in ${cleanLocation}. Discover in-depth insights on ${cleanTopic} at Shapoorji Pallonji Joyville Vyomora, West Pune's ultimate luxury township near Rajiv Gandhi Infotech Park. Compare with Joyville Sensorium & other Pune projects.`;
+  const title = `${cleanConfig} in ${cleanLocation} | ${cleanTopic} | Shapoorji Pallonji Vyomora | Joyville Homes Hinjewadi Vyomora`;
+  const description = `Explore the best ${cleanConfig} in ${cleanLocation}. Discover in-depth insights on ${cleanTopic} at Shapoorji Pallonji Vyomora, West Pune's ultimate luxury township by Joyville Homes Hinjewadi Vyomora.`;
   
   const h1 = `Discover ${cleanConfig} in ${cleanLocation}: A Deep Dive into ${cleanTopic}`;
 

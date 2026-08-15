@@ -66,7 +66,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 1 }}
             className="text-lg md:text-xl text-[#1e2338]/80 max-w-2xl mx-auto font-light leading-relaxed mb-10"
           >
-            Premium 2, 3 & 4 BHK Luxury Apartments at Shapoorji Pallonji Joyville Vyomora in Hinjewadi, Pune.
+            Premium 2, 3 & 4 BHK Luxury Apartments at Shapoorji Pallonji Vyomora. Discover the ultimate lifestyle at Joyville Homes Hinjewadi Vyomora.
           </motion.h2>
           
           <motion.div
