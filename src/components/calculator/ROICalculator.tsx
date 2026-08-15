@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { IndianRupee, TrendingUp, Home, ArrowRight, Calculator } from "lucide-react";
-import { EnquiryModal } from "@/components/EnquiryModal";
 
 const formatCurrency = (value: number) => {
   return new Intl.NumberFormat('en-IN', {
@@ -214,7 +213,11 @@ export default function ROICalculator() {
           </div>
 
           <button 
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                window.dispatchEvent(new CustomEvent("open-enquiry-modal"));
+              }
+            }}
             className="relative z-10 w-full mt-10 bg-[#C5A059] text-[#0A192F] py-4 rounded-sm font-medium hover:bg-white transition-colors flex items-center justify-center gap-2 group"
           >
             Download Detailed Report
@@ -223,11 +226,6 @@ export default function ROICalculator() {
         </div>
 
       </div>
-
-      <EnquiryModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
     </div>
   );
 }

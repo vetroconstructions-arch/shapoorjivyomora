@@ -28,12 +28,13 @@ const playfair = Playfair_Display({
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.shapoorji-vyomora.com'),
+  alternates: {
+    canonical: 'https://www.shapoorji-vyomora.com',
+  },
   applicationName: "Shapoorji Pallonji Vyomora",
   authors: [{ name: "Shapoorji Pallonji Real Estate", url: "https://shapoorjirealestate.com" }],
   creator: "Shapoorji Pallonji",
@@ -80,7 +81,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Shapoorji Pallonji Vyomora | Joyville Homes Hinjewadi Vyomora",
     description: "Shapoorji Pallonji Vyomora is the ultimate luxury real estate project in Pune. Discover premium 2, 3 & 4 BHK apartments at Joyville Homes Hinjewadi Vyomora.",
-    url: "https://shapoorji-vyomora.com",
+    url: "https://www.shapoorji-vyomora.com",
     siteName: "Shapoorji Pallonji Vyomora",
     images: [
       {

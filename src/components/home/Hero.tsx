@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -38,13 +39,18 @@ export default function Hero() {
       ref={containerRef}
       className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#FDFBF7]"
     >
-      {/* Background Image / Video Placeholder */}
+      {/* Optimized Hero LCP Image */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[#FDFBF7]/20 z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#FDFBF7]/90 via-transparent to-[#FDFBF7] z-10" />
-        <div 
-          className="w-full h-full bg-cover bg-center brightness-[1.15] contrast-[1.05] transform scale-105 transition-transform duration-10000 hover:scale-110 opacity-90"
-          style={{ backgroundImage: "url('/images/hero_bg.jpg')" }}
+        <Image 
+          src="/images/hero_bg.jpg"
+          alt="Shapoorji Pallonji Joyville Vyomora Luxury Project in Hinjewadi Pune"
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          className="object-cover object-center brightness-[1.12] contrast-[1.05] transform scale-105 transition-transform duration-10000 hover:scale-110 opacity-90"
         />
       </div>
 
@@ -56,17 +62,25 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           className="max-w-5xl"
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-[#0A192F] leading-[1.1] tracking-tight mb-6">
-            An Endless Horizon Of <span className="text-gradient">Happiness</span>.
+          <div className="inline-block mb-3 px-4 py-1.5 rounded-full border border-[#C5A059]/40 bg-[#C5A059]/10 backdrop-blur-sm">
+            <span className="text-xs md:text-sm font-semibold tracking-[0.2em] text-[#0A192F] uppercase">
+              Shapoorji Pallonji • Hinjewadi Phase 1, Pune
+            </span>
+          </div>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-[#0A192F] leading-[1.1] tracking-tight mb-6">
+            Shapoorji Pallonji Vyomora <br className="hidden sm:inline" />
+            <span className="text-gradient block text-2xl sm:text-4xl md:text-5xl mt-3 font-normal">
+              Luxury 2, 3 & 4 BHK Apartments in Hinjewadi
+            </span>
           </h1>
           
           <motion.h2 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
-            className="text-lg md:text-xl text-[#1e2338]/80 max-w-2xl mx-auto font-light leading-relaxed mb-10"
+            className="text-lg md:text-xl text-[#1e2338]/80 max-w-3xl mx-auto font-light leading-relaxed mb-10"
           >
-            Premium 2, 3 & 4 BHK Luxury Apartments at Shapoorji Pallonji Vyomora. Discover the ultimate lifestyle at Joyville Homes Hinjewadi Vyomora.
+            Discover Joyville Homes Vyomora Hinjewadi — premium township residences crafted with 150+ years of engineering excellence near Rajiv Gandhi Infotech Park, West Pune.
           </motion.h2>
           
           <motion.div

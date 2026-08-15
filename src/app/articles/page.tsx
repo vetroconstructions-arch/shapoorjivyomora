@@ -18,12 +18,12 @@ export default function ArticlesPage() {
     "@type": "Blog",
     "name": "Shapoorji Pallonji Vyomora Real Estate Blog",
     "description": "Insights on Pune real estate, Baner, Mahalunge, and Hinjewadi.",
-    "url": "https://shapoorji-vyomora.com/articles",
+    "url": "https://www.shapoorji-vyomora.com/articles",
     "blogPost": seoArticles.map(article => ({
       "@type": "BlogPosting",
       "headline": article.title,
       "description": article.metaDescription,
-      "url": `https://shapoorji-vyomora.com/articles/${article.slug}`,
+      "url": `https://www.shapoorji-vyomora.com/articles/${article.slug}`,
       "datePublished": article.date
     }))
   };

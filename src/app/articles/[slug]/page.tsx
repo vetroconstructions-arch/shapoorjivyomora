@@ -4,9 +4,9 @@ import { seoArticles } from "@/data/seoArticles";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 interface ArticleProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate static params for all articles to ensure fast loading and pre-rendering
@@ -17,8 +17,9 @@ export function generateStaticParams() {
 }
 
 // Dynamically generate metadata for each article
-export function generateMetadata({ params }: ArticleProps): Metadata {
-  const article = seoArticles.find((a) => a.slug === params.slug);
+export async function generateMetadata({ params }: ArticleProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = seoArticles.find((a) => a.slug === slug);
   
   if (!article) {
     return {
@@ -30,9 +31,13 @@ export function generateMetadata({ params }: ArticleProps): Metadata {
     title: `${article.title} | Shapoorji Pallonji Joyville Vyomora`,
     description: article.metaDescription,
     keywords: article.keywords,
+    alternates: {
+      canonical: `https://www.shapoorji-vyomora.com/articles/${slug}`,
+    },
     openGraph: {
       title: article.title,
       description: article.metaDescription,
+      url: `https://www.shapoorji-vyomora.com/articles/${slug}`,
       type: "article",
       publishedTime: article.date,
       authors: ["Shapoorji Pallonji Real Estate"],
@@ -40,8 +45,9 @@ export function generateMetadata({ params }: ArticleProps): Metadata {
   };
 }
 
-export default function ArticlePage({ params }: ArticleProps) {
-  const article = seoArticles.find((a) => a.slug === params.slug);
+export default async function ArticlePage({ params }: ArticleProps) {
+  const { slug } = await params;
+  const article = seoArticles.find((a) => a.slug === slug);
 
   if (!article) {
     notFound();
@@ -56,19 +62,19 @@ export default function ArticlePage({ params }: ArticleProps) {
     "author": {
       "@type": "Organization",
       "name": "Shapoorji Pallonji Real Estate",
-      "url": "https://shapoorji-vyomora.com"
+      "url": "https://www.shapoorji-vyomora.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Shapoorji Pallonji Real Estate",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://shapoorji-vyomora.com/icon.svg"
+        "url": "https://www.shapoorji-vyomora.com/icon.svg"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://shapoorji-vyomora.com/articles/${article.slug}`
+      "@id": `https://www.shapoorji-vyomora.com/articles/${article.slug}`
     }
   };
 

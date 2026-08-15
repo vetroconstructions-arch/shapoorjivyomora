@@ -40,7 +40,8 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
       '', '/vision', '/residences', '/amenities', '/masterplan',
       '/specifications', '/location', '/locations', '/investment-calculator', '/articles', '/gallery',
       '/sustainability', '/updates', '/contact'
-    ].forEach((route) => {
+    ];
+    baseRoutes.forEach((route) => {
       urlsetXML += `
   <url>
     <loc>${baseUrl}${route}</loc>

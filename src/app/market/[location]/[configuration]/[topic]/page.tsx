@@ -104,14 +104,83 @@ export default async function ProgrammaticSEOPage({ params }: Props) {
              <p className="text-lg leading-relaxed">{content.p2}</p>
           </div>
 
+          {/* Real Estate Data Matrix Table */}
+          <div className="not-prose bg-white rounded-2xl border border-black/5 shadow-md p-6 md:p-8 mb-12">
+            <h3 className="text-xl font-serif text-[#0A192F] mb-6 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#C5A059]" />
+              Shapoorji Pallonji Vyomora Project Overview & Key Highlights
+            </h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm text-gray-600 border-collapse">
+                <tbody>
+                  <tr className="border-b border-gray-100">
+                    <td className="py-3 font-semibold text-[#0A192F] w-1/3">Project Name</td>
+                    <td className="py-3">Shapoorji Pallonji Joyville Vyomora</td>
+                  </tr>
+                  <tr className="border-b border-gray-100 bg-gray-50/50">
+                    <td className="py-3 font-semibold text-[#0A192F]">Location</td>
+                    <td className="py-3">Hinjewadi Phase 1, Rajiv Gandhi Infotech Park, Pune - 411057</td>
+                  </tr>
+                  <tr className="border-b border-gray-100">
+                    <td className="py-3 font-semibold text-[#0A192F]">Typologies Available</td>
+                    <td className="py-3">2 BHK, 3 BHK & 4 BHK Luxury Residences</td>
+                  </tr>
+                  <tr className="border-b border-gray-100 bg-gray-50/50">
+                    <td className="py-3 font-semibold text-[#0A192F]">Carpet Area Range</td>
+                    <td className="py-3">685 sq. ft. to 1434+ sq. ft.</td>
+                  </tr>
+                  <tr className="border-b border-gray-100">
+                    <td className="py-3 font-semibold text-[#0A192F]">MahaRERA Registration</td>
+                    <td className="py-3 text-[#C5A059] font-medium">PR1260002600999</td>
+                  </tr>
+                  <tr className="border-b border-gray-100 bg-gray-50/50">
+                    <td className="py-3 font-semibold text-[#0A192F]">Clubhouse & Amenities</td>
+                    <td className="py-3">32,000+ sq. ft. Clubhouse, Swimming Pool, Gym, Sports Arena</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 font-semibold text-[#0A192F]">Key Connectivity</td>
+                    <td className="py-3">5 Mins to Infosys Circle • 10 Mins to Mumbai-Pune Expressway</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Direct High-Intent CTAs */}
+            <div className="mt-8 pt-6 border-t border-gray-100 flex flex-wrap gap-4 items-center justify-between">
+              <a
+                href="tel:+917744009295"
+                className="inline-flex items-center justify-center px-6 py-3 bg-[#0A192F] text-white text-sm font-medium rounded-lg hover:bg-[#152a4a] transition-colors shadow-sm"
+              >
+                Call Sales Desk: +91 7744009295
+              </a>
+              <a
+                href="/investment-calculator"
+                className="inline-flex items-center justify-center px-6 py-3 border border-[#C5A059] text-[#0A192F] text-sm font-medium rounded-lg hover:bg-[#C5A059]/10 transition-colors"
+              >
+                Calculate EMI & ROI →
+              </a>
+            </div>
+          </div>
+
           <h2 className="text-2xl md:text-3xl mb-8">Frequently Asked Questions</h2>
-          <div className="space-y-6">
+          <div className="space-y-6 mb-12">
             {content.faqs.map((faq, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-black/5">
                 <h3 className="text-xl font-medium mb-3 text-[#0A192F]">{faq.question}</h3>
                 <p className="text-gray-600 font-light leading-relaxed">{faq.answer}</p>
               </div>
             ))}
+          </div>
+
+          {/* Contextual Internal Links Hub */}
+          <div className="not-prose p-6 bg-[#0A192F]/5 rounded-xl border border-[#0A192F]/10">
+            <h4 className="text-base font-semibold text-[#0A192F] mb-3">Explore Related Sections:</h4>
+            <div className="flex flex-wrap gap-3">
+              <a href="/residences" className="text-xs bg-white px-3 py-2 rounded-md text-[#0A192F] hover:text-[#C5A059] shadow-sm font-medium border border-gray-200">View Unit Floor Plans</a>
+              <a href="/amenities" className="text-xs bg-white px-3 py-2 rounded-md text-[#0A192F] hover:text-[#C5A059] shadow-sm font-medium border border-gray-200">32,000 sq. ft. Clubhouse</a>
+              <a href="/location" className="text-xs bg-white px-3 py-2 rounded-md text-[#0A192F] hover:text-[#C5A059] shadow-sm font-medium border border-gray-200">Hinjewadi IT Corridor Location</a>
+              <a href="/articles" className="text-xs bg-white px-3 py-2 rounded-md text-[#0A192F] hover:text-[#C5A059] shadow-sm font-medium border border-gray-200">Pune Real Estate Market Reports</a>
+            </div>
           </div>
         </article>
       </div>
