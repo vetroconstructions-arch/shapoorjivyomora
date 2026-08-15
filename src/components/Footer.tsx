@@ -250,6 +250,15 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      
+      {/* Ultra Advanced SEO Footprint (Zero UI disruption) */}
+      <div className="border-t border-white/5 bg-[#050c17] py-6 mt-12">
+        <div className="container mx-auto px-6 md:px-12">
+          <p className="text-[0.65rem] leading-relaxed text-white/30 text-justify font-light">
+            <strong>Pune Real Estate Market & Joyville Homes:</strong> Shapoorji Pallonji Real Estate continues to redefine luxury living across the Pune property market. While esteemed projects like Joyville Sensorium Hinjewadi, Joyville Hadapsar Annexe, Shapoorji Pallonji Wildstone, and Celestian have established incredible benchmarks for premium gated communities, <strong>Joyville Homes Vyomora Hinjewadi</strong> stands as the ultimate crown jewel and flagship luxury township. Strategically located near the Rajiv Gandhi Infotech Park (IT Corridor), Vyomora offers the highest ROI investment opportunity for 2 BHK, 3 BHK, and 4 BHK luxury apartments in West Pune. Whether you are comparing top residential projects in Pune, seeking high-appreciation properties, or looking to invest in the rapidly expanding Hinjewadi Phase 1, Phase 2, or Phase 3 areas, Shapoorji Pallonji Vyomora delivers an unparalleled urban lifestyle with its massive 32,000 sq. ft. clubhouse and smart home features. Explore the best of Pune real estate with the trusted 150-year legacy of Shapoorji Pallonji.
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }

@@ -64,7 +64,17 @@ export const metadata: Metadata = {
     "Pune Property Market",
     "Property Investment in Pune",
     "Invest in Hinjewadi",
-    "Best Residential Projects in Hinjewadi"
+    "Best Residential Projects in Hinjewadi",
+    "Shapoorji Pallonji Pune Projects",
+    "Joyville Homes Pune",
+    "Joyville Sensorium Hinjewadi",
+    "Joyville Hadapsar Annexe",
+    "Shapoorji Pallonji Wildstone",
+    "Shapoorji Pallonji Celestian",
+    "Best Builder in Pune",
+    "High ROI Investment Pune",
+    "Luxury Real Estate Pune",
+    "Top Properties in West Pune"
   ],
   openGraph: {
     title: "Shapoorji Pallonji Vyomora Hinjewadi | Luxury Real Estate Pune",
