@@ -110,6 +110,7 @@ export default function ExitIntentModal() {
             <div className="md:w-1/2 p-8 md:p-10 relative">
               <button
                 onClick={() => setIsOpen(false)}
+                aria-label="Close Exit Intent Modal"
                 className="absolute top-6 right-6 text-[#1e2338]/50 hover:text-[#0A192F] transition-colors"
               >
                 <X size={24} />

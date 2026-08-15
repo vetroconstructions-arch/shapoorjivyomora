@@ -83,7 +83,7 @@ export default function Footer() {
             <div className="flex space-x-4">
               {/* Social Icons Placeholders */}
               {[1, 2, 3, 4].map((i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#C5A059] hover:text-white hover:border-[#C5A059] transition-all duration-300">
+                <a key={i} href="#" aria-label={`Follow us on Social Media Platform ${i}`} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#C5A059] hover:text-white hover:border-[#C5A059] transition-all duration-300">
                   <span className="sr-only">Social {i}</span>
                   <div className="w-4 h-4 bg-current" style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }} />
                 </a>

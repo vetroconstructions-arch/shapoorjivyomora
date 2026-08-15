@@ -15,11 +15,13 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const viewport = {
@@ -111,11 +113,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <StructuredData />
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased overflow-x-hidden max-w-full`}>

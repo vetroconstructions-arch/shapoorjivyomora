@@ -62,6 +62,28 @@ export default function StructuredData() {
         ]
       },
       {
+        "@type": "LocalBusiness",
+        "@id": "https://www.shapoorji-vyomora.com/#localbusiness",
+        "name": "Shapoorji Pallonji Joyville Vyomora Sales Office",
+        "image": "https://www.shapoorji-vyomora.com/og-image.jpg",
+        "telephone": "+91-7744009295",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Off Maan Village Road, Near Phase 1, Rajiv Gandhi Infotech Park",
+          "addressLocality": "Hinjewadi, Pune",
+          "postalCode": "411057",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "18.5913",
+          "longitude": "73.7389"
+        },
+        "url": "https://www.shapoorji-vyomora.com/location",
+        "priceRange": "$$$"
+      },
+      {
         "@type": "FAQPage",
         "mainEntity": [
           {

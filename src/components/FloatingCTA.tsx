@@ -36,6 +36,7 @@ export default function FloatingCTA() {
           {/* Call Button */}
           <a
             href="tel:+917744009295"
+            aria-label="Call Sales Office"
             className="group relative flex items-center justify-center w-14 h-14 bg-white rounded-full text-black shadow-lg shadow-black/20 hover:scale-110 transition-transform duration-300"
           >
             <Phone size={24} />
@@ -46,6 +47,7 @@ export default function FloatingCTA() {
           {/* Enquire Button */}
           <button
             onClick={() => window.dispatchEvent(new Event('open-enquiry-modal'))}
+            aria-label="Open Enquiry Modal"
             className="group relative flex items-center justify-center w-14 h-14 bg-[#C5A059] rounded-full text-white shadow-lg shadow-black/20 hover:scale-110 transition-transform duration-300 border-none outline-none cursor-pointer"
           >
             <MessageCircle size={24} />

@@ -60,14 +60,14 @@ export default function Hero() {
             An Endless Horizon Of <span className="text-gradient">Happiness</span>.
           </h1>
           
-          <motion.p 
+          <motion.h2 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
             className="text-lg md:text-xl text-[#1e2338]/80 max-w-2xl mx-auto font-light leading-relaxed mb-10"
           >
-            A master-planned environment shaped around openness, structure, and everyday ease in Hinjawadi.
-          </motion.p>
+            Premium 2, 3 & 4 BHK Luxury Apartments at Shapoorji Pallonji Joyville Vyomora in Hinjewadi, Pune.
+          </motion.h2>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}

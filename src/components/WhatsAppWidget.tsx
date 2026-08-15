@@ -30,6 +30,7 @@ export default function WhatsAppWidget() {
         href="https://wa.me/917744009295?text=Hi,%20I%20am%20interested%20in%20Shapoorji%20Vyomora.%20Can%20you%20share%20the%20brochure%20and%20pricing?"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
         className="relative flex items-center justify-center w-14 h-14 bg-[#25D366] rounded-full text-white shadow-xl hover:scale-110 transition-transform duration-300"
       >
         {/* Pulse rings */}

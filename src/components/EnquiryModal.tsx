@@ -118,6 +118,7 @@ export default function EnquiryModal() {
           >
             <button
               onClick={() => setIsOpen(false)}
+              aria-label="Close Enquiry Modal"
               className="absolute top-4 right-4 text-[#0F172A]/50 hover:text-[#0F172A] transition-colors z-20 bg-white rounded-full p-1"
             >
               <X size={24} />
