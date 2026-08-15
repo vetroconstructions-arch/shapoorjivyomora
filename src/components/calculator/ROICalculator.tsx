@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { IndianRupee, TrendingUp, Home, ArrowRight, Calculator } from "lucide-react";
+import { EnquiryModal } from "@/components/EnquiryModal";
 
 const formatCurrency = (value: number) => {
   return new Intl.NumberFormat('en-IN', {
@@ -19,6 +20,7 @@ export default function ROICalculator() {
   const [horizonYears, setHorizonYears] = useState(10);
   const [appreciationRate, setAppreciationRate] = useState(8);
   const [rentalYield, setRentalYield] = useState(5);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Calculations
   const metrics = useMemo(() => {
@@ -211,13 +213,21 @@ export default function ROICalculator() {
             </div>
           </div>
 
-          <button className="relative z-10 w-full mt-10 bg-[#C5A059] text-[#0A192F] py-4 rounded-sm font-medium hover:bg-white transition-colors flex items-center justify-center gap-2 group">
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="relative z-10 w-full mt-10 bg-[#C5A059] text-[#0A192F] py-4 rounded-sm font-medium hover:bg-white transition-colors flex items-center justify-center gap-2 group"
+          >
             Download Detailed Report
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
       </div>
+
+      <EnquiryModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { seoArticles } from '@/data/seoArticles';
-import { SEOLocations, SEOConfigurations, SEOTopics } from '@/lib/programmaticSEO';
+import { SEOLocations, SEONRILocations, SEOConfigurations, SEOTopics } from '@/lib/programmaticSEO';
 
 export async function GET(request: Request, context: { params: Promise<{ id: string }> }) {
   const baseUrl = 'https://www.shapoorji-vyomora.com';
@@ -14,9 +14,11 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
     return new Response('Invalid sitemap ID', { status: 400 });
   }
 
+  const allLocations = [...SEOLocations, ...SEONRILocations];
+
   // Generate the global array of all permutations
   const allProgrammaticUrls: string[] = [];
-  for (const location of SEOLocations) {
+  for (const location of allLocations) {
     for (const config of SEOConfigurations) {
       for (const topic of SEOTopics) {
         allProgrammaticUrls.push(`${baseUrl}/market/${location}/${config}/${topic}`);
@@ -36,7 +38,7 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
   if (chunkId === 0) {
     const baseRoutes = [
       '', '/vision', '/residences', '/amenities', '/masterplan',
-      '/specifications', '/location', '/articles', '/gallery',
+      '/specifications', '/location', '/locations', '/investment-calculator', '/articles', '/gallery',
       '/sustainability', '/updates', '/contact'
     ].forEach((route) => {
       urlsetXML += `

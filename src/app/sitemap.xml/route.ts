@@ -1,11 +1,13 @@
-import { SEOLocations, SEOConfigurations, SEOTopics } from '@/lib/programmaticSEO';
+import { SEOLocations, SEONRILocations, SEOConfigurations, SEOTopics } from '@/lib/programmaticSEO';
 
 export async function GET() {
   const baseUrl = 'https://www.shapoorji-vyomora.com';
   const URLS_PER_SITEMAP = 2500;
 
-  // We have 25 * 20 * 25 = 12,500 programmatic combinations
-  const totalProgrammaticUrls = SEOLocations.length * SEOConfigurations.length * SEOTopics.length;
+  const allLocations = [...SEOLocations, ...SEONRILocations];
+  
+  // We have 48 locations * 20 configs * 25 topics = ~24,000 programmatic combinations
+  const totalProgrammaticUrls = allLocations.length * SEOConfigurations.length * SEOTopics.length;
   
   // Calculate total chunks needed
   const totalChunks = Math.ceil(totalProgrammaticUrls / URLS_PER_SITEMAP);
