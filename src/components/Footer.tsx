@@ -100,7 +100,9 @@ export default function Footer() {
                 { label: "Masterplan", href: "/masterplan" },
                 { label: "Residences", href: "/residences" },
                 { label: "Amenities", href: "/amenities" },
-                { label: "Location", href: "/location" }
+                { label: "Location", href: "/location" },
+                { label: "ROI Calculator", href: "/investment-calculator" },
+                { label: "Articles", href: "/articles" }
               ].map((item) => (
                 <li key={item.label}>
                   <Link href={item.href} className="text-sm text-white/70 hover:text-white flex items-center group transition-colors">

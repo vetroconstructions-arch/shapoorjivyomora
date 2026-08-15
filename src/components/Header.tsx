@@ -13,6 +13,8 @@ const navLinks = [
   { label: "Masterplan", href: "/masterplan" },
   { label: "Specifications", href: "/specifications" },
   { label: "Location", href: "/location" },
+  { label: "ROI Calculator", href: "/investment-calculator" },
+  { label: "Articles", href: "/articles" }
 ];
 
 export default function Header() {
