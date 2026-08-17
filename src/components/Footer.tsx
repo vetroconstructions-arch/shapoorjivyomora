@@ -244,6 +244,7 @@ export default function Footer() {
               <div className="flex space-x-4 justify-center md:justify-end">
                 <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
                 <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+                <Link href="/sitemap" className="hover:text-white transition-colors text-[#C5A059]">HTML Sitemap</Link>
                 <Link href="#" className="hover:text-white transition-colors">RERA Disclaimers</Link>
               </div>
             </div>

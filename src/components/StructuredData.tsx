@@ -3,6 +3,36 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://www.shapoorji-vyomora.com/#website",
+        "url": "https://www.shapoorji-vyomora.com",
+        "name": "Shapoorji Pallonji Joyville Vyomora",
+        "description": "Official portal for Shapoorji Pallonji Joyville Vyomora Hinjewadi & Mahalunge Pune luxury apartments.",
+        "publisher": {
+          "@id": "https://www.shapoorji-vyomora.com/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.shapoorji-vyomora.com/locations?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.shapoorji-vyomora.com/#navigation",
+        "name": "Site Navigation Sitelinks",
+        "itemListElement": [
+          { "@type": "SiteNavigationElement", "position": 1, "name": "Residences & Floor Plans", "url": "https://www.shapoorji-vyomora.com/residences" },
+          { "@type": "SiteNavigationElement", "position": 2, "name": "32,000 sq. ft. Clubhouse & Amenities", "url": "https://www.shapoorji-vyomora.com/amenities" },
+          { "@type": "SiteNavigationElement", "position": 3, "name": "Masterplan & Site Layout", "url": "https://www.shapoorji-vyomora.com/masterplan" },
+          { "@type": "SiteNavigationElement", "position": 4, "name": "Location & Metro Connectivity", "url": "https://www.shapoorji-vyomora.com/location" },
+          { "@type": "SiteNavigationElement", "position": 5, "name": "Shapoorji Pallonji Pune Projects", "url": "https://www.shapoorji-vyomora.com/shapoorji-pallonji-pune-projects" },
+          { "@type": "SiteNavigationElement", "position": 6, "name": "ROI & Investment Calculator", "url": "https://www.shapoorji-vyomora.com/investment-calculator" },
+          { "@type": "SiteNavigationElement", "position": 7, "name": "Real Estate Market Articles", "url": "https://www.shapoorji-vyomora.com/articles" },
+          { "@type": "SiteNavigationElement", "position": 8, "name": "Pune Micro-Markets Directory", "url": "https://www.shapoorji-vyomora.com/locations" }
+        ]
+      },
+      {
         "@type": "RealEstateAgent",
         "@id": "https://www.shapoorji-vyomora.com/#organization",
         "name": "Shapoorji Pallonji Joyville Homes Vyomora",
