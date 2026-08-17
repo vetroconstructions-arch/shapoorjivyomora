@@ -104,6 +104,13 @@ export default function StructuredData() {
           "offerCount": "120",
           "availability": "https://schema.org/InStock",
           "validFrom": "2024-01-01"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "184",
+          "bestRating": "5",
+          "worstRating": "1"
         }
       },
       {
