@@ -2,24 +2,42 @@
 
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { IndianRupee, TrendingUp, Home, ArrowRight, Calculator } from "lucide-react";
+import { IndianRupee, TrendingUp, Home, ArrowRight, Calculator, Globe } from "lucide-react";
 
-const formatCurrency = (value: number) => {
-  return new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    maximumFractionDigits: 0
-  }).format(value);
+type CurrencyKey = "INR" | "USD" | "AED" | "SGD" | "GBP" | "EUR" | "QAR";
+
+const currencies: Record<CurrencyKey, { symbol: string; rate: number; label: string }> = {
+  INR: { symbol: "₹", rate: 1, label: "INR (₹)" },
+  USD: { symbol: "$", rate: 0.012, label: "USD ($)" },
+  AED: { symbol: "AED ", rate: 0.044, label: "AED (د.إ)" },
+  SGD: { symbol: "S$", rate: 0.016, label: "SGD (S$)" },
+  GBP: { symbol: "£", rate: 0.0094, label: "GBP (£)" },
+  EUR: { symbol: "€", rate: 0.011, label: "EUR (€)" },
+  QAR: { symbol: "QAR ", rate: 0.043, label: "QAR (﷼)" },
 };
 
 export default function ROICalculator() {
+  const [currency, setCurrency] = useState<CurrencyKey>("INR");
   const [propertyValue, setPropertyValue] = useState(12000000); // 1.2 Cr default
   const [downPaymentPct, setDownPaymentPct] = useState(20);
   const [loanRate, setLoanRate] = useState(8.5);
   const [horizonYears, setHorizonYears] = useState(10);
   const [appreciationRate, setAppreciationRate] = useState(8);
   const [rentalYield, setRentalYield] = useState(5);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const formatCurrency = (value: number) => {
+    const converted = value * currencies[currency].rate;
+    if (currency === "INR") {
+      return new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR',
+        maximumFractionDigits: 0
+      }).format(value);
+    }
+    return `${currencies[currency].symbol}${new Intl.NumberFormat('en-US', {
+      maximumFractionDigits: 0
+    }).format(converted)}`;
+  };
 
   // Calculations
   const metrics = useMemo(() => {
@@ -74,13 +92,31 @@ export default function ROICalculator() {
         
         {/* Left Column: Inputs */}
         <div className="lg:col-span-7 p-8 md:p-12 bg-white">
-          <div className="flex items-center gap-4 mb-10">
-            <div className="w-12 h-12 bg-[#0A192F] rounded-full flex items-center justify-center text-[#C5A059]">
-              <Calculator size={24} />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-[#0A192F] rounded-full flex items-center justify-center text-[#C5A059]">
+                <Calculator size={24} />
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-serif text-[#0A192F]">Investment Simulator</h2>
+                <p className="text-xs text-gray-500 font-light mt-0.5">ROI & EMI Projections for Shapoorji Pallonji Vyomora</p>
+              </div>
             </div>
-            <div>
-              <h2 className="text-3xl font-serif text-[#0A192F]">Investment Simulator</h2>
-              <p className="text-sm text-gray-500 font-light mt-1">Calculate your exact ROI at Shapoorji Pallonji Vyomora</p>
+
+            {/* Currency Selector */}
+            <div className="flex items-center gap-1.5 bg-gray-100 p-1 rounded-lg border border-gray-200 self-start sm:self-auto">
+              <Globe size={14} className="text-gray-400 ml-1.5" />
+              {(["INR", "USD", "AED", "SGD", "GBP", "QAR"] as CurrencyKey[]).map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setCurrency(c)}
+                  className={`text-xs px-2.5 py-1 rounded-md font-medium transition-all ${
+                    currency === c ? "bg-[#0A192F] text-[#C5A059] shadow-sm" : "text-gray-600 hover:text-[#0A192F]"
+                  }`}
+                >
+                  {c}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -89,7 +125,7 @@ export default function ROICalculator() {
             <div>
               <div className="flex justify-between mb-2">
                 <label className="text-sm font-medium text-[#0A192F]">Property Value</label>
-                <span className="text-[#C5A059] font-semibold">{formatCurrency(propertyValue)}</span>
+                <span className="text-[#C5A059] font-semibold text-base">{formatCurrency(propertyValue)}</span>
               </div>
               <input 
                 type="range" min="8500000" max="30000000" step="100000"
