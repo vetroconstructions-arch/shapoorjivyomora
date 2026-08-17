@@ -13,6 +13,7 @@ const navLinks = [
   { label: "Masterplan", href: "/masterplan" },
   { label: "Specifications", href: "/specifications" },
   { label: "Location", href: "/location" },
+  { label: "Pune Projects", href: "/shapoorji-pallonji-pune-projects" },
   { label: "ROI Calculator", href: "/investment-calculator" },
   { label: "Articles", href: "/articles" }
 ];

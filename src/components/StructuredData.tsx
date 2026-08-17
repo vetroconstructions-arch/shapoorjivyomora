@@ -171,6 +171,49 @@ export default function StructuredData() {
         ]
       },
       {
+        "@type": "ItemList",
+        "@id": "https://www.shapoorji-vyomora.com/#pune-projects-portfolio",
+        "name": "Shapoorji Pallonji Real Estate & Joyville Homes Pune Portfolio",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Shapoorji Pallonji Joyville Vyomora (Hinjewadi - Mahalunge)",
+            "url": "https://www.shapoorji-vyomora.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Joyville Sensorium Hinjewadi Phase 1",
+            "url": "https://www.shapoorji-vyomora.com/articles/joyville-sensorium-vs-joyville-vyomora-hinjewadi"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Joyville Hadapsar Annexe East Pune",
+            "url": "https://www.shapoorji-vyomora.com/articles/shapoorji-pallonji-pune-projects-2026-guide"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Shapoorji Pallonji Wildstone Bavdhan",
+            "url": "https://www.shapoorji-vyomora.com/shapoorji-pallonji-pune-projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Shapoorji Pallonji Vanaha & Golfland",
+            "url": "https://www.shapoorji-vyomora.com/shapoorji-pallonji-pune-projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Shapoorji Pallonji Celestian",
+            "url": "https://www.shapoorji-vyomora.com/shapoorji-pallonji-pune-projects"
+          }
+        ]
+      },
+      {
         "@type": "FAQPage",
         "mainEntity": [
           {

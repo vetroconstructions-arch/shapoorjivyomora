@@ -38,7 +38,7 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
   if (chunkId === 0) {
     const baseRoutes = [
       '', '/vision', '/residences', '/amenities', '/masterplan',
-      '/specifications', '/location', '/locations', '/investment-calculator', '/articles', '/gallery',
+      '/specifications', '/location', '/locations', '/shapoorji-pallonji-pune-projects', '/investment-calculator', '/articles', '/gallery',
       '/sustainability', '/updates', '/contact'
     ];
     baseRoutes.forEach((route) => {
