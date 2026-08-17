@@ -23,12 +23,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const content = generateSEOContent(location, configuration, topic);
 
+  const ogImageUrl = `https://www.shapoorji-vyomora.com/api/og?title=${encodeURIComponent(content.h1)}&subtitle=${encodeURIComponent(content.description)}`;
+
   return {
     title: content.title,
     description: content.description,
     openGraph: {
       title: content.title,
       description: content.description,
+      url: `https://www.shapoorji-vyomora.com/market/${location}/${configuration}/${topic}`,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: content.title,
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: content.title,
+      description: content.description,
+      images: [ogImageUrl],
     },
     alternates: {
       canonical: `https://www.shapoorji-vyomora.com/market/${location}/${configuration}/${topic}`,

@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: ArticleProps): Promise<Metada
     };
   }
 
+  const ogImageUrl = `https://www.shapoorji-vyomora.com/api/og?title=${encodeURIComponent(article.title)}&subtitle=${encodeURIComponent(article.metaDescription)}`;
+
   return {
     title: `${article.title} | Shapoorji Pallonji Joyville Vyomora`,
     description: article.metaDescription,
@@ -41,7 +43,21 @@ export async function generateMetadata({ params }: ArticleProps): Promise<Metada
       type: "article",
       publishedTime: article.date,
       authors: ["Shapoorji Pallonji Real Estate"],
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        }
+      ]
     },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.metaDescription,
+      images: [ogImageUrl],
+    }
   };
 }
 
