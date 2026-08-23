@@ -8,27 +8,31 @@ export async function POST(req: Request) {
   try {
     const data = await req.json();
 
-    // Spam protection: silent drop if honeypot is filled
-    if (data._honey) {
-      return NextResponse.json({ success: true, message: "OK" });
-    }
+    // Strip internal/honeypot fields
+    const { _honey, ...cleanData } = data;
+
+    const leadName = cleanData.name?.trim() || "Interested Buyer";
+    const leadPhone = cleanData.phone?.trim() || cleanData.mobile?.trim() || "Not provided";
+    const leadEmail = cleanData.email?.trim() || "propsmartrealty@gmail.com";
+    const leadConfig = cleanData.configuration || cleanData.interest || "Not specified";
+    const visitDate = cleanData.visit_date || cleanData.visitDate || "Not scheduled";
+    const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
     const leadPayload = {
-      name: data.name || "Customer",
-      phone: data.phone || data.mobile || "Not provided",
-      email: data.email || "Not provided",
-      configuration: data.configuration || data.interest || "Not specified",
-      visit_date: data.visitDate || data.date || "Not scheduled",
-      visit_time: data.visitTime || data.time || "Not specified",
-      message: data.message || data.notes || "New enquiry from website",
-      source_page: data.source_page || "https://www.shapoorji-vyomora.com",
-      submitted_at: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
-      _subject: data._subject || `New Lead: Shapoorji Vyomora - ${data.name || 'Interested Buyer'} (${data.phone || 'Phone'})`,
+      name: leadName,
+      phone: leadPhone,
+      email: leadEmail,
+      configuration: leadConfig,
+      visit_date: visitDate,
+      message: cleanData.message || cleanData.notes || "New enquiry from website",
+      project: "Shapoorji Pallonji Joyville Vyomora (Mahalunge-Hinjewadi)",
+      submitted_at: timestamp,
+      _subject: `New Lead: Shapoorji Vyomora - ${leadName} (${leadPhone})`,
       _template: "table",
       _captcha: "false"
     };
 
-    // Forward to FormSubmit with explicit browser headers required by their endpoint
+    // Forward to FormSubmit with explicit browser headers
     const formSubmitPromise = fetch(FORMSUBMIT_URL, {
       method: "POST",
       headers: {
@@ -45,7 +49,7 @@ export async function POST(req: Request) {
         return { ok: res.ok, status: res.status, body: text };
       })
       .catch((err) => {
-        console.error("FormSubmit delivery error:", err);
+        console.error("FormSubmit server dispatch error:", err);
         return null;
       });
 
@@ -65,13 +69,8 @@ export async function POST(req: Request) {
         return null;
       });
 
-    // Run both delivery mechanisms concurrently
-    const [formSubmitRes, googleSheetRes] = await Promise.all([formSubmitPromise, googleSheetPromise]);
-
-    console.log("Lead dispatch results:", {
-      formSubmit: formSubmitRes?.status,
-      googleSheet: googleSheetRes?.status
-    });
+    // Run both concurrently
+    await Promise.all([formSubmitPromise, googleSheetPromise]);
 
     return NextResponse.json({
       success: true,

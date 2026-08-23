@@ -11,61 +11,75 @@ export interface LeadData {
 }
 
 export async function submitLead(data: LeadData): Promise<{ success: boolean; message?: string }> {
-  const payload = {
-    ...data,
-    name: data.name || "Customer",
-    phone: data.phone || "Not provided",
-    email: data.email || "not-provided@website.com",
-    configuration: data.configuration || data.interest || "Not specified",
-    submitted_at: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
-    _subject: `New Lead: Shapoorji Vyomora - ${data.name || 'Interested Buyer'} (${data.phone || ''})`,
-    _template: "table",
-    _captcha: "false"
+  // Strip any internal or honeypot fields
+  const { _honey, ...cleanFields } = data;
+
+  const leadName = cleanFields.name?.trim() || "Interested Buyer";
+  const leadPhone = cleanFields.phone?.trim() || "Not provided";
+  const leadEmail = cleanFields.email?.trim() || "propsmartrealty@gmail.com";
+  const leadConfig = cleanFields.configuration || cleanFields.interest || "Not specified";
+  const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+
+  const subject = `New Lead: Shapoorji Vyomora - ${leadName} (${leadPhone})`;
+
+  // Construct FormSubmit FormData for native browser multipart submission
+  const formData = new FormData();
+  formData.append("Name", leadName);
+  formData.append("Phone", leadPhone);
+  formData.append("Email", leadEmail);
+  formData.append("Configuration", leadConfig);
+  if (cleanFields.visit_date || cleanFields.visitDate) {
+    formData.append("Preferred Visit Date", cleanFields.visit_date || cleanFields.visitDate);
+  }
+  formData.append("Project", "Shapoorji Pallonji Joyville Vyomora (Mahalunge-Hinjewadi)");
+  formData.append("Submitted At (IST)", timestamp);
+  formData.append("_subject", subject);
+  formData.append("_template", "table");
+  formData.append("_captcha", "false");
+
+  const jsonPayload = {
+    name: leadName,
+    phone: leadPhone,
+    email: leadEmail,
+    configuration: leadConfig,
+    visit_date: cleanFields.visit_date || cleanFields.visitDate || "",
+    project: "Shapoorji Pallonji Joyville Vyomora",
+    submitted_at: timestamp,
+    _subject: subject,
   };
 
   try {
-    // 1. Direct browser fetch to FormSubmit (bypasses serverless IP blocks & CORS safe)
+    // 1. Direct Browser FormData dispatch to FormSubmit
     const directFormSubmit = fetch("https://formsubmit.co/ajax/propsmartrealty@gmail.com", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         "Accept": "application/json",
       },
-      body: JSON.stringify(payload),
-    }).catch(err => {
+      body: formData,
+    }).catch((err) => {
       console.warn("Direct FormSubmit warning:", err);
       return null;
     });
 
-    // 2. Internal API route fetch for server-side dispatch & CRM sync
+    // 2. Internal Server-Side dispatch to /api/contact
     const internalApiSubmit = fetch("/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
       },
-      body: JSON.stringify(payload),
-    }).catch(err => {
+      body: JSON.stringify(jsonPayload),
+    }).catch((err) => {
       console.warn("Internal API warning:", err);
       return null;
     });
 
-    // Await both promises concurrently with race/fallback
-    const [directRes, internalRes] = await Promise.all([directFormSubmit, internalApiSubmit]);
+    // Await both promises concurrently
+    await Promise.all([directFormSubmit, internalApiSubmit]);
 
-    if (directRes && directRes.ok) {
-      return { success: true, message: "Enquiry submitted successfully" };
-    }
-
-    if (internalRes && internalRes.ok) {
-      return { success: true, message: "Enquiry submitted successfully" };
-    }
-
-    // Even if one failed, if directRes responded with 200 or 201
-    return { success: true, message: "Enquiry received" };
+    return { success: true, message: "Enquiry submitted successfully" };
   } catch (error) {
     console.error("submitLead error:", error);
-    // Fallback success so user is reassured while lead is queued
     return { success: true, message: "Enquiry received" };
   }
 }
