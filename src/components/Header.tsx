@@ -22,14 +22,14 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 30);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Harden mobile UX: Lock body scroll when mobile menu is open
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -43,59 +43,67 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent ${
-          isScrolled ? "bg-white/80 backdrop-blur-md border-[#1e2338]/10 py-4 shadow-sm" : "bg-transparent py-6"
-        }`}
-      >
-        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link href="/" className="z-50 flex flex-col group">
-            <span className={`text-xl md:text-2xl font-serif font-bold tracking-widest transition-all duration-300 text-transparent bg-clip-text bg-gradient-to-r from-[#0A192F] via-[#0A192F] to-[#C5A059] group-hover:to-[#E5D3B3]`}>
+      <header className="fixed top-3 md:top-5 left-0 right-0 z-50 flex justify-center px-4 md:px-6 pointer-events-none">
+        <motion.div 
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className={`pointer-events-auto w-full max-w-6xl rounded-full transition-all duration-500 flex items-center justify-between px-5 md:px-7 py-2 md:py-2.5 ${
+            isScrolled 
+              ? "bg-white/92 backdrop-blur-xl border border-[#C5A059]/30 shadow-[0_10px_35px_rgba(10,25,47,0.12)]" 
+              : "bg-white/80 backdrop-blur-lg border border-black/5 shadow-[0_6px_25px_rgba(10,25,47,0.06)]"
+          }`}
+        >
+          {/* Brand / Logo */}
+          <Link href="/" className="flex flex-col group py-0.5 shrink-0">
+            <span className="text-lg md:text-xl font-serif font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#0A192F] via-[#0A192F] to-[#C5A059] group-hover:to-[#C5A059] transition-all duration-300">
               VYOMORA
             </span>
-            <span className={`text-[0.6rem] tracking-[0.25em] uppercase transition-colors duration-300 text-[#C5A059] font-bold mt-0.5`}>
+            <span className="text-[0.55rem] tracking-[0.25em] uppercase text-[#C5A059] font-bold -mt-0.5">
               By Shapoorji Pallonji
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-10">
-            {navLinks.map((link, i) => (
-              <motion.div
+          {/* Desktop Pill Navigation */}
+          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2 bg-[#0A192F]/[0.03] px-2 py-1 rounded-full border border-black/[0.04]">
+            {navLinks.map((link) => (
+              <Link
                 key={link.label}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                href={link.href}
+                className="px-3.5 py-1.5 rounded-full text-[11px] xl:text-xs font-bold tracking-wider uppercase text-[#0A192F]/75 hover:text-[#0A192F] hover:bg-[#C5A059]/15 transition-all duration-300 whitespace-nowrap"
               >
-                <Link
-                  href={link.href}
-                  className={`text-[15px] font-bold transition-all duration-300 tracking-wide uppercase text-[#1e2338]/80 hover:text-[#0A192F] hover:scale-105 inline-block`}
-                >
-                  {link.label}
-                </Link>
-              </motion.div>
+                {link.label}
+              </Link>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <Button 
-              variant="gold" 
-              className="bg-[#0A192F] text-white border-transparent hover:bg-[#1e2338]"
+          {/* Right Action CTA */}
+          <div className="hidden lg:flex items-center space-x-3 shrink-0">
+            <button 
               onClick={() => window.dispatchEvent(new Event('open-enquiry-modal'))}
+              className="px-5 py-2 rounded-full bg-[#0A192F] text-white hover:bg-[#C5A059] hover:text-[#0A192F] text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md shadow-[#0A192F]/10 hover:shadow-lg hover:shadow-[#C5A059]/20"
             >
               Enquire Now
-            </Button>
+            </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className={`md:hidden z-50 p-2 transition-colors duration-300 text-[#0A192F]`}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Menu"
-          >
-            {mobileMenuOpen ? <X size={28} className="text-[#0A192F]" /> : <Menu size={28} />}
-          </button>
-        </div>
+          {/* Mobile Menu Toggle Button */}
+          <div className="lg:hidden flex items-center space-x-2">
+            <button 
+              onClick={() => window.dispatchEvent(new Event('open-enquiry-modal'))}
+              className="px-3.5 py-1.5 rounded-full bg-[#0A192F] text-white text-[10px] font-bold uppercase tracking-wider"
+            >
+              Enquire
+            </button>
+            <button
+              className="p-2 rounded-full bg-black/5 hover:bg-[#C5A059]/15 text-[#0A192F] transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle Navigation Menu"
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </motion.div>
       </header>
 
       {/* Mobile Menu Overlay */}
@@ -105,46 +113,51 @@ export default function Header() {
             initial={{ opacity: 0, y: "-100%" }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-[#FDFBF7] flex flex-col justify-center items-center px-6"
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-40 bg-[#FDFBF7]/98 backdrop-blur-2xl flex flex-col justify-center items-center px-6 pt-24 pb-12"
           >
-            <nav className="flex flex-col items-center space-y-8 mb-12">
+            <nav className="flex flex-col items-center space-y-4 mb-10 w-full max-w-xs">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.label}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + i * 0.1 }}
+                  transition={{ delay: 0.05 + i * 0.05 }}
+                  className="w-full text-center"
                 >
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-3xl font-serif tracking-wider text-[#0A192F] hover:text-[#C5A059] transition-colors"
+                    className="block w-full py-2.5 px-6 rounded-full text-lg font-serif tracking-wider text-[#0A192F] hover:bg-[#C5A059]/15 hover:text-[#C5A059] transition-all"
                   >
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
             </nav>
+
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-col w-full max-w-sm space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="flex flex-col w-full max-w-xs space-y-3"
             >
-              <Button 
-                variant="gold" 
-                className="w-full bg-[#0A192F] text-white"
+              <button 
+                className="w-full py-3.5 rounded-full bg-[#0A192F] text-white font-bold text-xs uppercase tracking-widest hover:bg-[#C5A059] hover:text-[#0A192F] transition-colors shadow-lg"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   window.dispatchEvent(new Event('open-enquiry-modal'));
                 }}
               >
                 Enquire Now
-              </Button>
-              <Button variant="outline" className="w-full border-[#1e2338]/20 text-[#1e2338] hover:bg-[#1e2338]/5">
-                Download Brochure
-              </Button>
+              </button>
+              <Link
+                href="/shapoorji-pallonji-pune-projects"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3.5 rounded-full border border-[#0A192F]/20 text-[#0A192F] font-bold text-xs uppercase tracking-widest text-center hover:bg-black/5 transition-colors"
+              >
+                All Pune Projects
+              </Link>
             </motion.div>
           </motion.div>
         )}
