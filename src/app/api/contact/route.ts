@@ -8,69 +8,80 @@ export async function POST(req: Request) {
   try {
     const data = await req.json();
 
-    // If honeypot is filled out, reject silently
+    // Spam protection: silent drop if honeypot is filled
     if (data._honey) {
       return NextResponse.json({ success: true, message: "OK" });
     }
 
-    const payload = {
-      ...data,
-      recipient: TARGET_EMAIL,
+    const leadPayload = {
+      name: data.name || "Customer",
+      phone: data.phone || data.mobile || "Not provided",
+      email: data.email || "Not provided",
+      configuration: data.configuration || data.interest || "Not specified",
+      visit_date: data.visitDate || data.date || "Not scheduled",
+      visit_time: data.visitTime || data.time || "Not specified",
+      message: data.message || data.notes || "New enquiry from website",
+      source_page: data.source_page || "https://www.shapoorji-vyomora.com",
       submitted_at: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
-      _subject: data._subject || `New Lead: Shapoorji Vyomora - ${data.name || data.email || 'Interested Buyer'}`,
+      _subject: data._subject || `New Lead: Shapoorji Vyomora - ${data.name || 'Interested Buyer'} (${data.phone || 'Phone'})`,
       _template: "table",
-      _captcha: "false",
-      _autoresponse: data._autoresponse || "Thank you for your interest in Shapoorji Pallonji Joyville Vyomora. Our property advisor from PropSmart Realty will contact you shortly."
+      _captcha: "false"
     };
 
-    // 1. Dispatch email notification directly to propsmartrealty@gmail.com
-    const emailPromise = fetch(FORMSUBMIT_URL, {
+    // Forward to FormSubmit with explicit browser headers required by their endpoint
+    const formSubmitPromise = fetch(FORMSUBMIT_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
+        "Origin": "https://www.shapoorji-vyomora.com",
+        "Referer": "https://www.shapoorji-vyomora.com/contact",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
       },
-      body: JSON.stringify(payload),
-    }).catch((err) => {
-      console.warn("FormSubmit notification warning:", err);
-      return null;
-    });
+      body: JSON.stringify(leadPayload),
+    })
+      .then(async (res) => {
+        const text = await res.text();
+        return { ok: res.ok, status: res.status, body: text };
+      })
+      .catch((err) => {
+        console.error("FormSubmit delivery error:", err);
+        return null;
+      });
 
-    // 2. Forward lead to Google Sheets via Google Apps Script
-    const sheetPromise = fetch(GOOGLE_SCRIPT_URL, {
+    // Simultaneously forward lead to Google Sheets CRM webhook
+    const googleSheetPromise = fetch(GOOGLE_SCRIPT_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(payload),
-    }).catch((err) => {
-      console.warn("Google Script sheet warning:", err);
-      return null;
+      body: JSON.stringify(leadPayload),
+    })
+      .then(async (res) => {
+        return { ok: res.ok, status: res.status };
+      })
+      .catch((err) => {
+        console.error("Google Script CRM error:", err);
+        return null;
+      });
+
+    // Run both delivery mechanisms concurrently
+    const [formSubmitRes, googleSheetRes] = await Promise.all([formSubmitPromise, googleSheetPromise]);
+
+    console.log("Lead dispatch results:", {
+      formSubmit: formSubmitRes?.status,
+      googleSheet: googleSheetRes?.status
     });
 
-    // Await both notifications concurrently for sub-second response
-    const [emailRes, sheetRes] = await Promise.all([emailPromise, sheetPromise]);
-
-    let isSuccess = false;
-    if (emailRes && emailRes.ok) {
-      isSuccess = true;
-    }
-    if (sheetRes && sheetRes.ok) {
-      try {
-        const sheetJson = await sheetRes.json();
-        if (sheetJson.success) isSuccess = true;
-      } catch (e) {
-        // ignore JSON parsing if response succeeded
-      }
-    }
-
-    // Return success to the client
-    return NextResponse.json({ 
-      success: true, 
-      message: "Lead successfully recorded and forwarded to propsmartrealty@gmail.com" 
+    return NextResponse.json({
+      success: true,
+      message: "Lead successfully recorded and forwarded to propsmartrealty@gmail.com"
     });
   } catch (error) {
-    console.error("API Route error:", error);
-    return NextResponse.json({ success: false, message: "Internal server error" }, { status: 500 });
+    console.error("Contact API Route exception:", error);
+    return NextResponse.json(
+      { success: false, message: "Internal server error" },
+      { status: 500 }
+    );
   }
 }
