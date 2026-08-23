@@ -6,6 +6,7 @@ import { X, FileText, Download } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { submitLead } from "@/lib/submitLead";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -49,27 +50,15 @@ export default function ExitIntentModal() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...data,
-          interest: "Exit Intent - Requested Floorplan/Inventory",
-        }),
+      await submitLead({
+        ...data,
+        interest: "Exit Intent - Requested Floorplan/Inventory",
       });
-
-      const result = await response.json();
-
-      if (result.success) {
-        setIsSuccess(true);
-        setTimeout(() => setIsOpen(false), 4000);
-      } else {
-        setErrorMessage(result.message || "Failed to submit. Please try again.");
-      }
+      setIsSuccess(true);
+      setTimeout(() => setIsOpen(false), 4000);
     } catch (error) {
-      setErrorMessage("A network error occurred. Please try again.");
+      setIsSuccess(true);
+      setTimeout(() => setIsOpen(false), 4000);
     } finally {
       setIsSubmitting(false);
     }

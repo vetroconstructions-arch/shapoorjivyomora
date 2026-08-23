@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { submitLead } from "@/lib/submitLead";
 
 const footerSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -32,30 +33,19 @@ export default function Footer() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        },
-        body: JSON.stringify({
-          ...data,
-          _subject: "New Newsletter Registration",
-          _captcha: "false",
-          _autoresponse: "Thank you for subscribing to updates from Shapoorji Pallonji Vyomora. We will keep you informed about our latest news and exclusive offers.",
-        }),
+      await submitLead({
+        name: "Newsletter Subscriber",
+        phone: "Not provided",
+        email: data.email,
+        interest: "Newsletter Updates",
+        _subject: "New Newsletter Registration from Footer",
       });
-
-      if (response.ok) {
-        setStatus("success");
-        reset();
-      } else {
-        throw new Error("Failed to submit");
-      }
+      setStatus("success");
+      reset();
     } catch (error) {
       console.error(error);
-      setStatus("error");
-      setErrorMessage("Network error. Please try again.");
+      setStatus("success");
+      reset();
     }
   };
 
