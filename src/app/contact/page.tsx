@@ -12,9 +12,11 @@ import { submitLead } from "@/lib/submitLead";
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
-  phone: z.string().regex(/^[0-9]{10,15}$/, "Phone number must be between 10 and 15 digits"),
-  interest: z.string().min(1, "Please select an interest"),
-  _honey: z.string().max(0, "Spam detected").optional(),
+  phone: z.string().min(7, "Phone number is required").refine((val) => {
+    const digits = val.replace(/\D/g, "");
+    return digits.length >= 7 && digits.length <= 15;
+  }, "Please enter a valid phone number"),
+  interest: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof formSchema>;
@@ -92,7 +94,6 @@ export default function ContactPage() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <input type="text" {...register("_honey")} style={{ display: 'none' }} />
                 
                 <div>
                   <label className="block text-xs uppercase tracking-widest text-[#0F172A]/60 mb-2">Full Name</label>

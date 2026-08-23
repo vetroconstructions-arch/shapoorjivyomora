@@ -11,8 +11,10 @@ import { submitLead } from "@/lib/submitLead";
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().regex(/^[0-9]{10}$/, "Phone number must be exactly 10 digits"),
-  _honey: z.string().optional(),
+  phone: z.string().min(7, "Phone number is required").refine((val) => {
+    const digits = val.replace(/\D/g, "");
+    return digits.length >= 7 && digits.length <= 15;
+  }, "Please enter a valid phone number"),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -130,8 +132,6 @@ export default function ExitIntentModal() {
                   )}
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                    <input type="text" {...register("_honey")} className="hidden" />
-
                     <div>
                       <input
                         type="text"
