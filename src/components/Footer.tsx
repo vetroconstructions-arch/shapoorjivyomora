@@ -104,6 +104,7 @@ export default function Footer() {
                 { label: "32k Sq. Ft. Clubhouse", href: "/amenities" },
                 { label: "Specifications & Finishes", href: "/specifications" },
                 { label: "Location & Metro Connectivity", href: "/location" },
+                { label: "Shapoorji Pune Projects", href: "/shapoorji-pallonji-pune-projects" },
                 { label: "ROI & EMI Calculator", href: "/investment-calculator" },
                 { label: "All Pune Micro-Markets", href: "/locations" },
                 { label: "Real Estate Articles", href: "/articles" }
