@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { checkRateLimit } from '@/lib/rateLimit';
 
 const RECIPIENT_EMAIL = process.env.TO_EMAIL || "propsmartrealty@gmail.com";
 const GMAIL_USER = process.env.GMAIL_USER || process.env.EMAIL_USER;
@@ -7,19 +8,41 @@ const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD || process.env.EMAIL_P
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwfHvV9JAKt4MDrd-Pt_B8i_CBv94u66NXA8wi15_OGzR9P_dLYXCo7AOIFa1cwXVO26w/exec";
 const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`;
 
+// Sanitize helper to prevent XSS / HTML injection in lead emails
+function sanitizeInput(str: string): string {
+  if (!str) return "";
+  return str
+    .replace(/[<>]/g, "")
+    .replace(/javascript:/gi, "")
+    .trim();
+}
+
 export async function POST(req: Request) {
   try {
+    // 1. IP-based Sliding Window Rate Limiting (10 requests per minute per IP)
+    const forwardedFor = req.headers.get("x-forwarded-for");
+    const realIp = req.headers.get("x-real-ip");
+    const clientIp = forwardedFor ? forwardedFor.split(",")[0].trim() : (realIp || "127.0.0.1");
+
+    const rateLimit = checkRateLimit(clientIp, 10, 60 * 1000);
+    if (!rateLimit.success) {
+      return NextResponse.json(
+        { success: false, message: "Too many requests. Please wait a minute before submitting again." },
+        { status: 429 }
+      );
+    }
+
     const data = await req.json();
 
     // Clean data
     const { _honey, ...cleanData } = data;
 
-    const leadName = cleanData.name?.trim() || "Interested Buyer";
-    const leadPhone = cleanData.phone?.trim() || cleanData.mobile?.trim() || "Not provided";
-    const leadEmail = cleanData.email?.trim() || "Not provided";
-    const leadConfig = cleanData.configuration || cleanData.interest || "Not specified";
-    const visitDate = cleanData.visit_date || cleanData.visitDate || "Not scheduled";
-    const message = cleanData.message || cleanData.notes || "New enquiry from website";
+    const leadName = sanitizeInput(cleanData.name) || "Interested Buyer";
+    const leadPhone = sanitizeInput(cleanData.phone || cleanData.mobile) || "Not provided";
+    const leadEmail = sanitizeInput(cleanData.email) || "Not provided";
+    const leadConfig = sanitizeInput(cleanData.configuration || cleanData.interest) || "Not specified";
+    const visitDate = sanitizeInput(cleanData.visit_date || cleanData.visitDate) || "Not scheduled";
+    const message = sanitizeInput(cleanData.message || cleanData.notes) || "New enquiry from website";
     const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
     const subject = `🔥 New Lead: Shapoorji Vyomora - ${leadName} (${leadPhone})`;
@@ -79,16 +102,16 @@ export async function POST(req: Request) {
 
     let emailSent = false;
 
-    // 1. Direct Nodemailer via Gmail SMTP if Google App Password is provided
+    // 1. Direct Nodemailer via Gmail SMTP
     if (GMAIL_USER && GMAIL_APP_PASSWORD) {
       try {
         const transporter = nodemailer.createTransport({
           host: "smtp.gmail.com",
           port: 465,
-          secure: true, // SSL
+          secure: true,
           auth: {
             user: GMAIL_USER,
-            pass: GMAIL_APP_PASSWORD.replace(/\s+/g, ""), // clean spaces from app password
+            pass: GMAIL_APP_PASSWORD.replace(/\s+/g, ""),
           },
         });
 
@@ -101,7 +124,6 @@ export async function POST(req: Request) {
         });
 
         emailSent = true;
-        console.log("Nodemailer SMTP email sent successfully to", RECIPIENT_EMAIL);
       } catch (smtpError) {
         console.error("Nodemailer SMTP dispatch error:", smtpError);
       }

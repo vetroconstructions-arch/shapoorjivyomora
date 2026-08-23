@@ -36,22 +36,25 @@ export default function Error({
           We apologize for the inconvenience. Our systems have encountered an unexpected issue while loading this page.
         </p>
         
-        <div className="flex flex-col sm:flex-row items-center gap-6 w-full justify-center">
+        <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
           <Button 
             variant="gold" 
             onClick={() => reset()}
-            className="w-full sm:w-auto px-10 py-4 text-sm tracking-widest uppercase"
+            className="w-full sm:w-auto px-8 py-3.5 text-xs tracking-widest uppercase bg-[#C5A059] text-[#0A192F]"
           >
             Try Again
           </Button>
           <Link href="/" className="w-full sm:w-auto">
             <Button 
               variant="outline"
-              className="w-full sm:w-auto px-10 py-4 text-sm tracking-widest uppercase"
+              className="w-full sm:w-auto px-8 py-3.5 text-xs tracking-widest uppercase border-white/20 text-white"
             >
               Return Home
             </Button>
           </Link>
+          <a href="tel:+917744009295" className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-sm bg-white/10 text-[#C5A059] text-xs tracking-widest uppercase border border-[#C5A059]/30 hover:bg-white/20 transition-colors">
+            Call Sales Desk
+          </a>
         </div>
       </div>
     </div>
