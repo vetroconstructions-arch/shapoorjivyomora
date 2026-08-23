@@ -141,7 +141,9 @@ export default function RootLayout({
           <ExitIntentModal />
           <WhatsAppWidget />
         </SmoothScroll>
-        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );
