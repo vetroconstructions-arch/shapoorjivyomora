@@ -279,6 +279,17 @@ export default function StructuredData() {
         ]
       },
       {
+        "@type": "VideoObject",
+        "@id": "https://www.shapoorji-vyomora.com/#video",
+        "name": "Shapoorji Pallonji Joyville Vyomora Hinjewadi - Project Walkthrough & Virtual Tour",
+        "description": "Exclusive architectural walkthrough of Shapoorji Pallonji Joyville Vyomora in Hinjewadi-Mahalunge, Pune featuring 2, 3, 4 BHK luxury residences and 32,000 sq. ft. clubhouse.",
+        "thumbnailUrl": "https://www.shapoorji-vyomora.com/og-image.jpg",
+        "uploadDate": "2026-08-15T08:00:00+05:30",
+        "duration": "PT3M45S",
+        "contentUrl": "https://www.shapoorji-vyomora.com/#home",
+        "embedUrl": "https://www.shapoorji-vyomora.com/#home"
+      },
+      {
         "@type": "FAQPage",
         "mainEntity": [
           {
