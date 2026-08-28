@@ -10,7 +10,6 @@ import { submitLead } from "@/lib/submitLead";
 
 const footerSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
-  _honey: z.string().max(0, "Spam detected").optional(),
 });
 
 type FooterFormData = z.infer<typeof footerSchema>;
@@ -154,8 +153,6 @@ export default function Footer() {
                   Register for exclusive pre-launch pricing, unit floor plans, and priority inventory access.
                 </p>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-4">
-                  <input type="text" {...register("_honey")} style={{ display: 'none' }} />
-
                   <div className="flex flex-col">
                     <input 
                       {...register("email")}
