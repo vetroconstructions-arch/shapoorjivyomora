@@ -64,7 +64,7 @@ export default function Hero() {
         >
           <div className="inline-block mb-3 px-4 py-1.5 rounded-full border border-[#C5A059]/40 bg-[#C5A059]/10 backdrop-blur-sm">
             <span className="text-xs md:text-sm font-semibold tracking-[0.2em] text-[#0A192F] uppercase">
-              Shapoorji Pallonji • Hinjewadi Phase 1, Pune
+              Shapoorji Pallonji Real Estate • Hinjewadi Phase 1, Pune
             </span>
           </div>
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-[#0A192F] leading-[1.1] tracking-tight mb-6">
@@ -80,7 +80,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 1 }}
             className="text-lg md:text-xl text-[#1e2338]/80 max-w-3xl mx-auto font-light leading-relaxed mb-10"
           >
-            Discover Joyville Homes Vyomora Hinjewadi — premium township residences crafted with 150+ years of engineering excellence near Rajiv Gandhi Infotech Park, West Pune.
+            Experience <strong>Shapoorji Pallonji Real Estate Vyomora Hinjewadi</strong> — luxury 2 BHK, 3 BHK, 4 BHK & Sky Duplexes with a monumental 32,000+ sq. ft. clubhouse near Rajiv Gandhi Infotech Park & Mahalunge, West Pune.
           </motion.h2>
           
           <motion.div
