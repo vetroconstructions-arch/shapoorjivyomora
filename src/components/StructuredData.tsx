@@ -37,6 +37,10 @@ export default function StructuredData() {
         "@id": "https://www.shapoorji-vyomora.com/#organization",
         "name": "Shapoorji Pallonji Joyville Homes Vyomora",
         "alternateName": [
+          "Shapoorji Vyomara",
+          "Shapoorji Pallonji Vyomara",
+          "Joyville Vyomara",
+          "Vyomara Hinjewadi",
           "Shapoorji Pallonji Real Estate Vyomora Hinjewadi",
           "Shapoorji Pallonji Real Estate Pune",
           "Joyville Vyomora Hinjewadi",
@@ -49,6 +53,7 @@ export default function StructuredData() {
         "knowsAbout": [
           "Shapoorji Pallonji Real Estate",
           "Shapoorji Pallonji Real Estate Vyomora Hinjewadi",
+          "Shapoorji Vyomara Pune",
           "Joyville Homes Pune",
           "Hinjewadi Real Estate Market",
           "Mahalunge Township Projects",
@@ -85,7 +90,13 @@ export default function StructuredData() {
         "@type": "ApartmentComplex",
         "@id": "https://www.shapoorji-vyomora.com/#project",
         "name": "Vyomora by Shapoorji Pallonji Joyville",
-        "alternateName": "Shapoorji Pallonji Real Estate Vyomora Hinjewadi",
+        "alternateName": [
+          "Shapoorji Vyomara",
+          "Shapoorji Pallonji Vyomara",
+          "Joyville Vyomara",
+          "Vyomara Hinjewadi",
+          "Shapoorji Pallonji Real Estate Vyomora Hinjewadi"
+        ],
         "description": "Ultra luxury township offering 2BHK in Hinjewadi, 3BHK in Mahalunge, 4BHK in Baner, Sky Duplexes, Simplexes, and Penthouses near Rajiv Gandhi Infotech Park Pune by Shapoorji Pallonji Real Estate.",
         "url": "https://www.shapoorji-vyomora.com",
         "telephone": "+91-7744009295",

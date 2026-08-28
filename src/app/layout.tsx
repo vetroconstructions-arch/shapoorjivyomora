@@ -52,6 +52,13 @@ export const metadata: Metadata = {
   title: "Shapoorji Pallonji Vyomora Hinjewadi | Premium Joyville Homes Pune",
   description: "Invest in Shapoorji Pallonji Joyville Homes Vyomora Hinjewadi. Discover luxury 2BHK, 3BHK, 4BHK apartments near Rajiv Gandhi Infotech Park, West Pune. Download the floor plan and brochure today.",
   keywords: [
+    "Shapoorji Vyomara",
+    "Shapoorji Pallonji Vyomara",
+    "Joyville Vyomara",
+    "Vyomara Hinjewadi",
+    "Shapoorji Vyomara Pune",
+    "Joyville Vyomara Hinjewadi",
+    "Vymora by Joyville",
     "Shapoorji Pallonji Real Estate Vyomora Hinjewadi",
     "Shapoorji Pallonji Vyomora Hinjewadi", 
     "Joyville Homes Vyomora Hinjewadi", 
