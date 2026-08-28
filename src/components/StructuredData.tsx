@@ -333,6 +333,49 @@ export default function StructuredData() {
             }
           }
         ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://www.shapoorji-vyomora.com/#howto-booking",
+        "name": "How to Book an Apartment in Shapoorji Pallonji Joyville Vyomora Hinjewadi",
+        "description": "Step-by-step verified procedure for reserving a 2, 3, 4 BHK or Sky Duplex residence in Shapoorji Pallonji Vyomora Pune.",
+        "image": "https://www.shapoorji-vyomora.com/og-image.jpg",
+        "totalTime": "P1D",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "INR",
+          "value": "100000"
+        },
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Review Typologies & Download Brochure",
+            "text": "Explore 2 BHK Luxe, 3 BHK Elite, 4 BHK Grande, and Sky Duplex floor plans on the official website.",
+            "url": "https://www.shapoorji-vyomora.com/residences"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Schedule an Experience Centre Site Visit",
+            "text": "Call the authorized sales desk (+91-7744009295) or submit an online enquiry for a private sample flat tour.",
+            "url": "https://www.shapoorji-vyomora.com/contact"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Select Unit & Lock Pre-Launch Pricing",
+            "text": "Select your preferred floor, orientation (hill-view or clubhouse-view), and lock inaugural pre-launch payment terms.",
+            "url": "https://www.shapoorji-vyomora.com/investment-calculator"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Complete Digital KYC & RERA Allotment",
+            "text": "Submit PAN, Aadhaar/Passport, pay the booking token, and receive your official MahaRERA (PR1260002600999) allotment letter.",
+            "url": "https://www.shapoorji-vyomora.com"
+          }
+        ]
       }
     ]
   };
