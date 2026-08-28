@@ -9,9 +9,13 @@ export const metadata: Metadata = {
   description: "Explore all Shapoorji Pallonji and Joyville Homes projects in Pune. Comprehensive guide to Vyomora Hinjewadi, Sensorium, Hadapsar Annexe, Wildstone, Celestian, and Vanaha Bavdhan.",
   keywords: [
     "shapoorji pallonji projects in pune",
+    "shapoorji pallonji real estate pune",
     "joyville homes pune",
     "shapoorji pallonji pune",
+    "all shapoorji pallonji projects in pune",
+    "shapoorji pallonji pune projects list",
     "shapoorji pallonji vyomora",
+    "shapoorji vyomara",
     "joyville sensorium hinjewadi",
     "joyville hadapsar annexe",
     "shapoorji pallonji wildstone",
@@ -19,7 +23,9 @@ export const metadata: Metadata = {
     "shapoorji vanaha bavdhan",
     "best shapoorji projects in pune",
     "joyville homes price list pune",
-    "shapoorji pallonji hinjewadi"
+    "shapoorji pallonji hinjewadi",
+    "shapoorji pallonji mahalunge",
+    "best shapoorji pallonji project to invest in pune"
   ],
   alternates: {
     canonical: "https://www.shapoorji-vyomora.com/shapoorji-pallonji-pune-projects",
