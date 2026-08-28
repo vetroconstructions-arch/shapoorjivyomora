@@ -36,9 +36,25 @@ export default function StructuredData() {
         "@type": "RealEstateAgent",
         "@id": "https://www.shapoorji-vyomora.com/#organization",
         "name": "Shapoorji Pallonji Joyville Homes Vyomora",
+        "alternateName": [
+          "Shapoorji Pallonji Real Estate Vyomora Hinjewadi",
+          "Shapoorji Pallonji Real Estate Pune",
+          "Joyville Vyomora Hinjewadi",
+          "Shapoorji Pallonji Real Estate Hinjewadi",
+          "Joyville Homes Pune"
+        ],
         "url": "https://www.shapoorji-vyomora.com",
         "priceRange": "INR 78 Lakhs - 2.50 Cr+",
         "description": "Ultra luxury 2BHK, 3BHK, 4BHK, Sky Duplex, Simplex, and 5BHK Sky Villa apartments in Hinjewadi and Mahalunge, Pune by Shapoorji Pallonji Real Estate.",
+        "knowsAbout": [
+          "Shapoorji Pallonji Real Estate",
+          "Shapoorji Pallonji Real Estate Vyomora Hinjewadi",
+          "Joyville Homes Pune",
+          "Hinjewadi Real Estate Market",
+          "Mahalunge Township Projects",
+          "2 BHK 3 BHK 4 BHK Flats in Hinjewadi",
+          "Sky Duplex & 5 BHK Sky Villas Pune"
+        ],
         "logo": {
           "@type": "ImageObject",
           "url": "https://www.shapoorji-vyomora.com/icon.svg"
@@ -69,7 +85,8 @@ export default function StructuredData() {
         "@type": "ApartmentComplex",
         "@id": "https://www.shapoorji-vyomora.com/#project",
         "name": "Vyomora by Shapoorji Pallonji Joyville",
-        "description": "Ultra luxury township offering 2BHK in Hinjewadi, 3BHK in Mahalunge, 4BHK in Baner, Sky Duplexes, Simplexes, and Penthouses near Rajiv Gandhi Infotech Park Pune.",
+        "alternateName": "Shapoorji Pallonji Real Estate Vyomora Hinjewadi",
+        "description": "Ultra luxury township offering 2BHK in Hinjewadi, 3BHK in Mahalunge, 4BHK in Baner, Sky Duplexes, Simplexes, and Penthouses near Rajiv Gandhi Infotech Park Pune by Shapoorji Pallonji Real Estate.",
         "url": "https://www.shapoorji-vyomora.com",
         "telephone": "+91-7744009295",
         "address": {
